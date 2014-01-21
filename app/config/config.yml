@@ -33,7 +33,9 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:
+        - RoyaltransferCoreBundle
+        
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

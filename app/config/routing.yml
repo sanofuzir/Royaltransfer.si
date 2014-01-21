@@ -1,0 +1,5 @@
+royaltransfer_core:
+    resource: "@RoyaltransferCoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
