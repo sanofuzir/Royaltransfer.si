@@ -16,7 +16,9 @@
       <parameter key="AsseticBundle">Symfony\Bundle\AsseticBundle\AsseticBundle</parameter>
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
-      <parameter key="RoyaltransferCoreBundle">Royaltransfer\CoreBundle\RoyaltransferCoreBundle</parameter>
+      <parameter key="CoreBundle">royaltransfer\CoreBundle\CoreBundle</parameter>
+      <parameter key="StaticBundle">royaltransfer\staticBundle\StaticBundle</parameter>
+      <parameter key="AdminBundle">royaltransfer\AdminBundle\AdminBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -365,6 +367,7 @@
     <parameter key="monolog.handler.fingers_crossed.error_level_activation_strategy.class">Monolog\Handler\FingersCrossed\ErrorLevelActivationStrategy</parameter>
     <parameter key="monolog.handler.mongo.class">Monolog\Handler\MongoDBHandler</parameter>
     <parameter key="monolog.mongo.client.class">MongoClient</parameter>
+    <parameter key="monolog.swift_mailer.handlers" type="collection"/>
     <parameter key="monolog.handlers_to_channels" type="collection">
       <parameter key="monolog.handler.console">null</parameter>
       <parameter key="monolog.handler.main">null</parameter>
@@ -395,6 +398,7 @@
     <parameter key="swiftmailer.mailer.default.transport.smtp.source_ip">null</parameter>
     <parameter key="swiftmailer.spool.default.memory.path">/Users/sanofuzir/Sites/royaltransfer/app/cache/dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
+    <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
     <parameter key="swiftmailer.spool.enabled">true</parameter>
     <parameter key="swiftmailer.delivery.enabled">true</parameter>
@@ -418,7 +422,8 @@
     <parameter key="assetic.node.paths" type="collection"/>
     <parameter key="assetic.cache_dir">/Users/sanofuzir/Sites/royaltransfer/app/cache/dev/assetic</parameter>
     <parameter key="assetic.bundles" type="collection">
-      <parameter>RoyaltransferCoreBundle</parameter>
+      <parameter>CoreBundle</parameter>
+      <parameter>StaticBundle</parameter>
     </parameter>
     <parameter key="assetic.twig_extension.class">Symfony\Bundle\AsseticBundle\Twig\AsseticExtension</parameter>
     <parameter key="assetic.twig_formula_loader.class">Assetic\Extension\Twig\TwigFormulaLoader</parameter>
@@ -503,6 +508,8 @@
     <parameter key="sensio_framework_extra.converter.doctrine.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DoctrineParamConverter</parameter>
     <parameter key="sensio_framework_extra.converter.datetime.class">Sensio\Bundle\FrameworkExtraBundle\Request\ParamConverter\DateTimeParamConverter</parameter>
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
+    <parameter key="royaltransfer.entity.tour.class">royaltransfer\CoreBundle\Entity\Tour</parameter>
+    <parameter key="royaltransfer.tour_manager.class">royaltransfer\CoreBundle\Models\TourManager</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -1882,6 +1889,7 @@
             </argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="debug.event_dispatcher" on-invalid="null"/>
+            <argument>null</argument>
           </service>
         </argument>
         <argument type="service">
@@ -2062,7 +2070,8 @@
             <argument>false</argument>
             <argument type="collection"/>
             <argument type="collection">
-              <argument>RoyaltransferCoreBundle</argument>
+              <argument>CoreBundle</argument>
+              <argument>StaticBundle</argument>
             </argument>
             <argument type="service">
               <service class="Symfony\Bundle\AsseticBundle\DefaultValueSupplier" public="false">
@@ -2157,16 +2166,43 @@
               <argument type="service">
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
-                  <argument>RoyaltransferCoreBundle</argument>
-                  <argument>/Users/sanofuzir/Sites/royaltransfer/app/Resources/RoyaltransferCoreBundle/views</argument>
+                  <argument>CoreBundle</argument>
+                  <argument>/Users/sanofuzir/Sites/royaltransfer/app/Resources/CoreBundle/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
               <argument type="service">
                 <service class="%assetic.directory_resource.class%" public="false">
                   <argument type="service" id="templating.loader"/>
-                  <argument>RoyaltransferCoreBundle</argument>
-                  <argument>/Users/sanofuzir/Sites/royaltransfer/src/Royaltransfer/CoreBundle/Resources/views</argument>
+                  <argument>CoreBundle</argument>
+                  <argument>/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/CoreBundle/Resources/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>twig</argument>
+      </call>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource" public="false">
+            <tag name="assetic.templating.twig"/>
+            <tag name="assetic.formula_resource" loader="twig"/>
+            <argument type="collection">
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>StaticBundle</argument>
+                  <argument>/Users/sanofuzir/Sites/royaltransfer/app/Resources/StaticBundle/views</argument>
+                  <argument>/\.[^.]+\.twig$/</argument>
+                </service>
+              </argument>
+              <argument type="service">
+                <service class="%assetic.directory_resource.class%" public="false">
+                  <argument type="service" id="templating.loader"/>
+                  <argument>StaticBundle</argument>
+                  <argument>/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/staticBundle/Resources/views</argument>
                   <argument>/\.[^.]+\.twig$/</argument>
                 </service>
               </argument>
@@ -2281,7 +2317,9 @@
       <argument type="service">
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="CoreBundle">royaltransfer\CoreBundle\Entity</argument>
+            </argument>
           </call>
           <call method="setMetadataCacheImpl">
             <argument type="service">
@@ -2312,7 +2350,19 @@
           </call>
           <call method="setMetadataDriverImpl">
             <argument type="service">
-              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false"/>
+              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/CoreBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>royaltransfer\CoreBundle\Entity</argument>
+                </call>
+              </service>
             </argument>
           </call>
           <call method="setProxyDir">
@@ -2384,6 +2434,10 @@
       </argument>
       <argument type="service" id="security.authentication.trust_resolver" on-invalid="null"/>
       <argument type="service" id="security.role_hierarchy" on-invalid="null"/>
+    </service>
+    <service id="royaltransfer.tour_manager" class="royaltransfer\CoreBundle\Models\TourManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>royaltransfer\CoreBundle\Entity\Tour</argument>
     </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>
@@ -2681,8 +2735,12 @@
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>/Users/sanofuzir/Sites/royaltransfer/src/Royaltransfer/CoreBundle/Resources/views</argument>
-        <argument>RoyaltransferCore</argument>
+        <argument>/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/staticBundle/Resources/views</argument>
+        <argument>Static</argument>
+      </call>
+      <call method="addPath">
+        <argument>/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/AdminBundle/Resources/views</argument>
+        <argument>Admin</argument>
       </call>
       <call method="addPath">
         <argument>/Users/sanofuzir/Sites/royaltransfer/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views</argument>

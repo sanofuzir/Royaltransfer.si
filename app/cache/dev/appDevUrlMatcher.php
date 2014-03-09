@@ -135,13 +135,71 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // royaltransfer_admin_default_index
+        if ($pathinfo === '/admin') {
+            return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\DefaultController::indexAction',  '_route' => 'royaltransfer_admin_default_index',);
+        }
+
+        if (0 === strpos($pathinfo, '/tour')) {
+            // _admin_tours
+            if ($pathinfo === '/tours') {
+                return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\TourController::toursAction',  '_route' => '_admin_tours',);
+            }
+
+            // _admin_delete_tour
+            if (0 === strpos($pathinfo, '/tour/delete') && preg_match('#^/tour/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_delete_tour')), array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\TourController::deleteTourAction',));
+            }
+
+            // _admin_add_tour
+            if ($pathinfo === '/tour/add') {
+                return array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\TourController::editTourAction',  '_route' => '_admin_add_tour',);
+            }
+
+            // _admin_edit_tour
+            if (0 === strpos($pathinfo, '/tour/edit') && preg_match('#^/tour/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_tour')), array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\TourController::editTourAction',));
+            }
+
+        }
+
         // _home
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
                 return $this->redirect($pathinfo.'/', '_home');
             }
 
-            return array (  '_controller' => 'Royaltransfer\\CoreBundle\\Controller\\DefaultController::indexAction',  '_route' => '_home',);
+            return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::indexAction',  '_route' => '_home',);
+        }
+
+        // _about
+        if ($pathinfo === '/About') {
+            return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::aboutAction',  '_route' => '_about',);
+        }
+
+        // _tours
+        if ($pathinfo === '/Tours') {
+            return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::toursAction',  '_route' => '_tours',);
+        }
+
+        // _galery
+        if ($pathinfo === '/Galery') {
+            return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::galeryAction',  '_route' => '_galery',);
+        }
+
+        // _video_galery
+        if ($pathinfo === '/Videos') {
+            return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::videosAction',  '_route' => '_video_galery',);
+        }
+
+        // _order
+        if ($pathinfo === '/Order') {
+            return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::orderAction',  '_route' => '_order',);
+        }
+
+        // _contact
+        if ($pathinfo === '/Contact') {
+            return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::contactAction',  '_route' => '_contact',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

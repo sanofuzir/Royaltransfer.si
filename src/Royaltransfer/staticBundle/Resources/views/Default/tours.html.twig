@@ -1,0 +1,38 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}Izleti{% endblock %}
+
+{% block content %}
+<h1 class="title">Izleti</h1>
+<div>
+    <p>Ponujamo izlete na naslednje destinacije:</p>
+
+<table style="background-color: #F9D49E;" class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Naslov</th>
+      <th>opis</th>
+      <th>Datum</th>
+      <th>Datum vnosa</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for tour in tours %}
+    <tr>
+      <td>{{ tour.id }}</td>
+      <td>{{ tour.title}}</td>
+      <td>{{ tour.description|length > 50 ? tour.description|slice(0, 50) ~ '...' : tour.description }}</td>
+      <td>{{ tour.date|date('d.m.Y')}}</td>
+      <td>{{ tour.created|date('d.m.Y H:i:s')}}</td>
+      <td><a href="{{ path('_admin_edit_tour', {'id': tour.id}) }}" title="Uredi izlet">
+              <i class="icon-edit"></i>Uredi</a>&nbsp;
+              <a href="{{ path('_admin_delete_tour', {'id': tour.id } ) }}" class="confirmation" title="Odstrani izlet" data-confirmation="Ali si prepričan?">
+                  <i class="icon-trash">Izbriši</i></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

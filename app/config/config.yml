@@ -34,7 +34,8 @@ assetic:
     debug:          "%kernel.debug%"
     use_controller: false
     bundles:
-        - RoyaltransferCoreBundle
+        - CoreBundle
+        - StaticBundle
         
     #java: /usr/bin/java
     filters:

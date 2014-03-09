@@ -1,9 +1,0 @@
-    <!--div class="container"-->
-      {% for type, messages in app.session.flashbag.all() %}
-          {% for message in messages %}
-              <div class="alert alert-{{type}} fade in" data-alert="alert"><a class="close" data-dismiss="alert" href="#">&times;</a><div class="alert-heading">{{ message }}</div></div>
-          {% endfor %}
-      {% endfor %}
-      {% block content %}{% endblock %}
-
-    <!--/div-->

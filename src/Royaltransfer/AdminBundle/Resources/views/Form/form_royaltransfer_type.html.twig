@@ -1,0 +1,11 @@
+{% block dateTimePicker_widget %}
+    {% set attr = attr|merge({'class': (attr.class|default('') ~ ' acmeDateTimePicker')|trim}) %}
+    
+
+        {{ form_errors(form.date) }}
+        {{ form_errors(form.time) }}
+        {{ form_widget(form.date, {'id' : id ~ '_date'}) }}
+        {{ form_widget(form.time, {'id' : id ~ '_time'}) }}
+    
+
+{% endblock %}

@@ -4,17 +4,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
-    <parameters>
-        <parameter key="royaltransfer_core.example.class">Royaltransfer\CoreBundle\Example</parameter>
+   <parameters>
+        <parameter key="royaltransfer.entity.tour.class">royaltransfer\CoreBundle\Entity\Tour</parameter>
+        <parameter key="royaltransfer.tour_manager.class">royaltransfer\CoreBundle\Models\TourManager</parameter>                                                                                                                                                                                                          
     </parameters>
 
     <services>
-        <service id="royaltransfer_core.example" class="%royaltransfer_core.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="royaltransfer.tour_manager" class="%royaltransfer.tour_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%royaltransfer.entity.tour.class%</argument>
         </service>
     </services>
-    -->
+    
 </container>

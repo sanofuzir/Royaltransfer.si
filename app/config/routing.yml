@@ -1,5 +1,9 @@
-royaltransfer_core:
-    resource: "@RoyaltransferCoreBundle/Controller/"
+admin:
+    resource: "@AdminBundle/Controller/"
     type:     annotation
     prefix:   /
 
+static:
+    resource: "@StaticBundle/Controller/"
+    type:     annotation
+    prefix:   /

@@ -7528,3 +7528,48 @@ root {
 .container {
     margin-top: 60px;
 }
+
+.title {
+    margin-top: 50px;
+}
+
+.admin-panel {
+    border: 2px ridge black;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #E6E6E6;
+}
+
+.admin-panel-category {
+    display: inline-block;
+    width: 32%;
+    margin: 30px 5px;
+    padding: 40px 0px;
+    border: 1px dotted darkgray;
+    text-align: center;
+}
+
+.admin-panel-category a:link, .admin-panel-category a:visited {
+    text-decoration: none;
+    color: #08C;
+    padding-top: 10px;
+}
+.admin-panel-category a:hover {
+    color: #000000;
+}
+.span1 {
+    margin-left: 0px;
+}
+.span2 {
+    margin-top: 20x;
+    margin-left: 15px;
+}
+.span3 {
+    margin-left: 0px;
+}
+.tour_form label {
+    margin: 20px 20px 0px 0px;
+}
+.tour_form textarea {
+    margin-top: 20px;
+}
