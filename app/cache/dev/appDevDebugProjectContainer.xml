@@ -510,6 +510,8 @@
     <parameter key="sensio_framework_extra.view.listener.class">Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener</parameter>
     <parameter key="royaltransfer.entity.tour.class">royaltransfer\CoreBundle\Entity\Tour</parameter>
     <parameter key="royaltransfer.tour_manager.class">royaltransfer\CoreBundle\Models\TourManager</parameter>
+    <parameter key="royaltransfer.entity.news.class">royaltransfer\CoreBundle\Entity\News</parameter>
+    <parameter key="royaltransfer.news_manager.class">royaltransfer\CoreBundle\Models\NewsManager</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -2438,6 +2440,10 @@
     <service id="royaltransfer.tour_manager" class="royaltransfer\CoreBundle\Models\TourManager">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument>royaltransfer\CoreBundle\Entity\Tour</argument>
+    </service>
+    <service id="royaltransfer.news_manager" class="royaltransfer\CoreBundle\Models\NewsManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>royaltransfer\CoreBundle\Entity\News</argument>
     </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>

@@ -15,14 +15,14 @@ class NewsRepository extends EntityRepository
     public function findAll() 
     {
         return $this->getEntityManager()
-                    ->createQuery('SELECT n FROM royaltransferCoreBundle:news n ORDER BY n.created DESC')
+                    ->createQuery('SELECT n FROM CoreBundle:news n ORDER BY n.created DESC')
                     ->getResult();
     }
     
     public function findAllWithLimit($limit) 
     {
         return $this->getEntityManager()
-                    ->createQuery('SELECT n FROM royaltransferCoreBundle:news n ORDER BY n.created DESC')
+                    ->createQuery('SELECT n FROM CoreBundle:news n ORDER BY n.created DESC')
                     ->setMaxResults($limit)
                     ->getResult();
     }

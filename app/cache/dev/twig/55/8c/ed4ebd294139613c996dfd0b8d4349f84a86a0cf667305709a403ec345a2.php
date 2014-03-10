@@ -185,51 +185,18 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
-        <script>
-            \$( “#form_tour” ).datepicker({
-            minDate: +1, maxDate: “+3M +10D”,
-            changeMonth: true,
-            numberOfMonths: 1,
-            dateFormat: “dd-mm-yy”,
-            onClose: function( selectedDate ) {
-            \$( “#form_tour” ).datepicker( “option”, “minDate”, selectedDate );
-            }
-            });
-        </script>
     ";
             // asset "7930e18_1"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7930e18_1") : $this->env->getExtension('assets')->getAssetUrl("js/scripts_bootstrap_2.js");
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
-        <script>
-            \$( “#form_tour” ).datepicker({
-            minDate: +1, maxDate: “+3M +10D”,
-            changeMonth: true,
-            numberOfMonths: 1,
-            dateFormat: “dd-mm-yy”,
-            onClose: function( selectedDate ) {
-            \$( “#form_tour” ).datepicker( “option”, “minDate”, selectedDate );
-            }
-            });
-        </script>
     ";
             // asset "7930e18_2"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7930e18_2") : $this->env->getExtension('assets')->getAssetUrl("js/scripts_part_3_script_1.js");
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
-        <script>
-            \$( “#form_tour” ).datepicker({
-            minDate: +1, maxDate: “+3M +10D”,
-            changeMonth: true,
-            numberOfMonths: 1,
-            dateFormat: “dd-mm-yy”,
-            onClose: function( selectedDate ) {
-            \$( “#form_tour” ).datepicker( “option”, “minDate”, selectedDate );
-            }
-            });
-        </script>
     ";
         } else {
             // asset "7930e18"
@@ -237,21 +204,10 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
-        <script>
-            \$( “#form_tour” ).datepicker({
-            minDate: +1, maxDate: “+3M +10D”,
-            changeMonth: true,
-            numberOfMonths: 1,
-            dateFormat: “dd-mm-yy”,
-            onClose: function( selectedDate ) {
-            \$( “#form_tour” ).datepicker( “option”, “minDate”, selectedDate );
-            }
-            });
-        </script>
     ";
         }
         unset($context["asset_url"]);
-        // line 87
+        // line 76
         echo "
   </body>
 </html>
@@ -280,6 +236,6 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
 
     public function getDebugInfo()
     {
-        return array (  267 => 63,  262 => 8,  255 => 87,  185 => 74,  181 => 70,  173 => 64,  170 => 63,  164 => 62,  153 => 60,  148 => 59,  144 => 58,  131 => 48,  127 => 47,  123 => 46,  119 => 45,  112 => 41,  108 => 40,  104 => 39,  100 => 38,  96 => 37,  92 => 36,  88 => 35,  82 => 32,  67 => 19,  41 => 17,  37 => 12,  30 => 8,  21 => 1,);
+        return array (  223 => 63,  218 => 8,  211 => 76,  185 => 74,  181 => 70,  173 => 64,  170 => 63,  164 => 62,  153 => 60,  148 => 59,  144 => 58,  131 => 48,  127 => 47,  123 => 46,  119 => 45,  112 => 41,  108 => 40,  104 => 39,  100 => 38,  96 => 37,  92 => 36,  88 => 35,  82 => 32,  67 => 19,  41 => 17,  37 => 12,  30 => 8,  21 => 1,);
     }
 }

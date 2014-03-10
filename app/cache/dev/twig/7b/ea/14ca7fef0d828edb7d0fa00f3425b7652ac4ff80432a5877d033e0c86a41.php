@@ -40,7 +40,10 @@ class __TwigTemplate_7bea14ca7fef0d828edb7d0fa00f3425b7652ac4ff80432a5877d033e0c
 <section>
     <div class=\"admin-panel\">
         <div class=\"admin-panel-category\">
-            <a href=\"#\">Seznam novic in urejanje</a>
+            <a href=\"";
+        // line 11
+        echo $this->env->getExtension('routing')->getPath("_admin_news");
+        echo "\">Seznam novic in urejanje</a>
             <br /><br />
             <a href=\"";
         // line 13
@@ -74,6 +77,6 @@ class __TwigTemplate_7bea14ca7fef0d828edb7d0fa00f3425b7652ac4ff80432a5877d033e0c
 
     public function getDebugInfo()
     {
-        return array (  47 => 13,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  50 => 13,  45 => 11,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

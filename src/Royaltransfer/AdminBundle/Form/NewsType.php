@@ -12,11 +12,11 @@ class NewsType extends AbstractType
     {
         $builder
             ->add('name',null, array(
-                'attr'  => array('class' => 'span7'),
+                'attr'  => array('class' => 'span1'),
                 'label' => 'Naslov novice'
             ))
             ->add('text', 'textarea', array(
-                'attr'  => array('class' => 'span7', 'rows' => 15, 'cols'=>80),
+                'attr'  => array('class' => 'span2', 'rows' => 15, 'cols'=>80),
                 'label' => 'Novica'
             ))
             ;

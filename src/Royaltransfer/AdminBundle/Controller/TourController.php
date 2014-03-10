@@ -25,7 +25,7 @@ class TourController extends Controller
     }
 
     /**
-     * @Route("/tours", name="_admin_tours")
+     * @Route("/admin/tours", name="_admin_tours")
      * @Template()
      */
     public function toursAction()
@@ -37,7 +37,7 @@ class TourController extends Controller
 
     
     /**
-     * @Route("/tour/delete/{id}", name="_admin_delete_tour", requirements={"id" = "\d+"})
+     * @Route("/admin/tour/delete/{id}", name="_admin_delete_tour", requirements={"id" = "\d+"})
      */
     public function deleteTourAction($id)
     {
@@ -48,8 +48,8 @@ class TourController extends Controller
     } 
     
     /**
-     * @Route("/tour/add", name="_admin_add_tour")
-     * @Route("/tour/edit/{id}", name="_admin_edit_tour", requirements={"id" = "\d+"})
+     * @Route("/admin/tour/add", name="_admin_add_tour")
+     * @Route("/admin/tour/edit/{id}", name="_admin_edit_tour", requirements={"id" = "\d+"})
      * @Template()
      */
     public function editTourAction(Request $request, $id = null)

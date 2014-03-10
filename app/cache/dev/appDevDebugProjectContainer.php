@@ -134,6 +134,7 @@ class appDevDebugProjectContainer extends Container
             'router.request_context' => 'getRouter_RequestContextService',
             'router_listener' => 'getRouterListenerService',
             'routing.loader' => 'getRouting_LoaderService',
+            'royaltransfer.news_manager' => 'getRoyaltransfer_NewsManagerService',
             'royaltransfer.tour_manager' => 'getRoyaltransfer_TourManagerService',
             'security.access.decision_manager' => 'getSecurity_Access_DecisionManagerService',
             'security.authentication.manager' => 'getSecurity_Authentication_ManagerService',
@@ -1724,6 +1725,19 @@ class appDevDebugProjectContainer extends Container
         $d->addLoader($c);
 
         return $this->services['routing.loader'] = new \Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader($this->get('controller_name_converter'), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE), $d);
+    }
+
+    /**
+     * Gets the 'royaltransfer.news_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return royaltransfer\CoreBundle\Models\NewsManager A royaltransfer\CoreBundle\Models\NewsManager instance.
+     */
+    protected function getRoyaltransfer_NewsManagerService()
+    {
+        return $this->services['royaltransfer.news_manager'] = new \royaltransfer\CoreBundle\Models\NewsManager($this->get('doctrine.orm.default_entity_manager'), 'royaltransfer\\CoreBundle\\Entity\\News');
     }
 
     /**
@@ -3858,6 +3872,8 @@ class appDevDebugProjectContainer extends Container
             'sensio_framework_extra.view.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\TemplateListener',
             'royaltransfer.entity.tour.class' => 'royaltransfer\\CoreBundle\\Entity\\Tour',
             'royaltransfer.tour_manager.class' => 'royaltransfer\\CoreBundle\\Models\\TourManager',
+            'royaltransfer.entity.news.class' => 'royaltransfer\\CoreBundle\\Entity\\News',
+            'royaltransfer.news_manager.class' => 'royaltransfer\\CoreBundle\\Models\\NewsManager',
             'web_profiler.controller.profiler.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController',
             'web_profiler.controller.router.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\RouterController',
             'web_profiler.controller.exception.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ExceptionController',

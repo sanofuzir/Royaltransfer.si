@@ -135,30 +135,56 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // royaltransfer_admin_default_index
-        if ($pathinfo === '/admin') {
-            return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\DefaultController::indexAction',  '_route' => 'royaltransfer_admin_default_index',);
-        }
-
-        if (0 === strpos($pathinfo, '/tour')) {
-            // _admin_tours
-            if ($pathinfo === '/tours') {
-                return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\TourController::toursAction',  '_route' => '_admin_tours',);
+        if (0 === strpos($pathinfo, '/admin')) {
+            // royaltransfer_admin_default_index
+            if ($pathinfo === '/admin') {
+                return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\DefaultController::indexAction',  '_route' => 'royaltransfer_admin_default_index',);
             }
 
-            // _admin_delete_tour
-            if (0 === strpos($pathinfo, '/tour/delete') && preg_match('#^/tour/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_delete_tour')), array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\TourController::deleteTourAction',));
+            if (0 === strpos($pathinfo, '/admin/news')) {
+                // _admin_news
+                if ($pathinfo === '/admin/news') {
+                    return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\NewsController::newsAction',  '_route' => '_admin_news',);
+                }
+
+                // _admin_delete_news
+                if (0 === strpos($pathinfo, '/admin/news/delete') && preg_match('#^/admin/news/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_delete_news')), array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\NewsController::deleteNewsAction',));
+                }
+
+                // _admin_add_news
+                if ($pathinfo === '/admin/news/add') {
+                    return array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\NewsController::editNewsAction',  '_route' => '_admin_add_news',);
+                }
+
+                // _admin_edit_news
+                if (0 === strpos($pathinfo, '/admin/news/edit') && preg_match('#^/admin/news/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_news')), array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\NewsController::editNewsAction',));
+                }
+
             }
 
-            // _admin_add_tour
-            if ($pathinfo === '/tour/add') {
-                return array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\TourController::editTourAction',  '_route' => '_admin_add_tour',);
-            }
+            if (0 === strpos($pathinfo, '/admin/tour')) {
+                // _admin_tours
+                if ($pathinfo === '/admin/tours') {
+                    return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\TourController::toursAction',  '_route' => '_admin_tours',);
+                }
 
-            // _admin_edit_tour
-            if (0 === strpos($pathinfo, '/tour/edit') && preg_match('#^/tour/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_tour')), array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\TourController::editTourAction',));
+                // _admin_delete_tour
+                if (0 === strpos($pathinfo, '/admin/tour/delete') && preg_match('#^/admin/tour/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_delete_tour')), array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\TourController::deleteTourAction',));
+                }
+
+                // _admin_add_tour
+                if ($pathinfo === '/admin/tour/add') {
+                    return array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\TourController::editTourAction',  '_route' => '_admin_add_tour',);
+                }
+
+                // _admin_edit_tour
+                if (0 === strpos($pathinfo, '/admin/tour/edit') && preg_match('#^/admin/tour/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_tour')), array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\TourController::editTourAction',));
+                }
+
             }
 
         }
@@ -180,6 +206,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // _tours
         if ($pathinfo === '/Tours') {
             return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::toursAction',  '_route' => '_tours',);
+        }
+
+        // _news
+        if ($pathinfo === '/News') {
+            return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::newsAction',  '_route' => '_news',);
         }
 
         // _galery

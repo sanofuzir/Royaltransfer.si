@@ -20,7 +20,7 @@ class TourType extends AbstractType
                 'label' => 'Opis:'
             ))
             ->add('date', 'date', array(
-                'attr'  => array('class' => 'span3'),
+                'attr'  => array('class' => 'span1'),
                 'label' => 'Datum izleta:',
                 'widget' => 'single_text',
                 'format' => 'dd.MM.yyyy'

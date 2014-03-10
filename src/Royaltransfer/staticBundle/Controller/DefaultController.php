@@ -11,6 +11,9 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use royaltransfer\CoreBundle\Entity\Tour;
 use royaltransfer\CoreBundle\Models\TourManager;
 use royaltransfer\AdminBundle\Form\TourType;
+use royaltransfer\CoreBundle\Entity\News;
+use royaltransfer\CoreBundle\Models\NewsManager;
+use royaltransfer\AdminBundle\Form\NewsType;
 
 class DefaultController extends Controller
 {
@@ -22,6 +25,14 @@ class DefaultController extends Controller
     private function getTourManager()
     {
         return $this->container->get('royaltransfer.tour_manager');
+    }
+    
+    /**
+     * @return NewsManager
+     */
+    private function getNewsManager()
+    {
+        return $this->container->get('royaltransfer.news_manager');
     }
     
     /**
@@ -51,6 +62,17 @@ class DefaultController extends Controller
         $tours = $this->getTourManager()->findAllTours();
 
         return array( 'tours' => $tours);
+    }
+    
+    /**
+     * @Route("/News", name="_news")
+     * @Template()
+     */
+    public function newsAction()
+    {
+        $news = $this->getNewsManager()->findAllNews();
+
+        return array( 'news' => $news);
     }
     
     /**
