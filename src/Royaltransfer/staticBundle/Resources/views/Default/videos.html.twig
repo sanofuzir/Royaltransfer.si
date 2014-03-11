@@ -4,5 +4,37 @@
 
 {% block content %}
 <h1 class="title">Video galerija</h1>
-<div><p>Video posnetki, kratek opis </p></div>
+<table style="background-color: #F9D49E;" class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Naslov</th>
+      <th>Datum vnosa</th>
+      <th>Povezava</th>
+      <th>Video</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for video in videos %}
+    <tr>
+      <td>{{ video.id }}</td>
+      <td>{{ video.title|length > 30 ? video.title|slice(0, 30) ~ '...' : video.title }}</td>
+      <td>{{ video.created|date('d.m.Y H:i:s')}}</td>
+      <td>
+          <a href="{{video.link }}">{{ video.link|length > 20 ? video.link|slice(0, 20) ~ '...' : video.link }}</a>
+      </td>
+      {% if video.path is not empty %}
+      <td>
+          <video width="320" height="240" controls>
+            <source src="{{ asset('video/')}}{{video.path }}" type="video/mp4">
+          </video>
+      </td>
+      {% else %}
+      <td>&nbsp;</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}

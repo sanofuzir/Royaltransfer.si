@@ -15,7 +15,7 @@ class VideoRepository extends EntityRepository
     public function findAll() 
     {
         return $this->getEntityManager()
-                    ->createQuery('SELECT v FROM royaltransferCoreBundle:video v ORDER BY v.created DESC')
+                    ->createQuery('SELECT v FROM CoreBundle:video v ORDER BY v.created DESC')
                     ->getResult();
     }
 }

@@ -10,7 +10,9 @@
         <parameter key="royaltransfer.entity.news.class">royaltransfer\CoreBundle\Entity\News</parameter>
         <parameter key="royaltransfer.news_manager.class">royaltransfer\CoreBundle\Models\NewsManager</parameter>
         <parameter key="royaltransfer.entity.image.class">royaltransfer\CoreBundle\Entity\Image</parameter>
-        <parameter key="royaltransfer.image_manager.class">royaltransfer\CoreBundle\Models\ImageManager</parameter>                                                                                                                                                                                                          
+        <parameter key="royaltransfer.image_manager.class">royaltransfer\CoreBundle\Models\ImageManager</parameter>
+        <parameter key="royaltransfer.entity.video.class">royaltransfer\CoreBundle\Entity\Video</parameter>
+        <parameter key="royaltransfer.video_manager.class">royaltransfer\CoreBundle\Models\VideoManager</parameter>                                                                                                                                                                                                          
     </parameters>
 
     <services>
@@ -25,6 +27,10 @@
         <service id="royaltransfer.image_manager" class="%royaltransfer.image_manager.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument>%royaltransfer.entity.image.class%</argument>
+        </service>
+        <service id="royaltransfer.video_manager" class="%royaltransfer.video_manager.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument>%royaltransfer.entity.video.class%</argument>
         </service>
     </services>
     

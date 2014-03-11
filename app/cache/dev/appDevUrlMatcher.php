@@ -210,6 +210,29 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/admin/video')) {
+                // _admin_videos
+                if ($pathinfo === '/admin/videos') {
+                    return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\VideoController::videosAction',  '_route' => '_admin_videos',);
+                }
+
+                // _admin_delete_video
+                if (0 === strpos($pathinfo, '/admin/video/delete') && preg_match('#^/admin/video/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_delete_video')), array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\VideoController::deleteVideoAction',));
+                }
+
+                // _admin_add_video
+                if ($pathinfo === '/admin/video/add') {
+                    return array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\VideoController::editVideoAction',  '_route' => '_admin_add_video',);
+                }
+
+                // _admin_edit_video
+                if (0 === strpos($pathinfo, '/admin/video/edit') && preg_match('#^/admin/video/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_video')), array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\VideoController::editVideoAction',));
+                }
+
+            }
+
         }
 
         // _home

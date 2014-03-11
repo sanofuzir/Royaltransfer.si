@@ -514,6 +514,8 @@
     <parameter key="royaltransfer.news_manager.class">royaltransfer\CoreBundle\Models\NewsManager</parameter>
     <parameter key="royaltransfer.entity.image.class">royaltransfer\CoreBundle\Entity\Image</parameter>
     <parameter key="royaltransfer.image_manager.class">royaltransfer\CoreBundle\Models\ImageManager</parameter>
+    <parameter key="royaltransfer.entity.video.class">royaltransfer\CoreBundle\Entity\Video</parameter>
+    <parameter key="royaltransfer.video_manager.class">royaltransfer\CoreBundle\Models\VideoManager</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -2450,6 +2452,10 @@
     <service id="royaltransfer.image_manager" class="royaltransfer\CoreBundle\Models\ImageManager">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument>royaltransfer\CoreBundle\Entity\Image</argument>
+    </service>
+    <service id="royaltransfer.video_manager" class="royaltransfer\CoreBundle\Models\VideoManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>royaltransfer\CoreBundle\Entity\Video</argument>
     </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>

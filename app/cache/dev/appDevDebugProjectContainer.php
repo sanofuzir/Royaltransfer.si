@@ -137,6 +137,7 @@ class appDevDebugProjectContainer extends Container
             'royaltransfer.image_manager' => 'getRoyaltransfer_ImageManagerService',
             'royaltransfer.news_manager' => 'getRoyaltransfer_NewsManagerService',
             'royaltransfer.tour_manager' => 'getRoyaltransfer_TourManagerService',
+            'royaltransfer.video_manager' => 'getRoyaltransfer_VideoManagerService',
             'security.access.decision_manager' => 'getSecurity_Access_DecisionManagerService',
             'security.authentication.manager' => 'getSecurity_Authentication_ManagerService',
             'security.authentication.trust_resolver' => 'getSecurity_Authentication_TrustResolverService',
@@ -1765,6 +1766,19 @@ class appDevDebugProjectContainer extends Container
     protected function getRoyaltransfer_TourManagerService()
     {
         return $this->services['royaltransfer.tour_manager'] = new \royaltransfer\CoreBundle\Models\TourManager($this->get('doctrine.orm.default_entity_manager'), 'royaltransfer\\CoreBundle\\Entity\\Tour');
+    }
+
+    /**
+     * Gets the 'royaltransfer.video_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return royaltransfer\CoreBundle\Models\VideoManager A royaltransfer\CoreBundle\Models\VideoManager instance.
+     */
+    protected function getRoyaltransfer_VideoManagerService()
+    {
+        return $this->services['royaltransfer.video_manager'] = new \royaltransfer\CoreBundle\Models\VideoManager($this->get('doctrine.orm.default_entity_manager'), 'royaltransfer\\CoreBundle\\Entity\\Video');
     }
 
     /**
@@ -3890,6 +3904,8 @@ class appDevDebugProjectContainer extends Container
             'royaltransfer.news_manager.class' => 'royaltransfer\\CoreBundle\\Models\\NewsManager',
             'royaltransfer.entity.image.class' => 'royaltransfer\\CoreBundle\\Entity\\Image',
             'royaltransfer.image_manager.class' => 'royaltransfer\\CoreBundle\\Models\\ImageManager',
+            'royaltransfer.entity.video.class' => 'royaltransfer\\CoreBundle\\Entity\\Video',
+            'royaltransfer.video_manager.class' => 'royaltransfer\\CoreBundle\\Models\\VideoManager',
             'web_profiler.controller.profiler.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController',
             'web_profiler.controller.router.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\RouterController',
             'web_profiler.controller.exception.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ExceptionController',

@@ -1,0 +1,15 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}Videos{% endblock %}
+
+{% block content %}
+<h2 style="margin-top: 50px;">Dodajanje in urejanje video posnetkov</h2>
+<form class="video_form" action="{{ video.id ? path('_admin_edit_video', {'id': video.id}) : path('_admin_add_video') }}" method="post" {{ form_enctype(form) }} novalidate>
+    {{ form_widget(form) }}
+    <!--div class="form-actions"-->
+        <br />
+        <input type="submit" name="save" value="Shrani" class="btn btn-primary">
+    <!--/div-->
+</form>
+
+{% endblock %}

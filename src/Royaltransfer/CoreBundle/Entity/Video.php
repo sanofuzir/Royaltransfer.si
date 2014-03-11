@@ -28,9 +28,21 @@ class Video
     protected $id;
     
     /**
+    * @var string
+    *
+    * @ORM\Column(length=255)
+    * @Assert\NotBlank()
+    */
+    protected $title;
+    
+    /**
      * @var UploadedFile
      *
-     * @Assert\File(maxSize="10000000")
+     * @Assert\File(
+     *     maxSize = "100M",
+     *     mimeTypes = {"video/mpeg", "video/quicktime"},
+     *     mimeTypesMessage = "Napačen format ali prevelika velikost"
+     * )
      */
     protected $file;
 
@@ -77,6 +89,29 @@ class Video
         return $this->id;
     }
     
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Title
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+    
     public function getAbsolutePath() {
         return null === $this->path
                ? null
@@ -97,7 +132,7 @@ class Video
 
     protected function getUploadDir() {
         // get rid of the __DIR__ so it doesn't screw up
-        // when displaying uploaded doc/image in the view.
+        // when displaying uploaded doc/video in the view.
         return 'video';
     }
 
@@ -115,7 +150,7 @@ class Video
      * Set file
      *
      * @param UploadedFile $file
-     * @return Book
+     * @return Video
      */
     public function setFile(UploadedFile $file = null)
     {
@@ -133,7 +168,7 @@ class Video
      * Set path
      *
      * @param string $path
-     * @return Document
+     * @return Video
      */
     public function setPath($path)
     {
@@ -177,7 +212,7 @@ class Video
      * Set link
      *
      * @param string $link
-     * @return Document
+     * @return Video
      */
     public function setLink($link)
     {
@@ -231,11 +266,11 @@ class Video
         // if there is an error when moving the file, an exception will be thrown
         $this->file->move($this->getUploadRootDir(), $this->path);
 
-        // check if we have an old image
+        // check if we have an old video
         if (isset($this->temp)) {
-            // delete the old image
+            // delete the old video
             unlink($this->getUploadRootDir().'/'.$this->temp);
-            // clear the temp image path
+            // clear the temp video path
             $this->temp = null;
         }
         $this->file = null;

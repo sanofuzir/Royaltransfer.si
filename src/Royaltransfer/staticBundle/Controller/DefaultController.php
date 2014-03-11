@@ -17,6 +17,9 @@ use royaltransfer\AdminBundle\Form\NewsType;
 use royaltransfer\CoreBundle\Entity\Image;
 use royaltransfer\CoreBundle\Models\ImageManager;
 use royaltransfer\AdminBundle\Form\ImageType;
+use royaltransfer\CoreBundle\Entity\Video;
+use royaltransfer\CoreBundle\Models\VideoManager;
+use royaltransfer\AdminBundle\Form\VideoType;
 
 class DefaultController extends Controller
 {
@@ -44,6 +47,14 @@ class DefaultController extends Controller
     private function getImageManager()
     {
         return $this->container->get('royaltransfer.image_manager');
+    }
+    
+    /**
+     * @return VideoManager
+     */
+    private function getVideoManager()
+    {
+        return $this->container->get('royaltransfer.video_manager');
     }
     
     /**
@@ -103,7 +114,9 @@ class DefaultController extends Controller
      */
     public function videosAction()
     {
-        return array();
+        $videos = $this->getVideoManager()->findAllVideos();
+        
+        return array('videos' => $videos);
     }
     
     /**

@@ -1,0 +1,46 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}Videos{% endblock %}
+
+{% block content %}
+<h2>Video posnetki</h2>
+<a class="btn btn-small pull-right" href="{{ path('_admin_add_video') }}"><i class="icon-plus"></i> Dodaj Video</a>
+<table style="background-color: #F9D49E;" class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Naslov</th>
+      <th>Datum vnosa</th>
+      <th>Povezava</th>
+      <th>Video</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for video in videos %}
+    <tr>
+      <td>{{ video.id }}</td>
+      <td>{{ video.title|length > 30 ? video.title|slice(0, 30) ~ '...' : video.title }}</td>
+      <td>{{ video.created|date('d.m.Y H:i:s')}}</td>
+      <td>
+          <a href="{{video.link }}">{{ video.link|length > 20 ? video.link|slice(0, 20) ~ '...' : video.link }}</a>
+      </td>
+      {% if video.path is not empty %}
+      <td>
+          <video width="320" height="240" controls>
+            <source src="{{ asset('video/')}}{{video.path }}" type="video/mp4">
+          </video>
+      </td>
+      {% else %}
+      <td>&nbsp;</td>
+      {% endif %}
+      <td><a href="{{ path('_admin_edit_video', {'id': video.id}) }}" title="Uredi video">
+              <i class="icon-edit"></i>Uredi</a>&nbsp;
+              <a href="{{ path('_admin_delete_video', {'id': video.id } ) }}" class="confirmation" title="Odstrani video" data-confirmation="Ali si prepričan?">
+                  <i class="icon-trash">Izbriši</i></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

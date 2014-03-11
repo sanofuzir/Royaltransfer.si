@@ -7564,6 +7564,9 @@ root {
     margin-top: 20x;
     margin-left: 15px;
 }
+.span3 {
+    margin: 20px 0px 0px 15px;
+}
 .tour_form label {
     margin: 20px 20px 0px 0px;
 }
@@ -7579,5 +7582,9 @@ root {
 }
 
 .images_form label {
+    margin: 20px 20px 0px 0px;
+}
+
+.video_form label {
     margin: 20px 20px 0px 0px;
 }
