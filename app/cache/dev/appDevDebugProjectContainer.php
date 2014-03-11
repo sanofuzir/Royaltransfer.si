@@ -134,6 +134,7 @@ class appDevDebugProjectContainer extends Container
             'router.request_context' => 'getRouter_RequestContextService',
             'router_listener' => 'getRouterListenerService',
             'routing.loader' => 'getRouting_LoaderService',
+            'royaltransfer.image_manager' => 'getRoyaltransfer_ImageManagerService',
             'royaltransfer.news_manager' => 'getRoyaltransfer_NewsManagerService',
             'royaltransfer.tour_manager' => 'getRoyaltransfer_TourManagerService',
             'security.access.decision_manager' => 'getSecurity_Access_DecisionManagerService',
@@ -1725,6 +1726,19 @@ class appDevDebugProjectContainer extends Container
         $d->addLoader($c);
 
         return $this->services['routing.loader'] = new \Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader($this->get('controller_name_converter'), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE), $d);
+    }
+
+    /**
+     * Gets the 'royaltransfer.image_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return royaltransfer\CoreBundle\Models\ImageManager A royaltransfer\CoreBundle\Models\ImageManager instance.
+     */
+    protected function getRoyaltransfer_ImageManagerService()
+    {
+        return $this->services['royaltransfer.image_manager'] = new \royaltransfer\CoreBundle\Models\ImageManager($this->get('doctrine.orm.default_entity_manager'), 'royaltransfer\\CoreBundle\\Entity\\Image');
     }
 
     /**
@@ -3874,6 +3888,8 @@ class appDevDebugProjectContainer extends Container
             'royaltransfer.tour_manager.class' => 'royaltransfer\\CoreBundle\\Models\\TourManager',
             'royaltransfer.entity.news.class' => 'royaltransfer\\CoreBundle\\Entity\\News',
             'royaltransfer.news_manager.class' => 'royaltransfer\\CoreBundle\\Models\\NewsManager',
+            'royaltransfer.entity.image.class' => 'royaltransfer\\CoreBundle\\Entity\\Image',
+            'royaltransfer.image_manager.class' => 'royaltransfer\\CoreBundle\\Models\\ImageManager',
             'web_profiler.controller.profiler.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController',
             'web_profiler.controller.router.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\RouterController',
             'web_profiler.controller.exception.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ExceptionController',

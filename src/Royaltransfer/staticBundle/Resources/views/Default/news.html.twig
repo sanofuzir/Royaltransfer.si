@@ -23,10 +23,6 @@
       <td>{{ item.name}}</td>
       <td>{{ item.text|length > 50 ? item.text|slice(0, 50) ~ '...' : item.description }}</td>
       <td>{{ item.created|date('d.m.Y H:i:s')}}</td>
-      <td><a href="{{ path('_admin_edit_news', {'id': item.id}) }}" title="Uredi novico">
-              <i class="icon-edit"></i>Uredi</a>&nbsp;
-              <a href="{{ path('_admin_delete_news', {'id': item.id } ) }}" class="confirmation" title="Odstrani novico" data-confirmation="Ali si prepričan?">
-                  <i class="icon-trash">Izbriši</i></a></td>
     </tr>
     {% endfor %}
   </tbody>

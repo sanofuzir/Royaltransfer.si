@@ -97,37 +97,41 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         echo "\">Izleti</a></li>
               <li><a href=\"";
         // line 38
+        echo $this->env->getExtension('routing')->getPath("_news");
+        echo "\">Novice</a></li>
+              <li><a href=\"";
+        // line 39
         echo $this->env->getExtension('routing')->getPath("_galery");
         echo "\">Galerija slik</a></li>
               <li><a href=\"";
-        // line 39
+        // line 40
         echo $this->env->getExtension('routing')->getPath("_video_galery");
         echo "\">Video galerija</a></li>
               <li><a href=\"";
-        // line 40
+        // line 41
         echo $this->env->getExtension('routing')->getPath("_order");
         echo "\">Naročilo transporta</a></li>
               <li><a href=\"";
-        // line 41
+        // line 42
         echo $this->env->getExtension('routing')->getPath("_contact");
         echo "\">Kontakt</a></li>
               <li class=\"dropdown\">
                 <a class=\"dropdown-toggle\" id=\"dLabel\" role=\"button\" data-toggle=\"dropdown\" data-target=\"#\" href=\"#\">Šifranti <b class=\"caret\"></b></a>
                 <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dLabel\">
                   <li><a href=\"";
-        // line 45
+        // line 46
         echo $this->env->getExtension('routing')->getPath("_home");
         echo "\">Zvrsti</a></li>
                   <li><a href=\"";
-        // line 46
+        // line 47
         echo $this->env->getExtension('routing')->getPath("_home");
         echo "\">Spremljave</a></li>
                   <li><a href=\"";
-        // line 47
+        // line 48
         echo $this->env->getExtension('routing')->getPath("_home");
         echo "\">Zasedbe</a></li>
                   <li><a href=\"";
-        // line 48
+        // line 49
         echo $this->env->getExtension('routing')->getPath("_home");
         echo "\">Obdobja</a></li>
                 </ul>
@@ -140,16 +144,16 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
 
     <div class=\"container\">
       ";
-        // line 58
+        // line 59
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "flashbag"), "all", array(), "method"));
         foreach ($context['_seq'] as $context["type"] => $context["messages"]) {
-            // line 59
+            // line 60
             echo "          ";
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["messages"]) ? $context["messages"] : $this->getContext($context, "messages")));
             foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-                // line 60
+                // line 61
                 echo "              <div class=\"alert alert-";
                 echo twig_escape_filter($this->env, (isset($context["type"]) ? $context["type"] : $this->getContext($context, "type")), "html", null, true);
                 echo " fade in\" data-alert=\"alert\"><a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a><div class=\"alert-heading\">";
@@ -160,16 +164,16 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 62
+            // line 63
             echo "      ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['type'], $context['messages'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 63
+        // line 64
         echo "      ";
         $this->displayBlock('content', $context, $blocks);
-        // line 64
+        // line 65
         echo "
     </div> <!-- /container -->
 
@@ -177,11 +181,11 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     ";
-        // line 70
+        // line 71
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "7930e18_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7930e18_0") : $this->env->getExtension('assets')->getAssetUrl("js/scripts_jquery-1.9.1_1.js");
-            // line 74
+            // line 75
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -207,7 +211,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
     ";
         }
         unset($context["asset_url"]);
-        // line 76
+        // line 77
         echo "
   </body>
 </html>
@@ -219,7 +223,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
     {
     }
 
-    // line 63
+    // line 64
     public function block_content($context, array $blocks = array())
     {
     }
@@ -236,6 +240,6 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
 
     public function getDebugInfo()
     {
-        return array (  223 => 63,  218 => 8,  211 => 76,  185 => 74,  181 => 70,  173 => 64,  170 => 63,  164 => 62,  153 => 60,  148 => 59,  144 => 58,  131 => 48,  127 => 47,  123 => 46,  119 => 45,  112 => 41,  108 => 40,  104 => 39,  100 => 38,  96 => 37,  92 => 36,  88 => 35,  82 => 32,  67 => 19,  41 => 17,  37 => 12,  30 => 8,  21 => 1,);
+        return array (  227 => 64,  222 => 8,  215 => 77,  189 => 75,  185 => 71,  177 => 65,  174 => 64,  168 => 63,  157 => 61,  152 => 60,  148 => 59,  135 => 49,  131 => 48,  127 => 47,  123 => 46,  116 => 42,  112 => 41,  108 => 40,  104 => 39,  100 => 38,  96 => 37,  92 => 36,  88 => 35,  82 => 32,  67 => 19,  41 => 17,  37 => 12,  30 => 8,  21 => 1,);
     }
 }

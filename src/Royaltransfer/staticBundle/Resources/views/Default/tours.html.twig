@@ -26,10 +26,6 @@
       <td>{{ tour.description|length > 50 ? tour.description|slice(0, 50) ~ '...' : tour.description }}</td>
       <td>{{ tour.date|date('d.m.Y')}}</td>
       <td>{{ tour.created|date('d.m.Y H:i:s')}}</td>
-      <td><a href="{{ path('_admin_edit_tour', {'id': tour.id}) }}" title="Uredi izlet">
-              <i class="icon-edit"></i>Uredi</a>&nbsp;
-              <a href="{{ path('_admin_delete_tour', {'id': tour.id } ) }}" class="confirmation" title="Odstrani izlet" data-confirmation="Ali si prepričan?">
-                  <i class="icon-trash">Izbriši</i></a></td>
     </tr>
     {% endfor %}
   </tbody>

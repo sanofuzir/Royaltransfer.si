@@ -512,6 +512,8 @@
     <parameter key="royaltransfer.tour_manager.class">royaltransfer\CoreBundle\Models\TourManager</parameter>
     <parameter key="royaltransfer.entity.news.class">royaltransfer\CoreBundle\Entity\News</parameter>
     <parameter key="royaltransfer.news_manager.class">royaltransfer\CoreBundle\Models\NewsManager</parameter>
+    <parameter key="royaltransfer.entity.image.class">royaltransfer\CoreBundle\Entity\Image</parameter>
+    <parameter key="royaltransfer.image_manager.class">royaltransfer\CoreBundle\Models\ImageManager</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -2444,6 +2446,10 @@
     <service id="royaltransfer.news_manager" class="royaltransfer\CoreBundle\Models\NewsManager">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument>royaltransfer\CoreBundle\Entity\News</argument>
+    </service>
+    <service id="royaltransfer.image_manager" class="royaltransfer\CoreBundle\Models\ImageManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>royaltransfer\CoreBundle\Entity\Image</argument>
     </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>

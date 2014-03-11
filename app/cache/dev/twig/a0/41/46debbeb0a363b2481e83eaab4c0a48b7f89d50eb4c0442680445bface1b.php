@@ -72,23 +72,13 @@ class __TwigTemplate_a04146debbeb0a363b2481e83eaab4c0a48b7f89d50eb4c0442680445bf
             // line 25
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "created"), "d.m.Y H:i:s"), "html", null, true);
             echo "</td>
-      <td><a href=\"";
-            // line 26
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_admin_edit_news", array("id" => $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "id"))), "html", null, true);
-            echo "\" title=\"Uredi novico\">
-              <i class=\"icon-edit\"></i>Uredi</a>&nbsp;
-              <a href=\"";
-            // line 28
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_admin_delete_news", array("id" => $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "id"))), "html", null, true);
-            echo "\" class=\"confirmation\" title=\"Odstrani novico\" data-confirmation=\"Ali si prepričan?\">
-                  <i class=\"icon-trash\">Izbriši</i></a></td>
     </tr>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 32
+        // line 28
         echo "  </tbody>
 </table>
 </div>
@@ -107,6 +97,6 @@ class __TwigTemplate_a04146debbeb0a363b2481e83eaab4c0a48b7f89d50eb4c0442680445bf
 
     public function getDebugInfo()
     {
-        return array (  92 => 32,  82 => 28,  77 => 26,  73 => 25,  69 => 24,  65 => 23,  61 => 22,  58 => 21,  54 => 20,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  82 => 28,  73 => 25,  69 => 24,  65 => 23,  61 => 22,  58 => 21,  54 => 20,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

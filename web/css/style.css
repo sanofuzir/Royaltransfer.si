@@ -7577,3 +7577,7 @@ root {
 .news_form textarea {
     margin-top: 20px;
 }
+
+.images_form label {
+    margin: 20px 20px 0px 0px;
+}

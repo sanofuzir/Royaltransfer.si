@@ -19,7 +19,7 @@ class TourRepository extends EntityRepository
     public function findAllTours()
     {
         return $this->getEntityManager()
-                    ->createQuery('SELECT t FROM royaltransferCoreBundle:tour t ORDER BY t.created DESC')
+                    ->createQuery('SELECT t FROM CoreBundle:tour t ORDER BY t.created DESC')
                     ->getResult();
     }
 

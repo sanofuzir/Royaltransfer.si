@@ -141,6 +141,29 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\DefaultController::indexAction',  '_route' => 'royaltransfer_admin_default_index',);
             }
 
+            if (0 === strpos($pathinfo, '/admin/image')) {
+                // _admin_images
+                if ($pathinfo === '/admin/images') {
+                    return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\ImageController::imagesAction',  '_route' => '_admin_images',);
+                }
+
+                // _admin_delete_image
+                if (0 === strpos($pathinfo, '/admin/image/delete') && preg_match('#^/admin/image/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_delete_image')), array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\ImageController::deleteImageAction',));
+                }
+
+                // _admin_add_image
+                if ($pathinfo === '/admin/image/add') {
+                    return array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\ImageController::editImageAction',  '_route' => '_admin_add_image',);
+                }
+
+                // _admin_edit_image
+                if (0 === strpos($pathinfo, '/admin/image/edit') && preg_match('#^/admin/image/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_image')), array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\ImageController::editImageAction',));
+                }
+
+            }
+
             if (0 === strpos($pathinfo, '/admin/news')) {
                 // _admin_news
                 if ($pathinfo === '/admin/news') {

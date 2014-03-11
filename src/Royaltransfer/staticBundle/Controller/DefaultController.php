@@ -14,6 +14,9 @@ use royaltransfer\AdminBundle\Form\TourType;
 use royaltransfer\CoreBundle\Entity\News;
 use royaltransfer\CoreBundle\Models\NewsManager;
 use royaltransfer\AdminBundle\Form\NewsType;
+use royaltransfer\CoreBundle\Entity\Image;
+use royaltransfer\CoreBundle\Models\ImageManager;
+use royaltransfer\AdminBundle\Form\ImageType;
 
 class DefaultController extends Controller
 {
@@ -33,6 +36,14 @@ class DefaultController extends Controller
     private function getNewsManager()
     {
         return $this->container->get('royaltransfer.news_manager');
+    }
+    
+    /**
+     * @return ImageManager
+     */
+    private function getImageManager()
+    {
+        return $this->container->get('royaltransfer.image_manager');
     }
     
     /**
@@ -81,7 +92,9 @@ class DefaultController extends Controller
      */
     public function galeryAction()
     {
-        return array();
+        $images = $this->getImageManager()->findAllImages();
+        
+        return array('images' => $images);
     }
     
      /**

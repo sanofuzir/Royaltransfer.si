@@ -15,7 +15,7 @@ class ImageRepository extends EntityRepository
     public function findAll() 
     {
         return $this->getEntityManager()
-                    ->createQuery('SELECT i FROM royaltransferCoreBundle:image i ORDER BY i.created DESC')
+                    ->createQuery('SELECT i FROM CoreBundle:image i ORDER BY i.created DESC')
                     ->getResult();
     }
 }

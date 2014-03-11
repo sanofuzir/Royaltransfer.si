@@ -51,7 +51,10 @@ class __TwigTemplate_7bea14ca7fef0d828edb7d0fa00f3425b7652ac4ff80432a5877d033e0c
         echo "\">Seznam izletov in urejanje</a>
         </div>
         <div class=\"admin-panel-category\">
-            <a href=\"#\">Urejanje galerije slik</a>
+            <a href=\"";
+        // line 16
+        echo $this->env->getExtension('routing')->getPath("_admin_images");
+        echo "\">Urejanje galerije slik</a>
             <br /><br />
             <a href=\"#\">Urejanje video galerije</a>
         </div>
@@ -77,6 +80,6 @@ class __TwigTemplate_7bea14ca7fef0d828edb7d0fa00f3425b7652ac4ff80432a5877d033e0c
 
     public function getDebugInfo()
     {
-        return array (  50 => 13,  45 => 11,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  56 => 16,  50 => 13,  45 => 11,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

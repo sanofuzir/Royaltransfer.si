@@ -12,10 +12,13 @@ class ImageType extends AbstractType
     {
         $builder
             ->add('description', 'textarea', array(
-                'attr'  => array('class' => 'span7', 'rows' => 15, 'cols'=>80),
+                'attr'  => array('class' => 'span2', 'rows' => 15, 'cols'=>80),
                 'label' => 'Opis'
             ))
-            ->add('file')
+            ->add('file', 'file', array(
+                'attr'  => array('class' => 'span2'),
+                'label' =>  'Datoteka'
+            ))
         ;
     }
 

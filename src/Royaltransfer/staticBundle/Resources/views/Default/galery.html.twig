@@ -4,5 +4,29 @@
 
 {% block content %}
 <h1 class="title">Galerija slik</h1>
-<div><p>Slike, opis</p></div>
+<table style="background-color: #F9D49E;" class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>opis</th>
+      <th>datum vnosa</th>
+      <th>Slika</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for image in images %}
+    <tr>
+      <td>{{ image.id }}</td>
+      <td>{{ image.description|length > 50 ? image.description|slice(0, 50) ~ '...' : image.description }}</td>
+      <td>{{ image.created|date('d.m.Y H:i:s') }}</td>
+      <td>
+          <a href="{{ asset('galery/')}}{{image.path }}" rel="lightbox">
+            <img src="{{ asset('galery/')}}{{image.path }}" alt="slika" width="150"/>
+          </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
