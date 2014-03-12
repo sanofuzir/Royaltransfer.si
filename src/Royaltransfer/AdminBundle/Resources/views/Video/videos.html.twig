@@ -25,15 +25,11 @@
       <td>
           <a href="{{video.link }}">{{ video.link|length > 20 ? video.link|slice(0, 20) ~ '...' : video.link }}</a>
       </td>
-      {% if video.path is not empty %}
       <td>
-          <video width="320" height="240" controls>
-            <source src="{{ asset('video/')}}{{video.path }}" type="video/mp4">
-          </video>
+          <iframe width="100" height="80"
+            src="{{ video.link }}">
+          </iframe>
       </td>
-      {% else %}
-      <td>&nbsp;</td>
-      {% endif %}
       <td><a href="{{ path('_admin_edit_video', {'id': video.id}) }}" title="Uredi video">
               <i class="icon-edit"></i>Uredi</a>&nbsp;
               <a href="{{ path('_admin_delete_video', {'id': video.id } ) }}" class="confirmation" title="Odstrani video" data-confirmation="Ali si prepričan?">

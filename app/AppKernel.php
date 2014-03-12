@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new royaltransfer\CoreBundle\CoreBundle(),
             new royaltransfer\staticBundle\StaticBundle(),
             new royaltransfer\AdminBundle\AdminBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new royaltransfer\UserBundle\UserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

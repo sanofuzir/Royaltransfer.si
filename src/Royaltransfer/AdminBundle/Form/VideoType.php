@@ -19,10 +19,6 @@ class VideoType extends AbstractType
                 'attr'  => array('class' => 'span1'),
                 'label' => 'Povezava'
             ))
-            ->add('file', 'file', array(
-                'attr'  => array('class' => 'span2'),
-                'label' =>  'Datoteka'
-            ))
         ;
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Squarebox\CoreBundle\Entity;
+namespace royaltransfer\CoreBundle\Entity;
 
 interface UserAware
 {
