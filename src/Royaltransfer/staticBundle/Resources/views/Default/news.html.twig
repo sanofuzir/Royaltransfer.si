@@ -4,28 +4,13 @@
 
 {% block content %}
 <h1 class="title">Novice</h1>
-<div>
-
-<table style="background-color: #F9D49E;" class="table table-condensed table-hover">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Naslov</th>
-      <th>Text</th>
-      <th>Datum vnosa</th>
-      <th>&nbsp;</th>
-    </tr>
-  </thead>
-  <tbody>
+    <div class="news">
     {% for item in news %}
-    <tr>
-      <td>{{ item.id }}</td>
-      <td>{{ item.name}}</td>
-      <td>{{ item.text|length > 50 ? item.text|slice(0, 50) ~ '...' : item.description }}</td>
-      <td>{{ item.created|date('d.m.Y H:i:s')}}</td>
-    </tr>
+      <div class="news-item">
+          <p><span style="font-size: 1.5em;"><strong>{{ item.name}}</strong></span></p>
+          <p>{{ item.text|length > 50 ? item.text|slice(0, 450) ~ '...' : item.text }}</p>
+          <p style="text-align: right; padding-top: 10px; padding-right: 10px;"><strong>{{ item.created|date('d.m.Y')}}</strong></p>
+      </div>
     {% endfor %}
-  </tbody>
-</table>
-</div>
+    </div>
 {% endblock %}

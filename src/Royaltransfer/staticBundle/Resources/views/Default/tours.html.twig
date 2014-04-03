@@ -3,32 +3,15 @@
 {% block title %}Izleti{% endblock %}
 
 {% block content %}
-<h1 class="title">Izleti</h1>
+<h1 class="title">Ponujamo izlete na naslednje destinacije:</h1>
 <div>
-    <p>Ponujamo izlete na naslednje destinacije:</p>
-
-<table style="background-color: #F9D49E;" class="table table-condensed table-hover">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Naslov</th>
-      <th>opis</th>
-      <th>Datum</th>
-      <th>Datum vnosa</th>
-      <th>&nbsp;</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for tour in tours %}
-    <tr>
-      <td>{{ tour.id }}</td>
-      <td>{{ tour.title}}</td>
-      <td>{{ tour.description|length > 50 ? tour.description|slice(0, 50) ~ '...' : tour.description }}</td>
-      <td>{{ tour.date|date('d.m.Y')}}</td>
-      <td>{{ tour.created|date('d.m.Y H:i:s')}}</td>
-    </tr>
+    {% for item in tours %}
+    <div style="border: 10px ridge #707F8E; margin: 5px 5px; padding: 0 5px; width: 46%; float: left; min-height: 150px;">
+        <p><span style="font-size: 1.5em;"><strong>{{ item.title}}</strong></span></p>
+        <p>{{ item.description|length > 50 ? item.description|slice(0, 450) ~ '...' : item.description }}</p>
+        <p>Datum izleta:&nbsp;{{ item.date|date('d.m.Y') }}</p>
+        <p style="text-align: right; padding-top: 10px; padding-right: 10px;"><strong>{{ item.created|date('d.m.Y')}}</strong></p>
+    </div>
     {% endfor %}
-  </tbody>
-</table>
 </div>
 {% endblock %}

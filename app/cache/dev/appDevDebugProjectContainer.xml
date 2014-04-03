@@ -520,6 +520,8 @@
     <parameter key="royaltransfer.image_manager.class">royaltransfer\CoreBundle\Models\ImageManager</parameter>
     <parameter key="royaltransfer.entity.video.class">royaltransfer\CoreBundle\Entity\Video</parameter>
     <parameter key="royaltransfer.video_manager.class">royaltransfer\CoreBundle\Models\VideoManager</parameter>
+    <parameter key="royaltransfer.entity.inquiry.class">royaltransfer\CoreBundle\Entity\Inquiry</parameter>
+    <parameter key="royaltransfer.inquiry_manager.class">royaltransfer\CoreBundle\Models\InquiryManager</parameter>
     <parameter key="fos_user.backend_type_orm">true</parameter>
     <parameter key="fos_user.security.interactive_login_listener.class">FOS\UserBundle\EventListener\LastLoginListener</parameter>
     <parameter key="fos_user.security.login_manager.class">FOS\UserBundle\Security\LoginManager</parameter>
@@ -1710,7 +1712,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5320f2f32cc03</argument>
+            <argument>533c782bef09c</argument>
           </service>
         </argument>
       </argument>
@@ -1980,7 +1982,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>5320f2f32cc03</argument>
+            <argument>533c782bef09c</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2680,6 +2682,10 @@
     <service id="royaltransfer.video_manager" class="royaltransfer\CoreBundle\Models\VideoManager">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument>royaltransfer\CoreBundle\Entity\Video</argument>
+    </service>
+    <service id="royaltransfer.inquiry_manager" class="royaltransfer\CoreBundle\Models\InquiryManager">
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument>royaltransfer\CoreBundle\Entity\Inquiry</argument>
     </service>
     <service id="fos_user.security.interactive_login_listener" class="FOS\UserBundle\EventListener\LastLoginListener">
       <tag name="kernel.event_subscriber"/>

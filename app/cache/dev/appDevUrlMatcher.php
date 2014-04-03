@@ -269,9 +269,22 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::videosAction',  '_route' => '_video_galery',);
         }
 
-        // _order
-        if ($pathinfo === '/Order') {
-            return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::orderAction',  '_route' => '_order',);
+        // _inquiry
+        if ($pathinfo === '/Inquiry') {
+            return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::inquiryAction',  '_route' => '_inquiry',);
+        }
+
+        if (0 === strpos($pathinfo, '/inquiry')) {
+            // _add_inquiry
+            if ($pathinfo === '/inquiry/add') {
+                return array (  'id' => NULL,  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::editInquiryAction',  '_route' => '_add_inquiry',);
+            }
+
+            // _edit_inquiry
+            if (0 === strpos($pathinfo, '/inquiry/edit') && preg_match('#^/inquiry/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_edit_inquiry')), array (  'id' => NULL,  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::editInquiryAction',));
+            }
+
         }
 
         // _contact

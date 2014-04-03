@@ -3,6 +3,37 @@
 {% block title %}Index{% endblock %}
 
 {% block content %}
-<h1 class="title">Naslovnica</h1>
-<div><p>Slike, kratek opis podjetja, novice</p></div>
+
+<div class="center">
+    <div class="flags">
+        <a href="{{ path('_home') }}">
+            <img src="{{ asset('bundles/static/images/eng.png') }}" alt="eng">
+        </a>
+        <a href="{{ path('_home') }}">
+            <img src="{{ asset('bundles/static/images/slo.gif') }}" alt="slo">
+        </a>
+        <a href="{{ path('_home') }}">
+            <img src="{{ asset('bundles/static/images/hr.jpg')  }}" alt="hr">
+        </a>
+        <a href="{{ path('_home') }}">
+            <img src="{{ asset('bundles/static/images/srb.jpg') }}" alt="srb">
+        </a>
+        <a href="{{ path('_home') }}">
+            <img src="{{ asset('bundles/static/images/bih.gif') }}" alt="bih">
+        </a>
+        <a href="{{ path('_home') }}">
+            <img src="{{ asset('bundles/static/images/ita.jpg') }}" alt="ita">
+        </a>
+        <a href="{{ path('_home') }}">
+            <img src="{{ asset('bundles/static/images/nem.jpg') }}" alt="nem">
+        </a>
+        <a href="{{ path('_home') }}">
+            <img src="{{ asset('bundles/static/images/spa.jpg') }}" alt="spa">
+        </a>
+    </div>
+    <div class="rotate">
+        <img src="{{ asset('bundles/static/images/krona.png') }}" alt="index">
+    </div>
+    <img style="width: 100%;" src="{{ asset('bundles/static/images/index.jpg') }}" alt="index">
+</div>
 {% endblock %}

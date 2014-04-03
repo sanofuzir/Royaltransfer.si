@@ -65,95 +65,88 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         unset($context["asset_url"]);
         // line 19
         echo "    <!--script src=\"js/vendor/modernizr-2.6.2.min.js\"></script-->
+    <style>
+        .nav li {
+            margin-left: 5px;
+        }
+        .nav {
+            margin-left: -10px;
+        }
+        .color a:link, color a:visited {
+            color: #c6c8c9;
+        }
+        .nav2 li a:hover {
+            color #c6c8c9;
+            font-size: 120%;
+            background-color: transparent;
+        }
+        #color a:link, #color a:visited;{
+            color: #c6c8c9;
+        }
+        
+     </style>
   </head>
 
   <body>
 
-    <div class=\"navbar navbar-inverse navbar-fixed-top\">
+    <div class=\"navbar navbar-inverse navbar-fixed-top\" style=\"height: 60px;\">
       <div class=\"navbar-inner\">
         <div class=\"container\">
-          <button type=\"button\" class=\"btn btn-navbar\" data-toggle=\"collapse\" data-target=\".nav-collapse\">
-            <span class=\"icon-bar\"></span>
-            <span class=\"icon-bar\"></span>
-            <span class=\"icon-bar\"></span>
-          </button>
-          <a class=\"brand\" href=\"";
-        // line 32
-        echo $this->env->getExtension('routing')->getPath("_home");
-        echo "\">Royaltransfer</a>
-          <div class=\"nav-collapse collapse\">
-            <ul class=\"nav\">
-              <li class=\"active\"><a href=\"";
-        // line 35
-        echo $this->env->getExtension('routing')->getPath("_home");
-        echo "\">Home</a></li>
-              <li><a href=\"";
-        // line 36
-        echo $this->env->getExtension('routing')->getPath("_about");
-        echo "\">About</a></li>
-              <li><a href=\"";
-        // line 37
-        echo $this->env->getExtension('routing')->getPath("_tours");
-        echo "\">Izleti</a></li>
-              <li><a href=\"";
-        // line 38
-        echo $this->env->getExtension('routing')->getPath("_news");
-        echo "\">Novice</a></li>
-              <li><a href=\"";
-        // line 39
-        echo $this->env->getExtension('routing')->getPath("_galery");
-        echo "\">Galerija slik</a></li>
-              <li><a href=\"";
-        // line 40
-        echo $this->env->getExtension('routing')->getPath("_video_galery");
-        echo "\">Video galerija</a></li>
-              <li><a href=\"";
-        // line 41
-        echo $this->env->getExtension('routing')->getPath("_order");
-        echo "\">Naročilo transporta</a></li>
-              <li><a href=\"";
-        // line 42
-        echo $this->env->getExtension('routing')->getPath("_contact");
-        echo "\">Kontakt</a></li>
-              <li class=\"dropdown\">
-                <a class=\"dropdown-toggle\" id=\"dLabel\" role=\"button\" data-toggle=\"dropdown\" data-target=\"#\" href=\"#\">Šifranti <b class=\"caret\"></b></a>
-                <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dLabel\">
-                  <li><a href=\"";
-        // line 46
-        echo $this->env->getExtension('routing')->getPath("_home");
-        echo "\">Zvrsti</a></li>
-                  <li><a href=\"";
-        // line 47
-        echo $this->env->getExtension('routing')->getPath("_home");
-        echo "\">Spremljave</a></li>
-                  <li><a href=\"";
+            <ul class=\"nav nav2\" style=\"margin-top: -55px;\">
+              <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\"><a style=\"color: #c6c8c9;\" href=\"";
         // line 48
         echo $this->env->getExtension('routing')->getPath("_home");
-        echo "\">Zasedbe</a></li>
-                  <li><a href=\"";
+        echo "\">Domov</a></li>
+              <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\"><a style=\"color: #c6c8c9;\" href=\"";
         // line 49
-        echo $this->env->getExtension('routing')->getPath("_home");
-        echo "\">Obdobja</a></li>
+        echo $this->env->getExtension('routing')->getPath("_about");
+        echo "\">O nas</a></li>
+              <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\"><a style=\"color: #c6c8c9;\" href=\"";
+        // line 50
+        echo $this->env->getExtension('routing')->getPath("_news");
+        echo "\">Novice</a></li>
+              <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\"><a style=\"color: #c6c8c9;\" href=\"";
+        // line 51
+        echo $this->env->getExtension('routing')->getPath("_tours");
+        echo "\">Izleti</a></li>
+              <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\"><a style=\"color: #c6c8c9;\" href=\"";
+        // line 52
+        echo $this->env->getExtension('routing')->getPath("_inquiry");
+        echo "\">Povpraševanje</a></li>
+              <li class=\"dropdown\" style=\"background-color: transparent; float: left; width: 150px; list-style-type: none; text-align: center;\"  text-align: center;>
+                <a style=\"color: #c6c8c9; background-color: none;\" class=\"dropdown-toggle\" id=\"dLabel\" role=\"button\" data-toggle=\"dropdown\" data-target=\"#\" href=\"#\">Galerija <b class=\"caret\"></b></a>
+                <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dLabel\">
+                  <li style=\"text-align: left;\"><a style=\"color: #020202;\" href=\"";
+        // line 56
+        echo $this->env->getExtension('routing')->getPath("_galery");
+        echo "\">Galerija slik</a></li>
+                  <li style=\"text-align: left;\"><a style=\"color: #020202;\" href=\"";
+        // line 57
+        echo $this->env->getExtension('routing')->getPath("_video_galery");
+        echo "\">Video galerija</a></li>
                 </ul>
               </li>
+              <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\"><a style=\"color: #c6c8c9;\" href=\"";
+        // line 60
+        echo $this->env->getExtension('routing')->getPath("_contact");
+        echo "\">Kontakt</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
     <div class=\"container\">
       ";
-        // line 59
+        // line 67
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "flashbag"), "all", array(), "method"));
         foreach ($context['_seq'] as $context["type"] => $context["messages"]) {
-            // line 60
+            // line 68
             echo "          ";
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["messages"]) ? $context["messages"] : $this->getContext($context, "messages")));
             foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-                // line 61
+                // line 69
                 echo "              <div class=\"alert alert-";
                 echo twig_escape_filter($this->env, (isset($context["type"]) ? $context["type"] : $this->getContext($context, "type")), "html", null, true);
                 echo " fade in\" data-alert=\"alert\"><a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a><div class=\"alert-heading\">";
@@ -164,16 +157,16 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 63
+            // line 71
             echo "      ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['type'], $context['messages'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 64
+        // line 72
         echo "      ";
         $this->displayBlock('content', $context, $blocks);
-        // line 65
+        // line 73
         echo "
     </div> <!-- /container -->
 
@@ -181,11 +174,11 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     ";
-        // line 71
+        // line 79
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "7930e18_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7930e18_0") : $this->env->getExtension('assets')->getAssetUrl("js/scripts_jquery-1.9.1_1.js");
-            // line 75
+            // line 83
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -211,7 +204,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
     ";
         }
         unset($context["asset_url"]);
-        // line 77
+        // line 85
         echo "
   </body>
 </html>
@@ -223,7 +216,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
     {
     }
 
-    // line 64
+    // line 72
     public function block_content($context, array $blocks = array())
     {
     }
@@ -240,6 +233,6 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
 
     public function getDebugInfo()
     {
-        return array (  227 => 64,  222 => 8,  215 => 77,  189 => 75,  185 => 71,  177 => 65,  174 => 64,  168 => 63,  157 => 61,  152 => 60,  148 => 59,  135 => 49,  131 => 48,  127 => 47,  123 => 46,  116 => 42,  112 => 41,  108 => 40,  104 => 39,  100 => 38,  96 => 37,  92 => 36,  88 => 35,  82 => 32,  67 => 19,  41 => 17,  37 => 12,  30 => 8,  21 => 1,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  220 => 72,  215 => 8,  208 => 85,  182 => 83,  178 => 79,  170 => 73,  167 => 72,  161 => 71,  150 => 69,  145 => 68,  141 => 67,  131 => 60,  125 => 57,  121 => 56,  114 => 52,  110 => 51,  106 => 50,  102 => 49,  98 => 48,  67 => 19,  41 => 17,  37 => 12,  30 => 8,  21 => 1,  70 => 16,  61 => 13,  57 => 12,  53 => 11,  49 => 10,  46 => 9,  42 => 8,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

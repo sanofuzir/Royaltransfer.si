@@ -36,52 +36,34 @@ class __TwigTemplate_a04146debbeb0a363b2481e83eaab4c0a48b7f89d50eb4c0442680445bf
     {
         // line 6
         echo "<h1 class=\"title\">Novice</h1>
-<div>
-
-<table style=\"background-color: #F9D49E;\" class=\"table table-condensed table-hover\">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Naslov</th>
-      <th>Text</th>
-      <th>Datum vnosa</th>
-      <th>&nbsp;</th>
-    </tr>
-  </thead>
-  <tbody>
+    <div class=\"news\">
     ";
-        // line 20
+        // line 8
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["news"]) ? $context["news"] : $this->getContext($context, "news")));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 21
-            echo "    <tr>
-      <td>";
-            // line 22
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "id"), "html", null, true);
-            echo "</td>
-      <td>";
-            // line 23
+            // line 9
+            echo "      <div class=\"news-item\">
+          <p><span style=\"font-size: 1.5em;\"><strong>";
+            // line 10
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "name"), "html", null, true);
-            echo "</td>
-      <td>";
-            // line 24
-            echo twig_escape_filter($this->env, (((twig_length_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "text")) > 50)) ? ((twig_slice($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "text"), 0, 50) . "...")) : ($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "description"))), "html", null, true);
-            echo "</td>
-      <td>";
-            // line 25
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "created"), "d.m.Y H:i:s"), "html", null, true);
-            echo "</td>
-    </tr>
+            echo "</strong></span></p>
+          <p>";
+            // line 11
+            echo twig_escape_filter($this->env, (((twig_length_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "text")) > 50)) ? ((twig_slice($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "text"), 0, 450) . "...")) : ($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "text"))), "html", null, true);
+            echo "</p>
+          <p style=\"text-align: right; padding-top: 10px; padding-right: 10px;\"><strong>";
+            // line 12
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "created"), "d.m.Y"), "html", null, true);
+            echo "</strong></p>
+      </div>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 28
-        echo "  </tbody>
-</table>
-</div>
+        // line 15
+        echo "    </div>
 ";
     }
 
@@ -97,6 +79,6 @@ class __TwigTemplate_a04146debbeb0a363b2481e83eaab4c0a48b7f89d50eb4c0442680445bf
 
     public function getDebugInfo()
     {
-        return array (  82 => 28,  73 => 25,  69 => 24,  65 => 23,  61 => 22,  58 => 21,  54 => 20,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  66 => 15,  57 => 12,  53 => 11,  49 => 10,  46 => 9,  42 => 8,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

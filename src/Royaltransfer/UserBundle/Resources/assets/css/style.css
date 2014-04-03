@@ -28,3 +28,25 @@ body.login, body.signup {
   margin-bottom: 15px;
   padding: 7px 9px;
 }
+body {
+    background-color: black;
+}
+.center
+{
+margin: 0 auto;
+margin-top: 100px;
+width: 512px;
+alignment-adjust: middle;
+}
+.nav-inline {
+    float: left; 
+    width: 150px;
+    border: 1px solid white;
+}
+.index-title {
+    text-align: center;
+    margin-top: 100px;
+}
+.title {
+    margin-bottom: 50px;
+}

@@ -79,6 +79,7 @@
   'DoctrineBundle:Collector:explain.html.twig' => '/Users/sanofuzir/Sites/royaltransfer/vendor/doctrine/doctrine-bundle/Doctrine/Bundle/DoctrineBundle/Resources/views/Collector/explain.html.twig',
   'StaticBundle:Default:about.html.twig' => '/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/staticBundle/Resources/views/Default/about.html.twig',
   'StaticBundle:Default:contact.html.twig' => '/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/staticBundle/Resources/views/Default/contact.html.twig',
+  'StaticBundle:Default:editOrder.html.twig' => '/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/staticBundle/Resources/views/Default/editOrder.html.twig',
   'StaticBundle:Default:galery.html.twig' => '/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/staticBundle/Resources/views/Default/galery.html.twig',
   'StaticBundle:Default:index.html.twig' => '/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/staticBundle/Resources/views/Default/index.html.twig',
   'StaticBundle:Default:news.html.twig' => '/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/staticBundle/Resources/views/Default/news.html.twig',

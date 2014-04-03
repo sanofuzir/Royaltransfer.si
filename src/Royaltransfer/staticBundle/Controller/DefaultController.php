@@ -10,16 +10,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use royaltransfer\CoreBundle\Entity\Tour;
 use royaltransfer\CoreBundle\Models\TourManager;
-use royaltransfer\AdminBundle\Form\TourType;
 use royaltransfer\CoreBundle\Entity\News;
 use royaltransfer\CoreBundle\Models\NewsManager;
-use royaltransfer\AdminBundle\Form\NewsType;
 use royaltransfer\CoreBundle\Entity\Image;
 use royaltransfer\CoreBundle\Models\ImageManager;
-use royaltransfer\AdminBundle\Form\ImageType;
 use royaltransfer\CoreBundle\Entity\Video;
 use royaltransfer\CoreBundle\Models\VideoManager;
-use royaltransfer\AdminBundle\Form\VideoType;
+use royaltransfer\AdminBundle\Form\InquiryType;
+use royaltransfer\CoreBundle\Entity\Inquiry;
+use royaltransfer\CoreBundle\Models\InquiryManager;
 
 class DefaultController extends Controller
 {
@@ -55,6 +54,13 @@ class DefaultController extends Controller
     private function getVideoManager()
     {
         return $this->container->get('royaltransfer.video_manager');
+    }
+    /**
+     * @return InquiryManager
+     */
+    private function getInquiryManager()
+    {
+        return $this->container->get('royaltransfer.inquiry_manager');
     }
     
     /**
@@ -120,12 +126,54 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/Order", name="_order")
+     * @Route("/Inquiry", name="_inquiry")
      * @Template()
      */
-    public function orderAction()
+    public function inquiryAction()
     {
-        return array();
+        $entity = $this->getInquiryManager()->createInquiry();
+        
+        $form  = $this->createForm(new InquiryType(), $entity);
+        
+        if ($form->isValid()) {
+            $this->getNewsInquiry()->saveInquiry($entity);
+            $this->get('session')->getFlashBag()->add('success', 'Povpraševanje je bilo uspešno shranjeno!');
+            return $this->redirect($this->generateUrl('_home'));
+        }
+
+        return array(
+            'form'   => $form->createView(),
+        );
+    }
+    
+    /**
+     * @Route("/inquiry/add", name="_add_inquiry")
+     * @Route("/inquiry/edit/{id}", name="_edit_inquiry", requirements={"id" = "\d+"})
+     * @Template()
+     */
+    public function editInquiryAction(Request $request, $id = null)
+    {
+        if (is_null($id)) {
+            $entity = $this->getInquiryManager()->createInquiry();
+        } else {
+            $entity = $this->getInquiryAction($id);
+        }
+
+        $form  = $this->createForm(new inquiryType(), $entity);
+
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
+            if ($form->isValid()) {
+                $this->getInquiryManager()->saveInquiry($entity);
+                $this->get('session')->getFlashBag()->add('success', 'Povpraševanje je bilo uspešno izvedeno!');
+                return $this->redirect($this->generateUrl('_home'));
+            }
+        }
+
+        return array(
+            'form'  => $form->createView(),
+            'order' => $entity,
+        );
     }
     
     /**
