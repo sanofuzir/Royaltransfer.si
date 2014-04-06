@@ -39,7 +39,7 @@ class __TwigTemplate_926fe9f5a9c779fda473b3cb7c680bdb23a8e7be1e20046df4ba2fa41f4
 <br />
 <div class=\"border\" style=\"width: 40%; padding: 30px;\">
     <p><b>Telefon:</b>&nbsp;+386 70 66 57 18</p>
-    <p class=\"email\"><b>Email:</b>&nbsp;<a href=\"mailto:info@royaltransfer.com\">mailto:info@royaltransfer.com</a></p>
+    <p class=\"email\"><b>Email:</b>&nbsp;<a href=\"mailto:info@royaltransfer.com\">info@royaltransfer.com</a></p>
 </div>
 ";
     }

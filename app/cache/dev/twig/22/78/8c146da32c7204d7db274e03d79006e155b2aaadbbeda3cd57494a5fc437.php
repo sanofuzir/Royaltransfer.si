@@ -37,7 +37,7 @@ class __TwigTemplate_22788c146da32c7204d7db274e03d79006e155b2aaadbbeda3cd57494a5
         // line 6
         echo "
 <div class=\"center\">
-    <div class=\"flags\" style=\"position: relative; margin-top: 15px;>
+    <div class=\"flags\" style=\"position: relative; margin-top: 15px;\">
         <a href=\"";
         // line 9
         echo $this->env->getExtension('routing')->getPath("_home");

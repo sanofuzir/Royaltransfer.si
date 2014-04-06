@@ -136,9 +136,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/admin')) {
-            // royaltransfer_admin_default_index
+            // _admin
             if ($pathinfo === '/admin') {
-                return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\DefaultController::indexAction',  '_route' => 'royaltransfer_admin_default_index',);
+                return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\DefaultController::indexAction',  '_route' => '_admin',);
             }
 
             if (0 === strpos($pathinfo, '/admin/image')) {
@@ -229,6 +229,29 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 // _admin_edit_video
                 if (0 === strpos($pathinfo, '/admin/video/edit') && preg_match('#^/admin/video/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_video')), array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\VideoController::editVideoAction',));
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/admin/inquiry')) {
+                // _admin_inquirys
+                if ($pathinfo === '/admin/inquiry') {
+                    return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\InquiryController::inquiryAction',  '_route' => '_admin_inquirys',);
+                }
+
+                // _admin_delete_inquiry
+                if (0 === strpos($pathinfo, '/admin/inquiry/delete') && preg_match('#^/admin/inquiry/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_delete_inquiry')), array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\InquiryController::deleteInquiryAction',));
+                }
+
+                // _admin_add_inquiry
+                if ($pathinfo === '/admin/inquiry/add') {
+                    return array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\InquiryController::editInquiryAction',  '_route' => '_admin_add_inquiry',);
+                }
+
+                // _admin_edit_inquiry
+                if (0 === strpos($pathinfo, '/admin/inquiry/edit') && preg_match('#^/admin/inquiry/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => '_admin_edit_inquiry')), array (  'id' => NULL,  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\InquiryController::editInquiryAction',));
                 }
 
             }

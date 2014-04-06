@@ -1,10 +1,10 @@
-{% extends 'StaticBundle::layout.html.twig' %}
+{% extends 'UserBundle::layout.html.twig' %}
 
 {% block title %}Izleti{% endblock %}
 
 {% block content %}
-<h2 style="margin-top: 50px;">Dodajanje in urejanje izletov</h2>
-<form class="tour_form" action="{{ tour.id ? path('_admin_edit_tour', {'id': tour.id}) : path('_admin_add_tour') }}" method="post" {{ form_enctype(form) }} novalidate>
+<h2 style="margin-top: 50px;" class="title">Dodajanje in urejanje izletov</h2>
+<form class="border tour_form" action="{{ tour.id ? path('_admin_edit_tour', {'id': tour.id}) : path('_admin_add_tour') }}" method="post" {{ form_enctype(form) }} novalidate>
     {{ form_widget(form) }}
     <!--div class="form-actions"-->
         <input type="submit" name="save" value="Shrani" class="btn btn-primary">

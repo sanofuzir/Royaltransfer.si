@@ -1,10 +1,10 @@
-{% extends 'StaticBundle::layout.html.twig' %}
+{% extends 'UserBundle::layout.html.twig' %}
 
 {% block title %}Videos{% endblock %}
 
 {% block content %}
-<h2 style="margin-top: 50px;">Dodajanje in urejanje video posnetkov</h2>
-<form class="video_form" action="{{ video.id ? path('_admin_edit_video', {'id': video.id}) : path('_admin_add_video') }}" method="post" {{ form_enctype(form) }} novalidate>
+<h2 style="margin-top: 50px;" class="title">Dodajanje in urejanje video posnetkov</h2>
+<form class="border video_form" action="{{ video.id ? path('_admin_edit_video', {'id': video.id}) : path('_admin_add_video') }}" method="post" {{ form_enctype(form) }} novalidate>
     {{ form_widget(form) }}
     <!--div class="form-actions"-->
         <br />

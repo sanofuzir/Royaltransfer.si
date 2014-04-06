@@ -7,7 +7,7 @@ class __TwigTemplate_5f6d4d0e5f484667ba1f2a9fbf78e9e5cf11f67eef07a1bfa399cb338fd
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("StaticBundle::layout.html.twig");
+        $this->parent = $this->env->loadTemplate("UserBundle::layout.html.twig");
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
@@ -17,7 +17,7 @@ class __TwigTemplate_5f6d4d0e5f484667ba1f2a9fbf78e9e5cf11f67eef07a1bfa399cb338fd
 
     protected function doGetParent(array $context)
     {
-        return "StaticBundle::layout.html.twig";
+        return "UserBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
@@ -40,7 +40,7 @@ class __TwigTemplate_5f6d4d0e5f484667ba1f2a9fbf78e9e5cf11f67eef07a1bfa399cb338fd
         // line 7
         echo $this->env->getExtension('routing')->getPath("_admin_add_image");
         echo "\"><i class=\"icon-plus\"></i> Dodaj Slike</a>
-<table style=\"background-color: #F9D49E;\" class=\"table table-condensed table-hover\">
+<table class=\"table table-condensed table-hover border mytable\">
   <thead>
     <tr>
       <th>Id</th>

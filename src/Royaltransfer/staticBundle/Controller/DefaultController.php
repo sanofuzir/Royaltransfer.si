@@ -137,6 +137,20 @@ class DefaultController extends Controller
         
         if ($form->isValid()) {
             $this->getNewsInquiry()->saveInquiry($entity);
+            
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Hello Email')
+                ->setFrom('send@example.com')
+                ->setTo('sano.fuzir@gmail.com')
+                ->setBody(
+                    $this->renderView(
+                        'StaticBundle:Email:email.html.twig',
+                        array('data' => $entity)
+                    )
+                )
+            ;
+            $this->get('mailer')->send($message);
+            
             $this->get('session')->getFlashBag()->add('success', 'Povpraševanje je bilo uspešno shranjeno!');
             return $this->redirect($this->generateUrl('_home'));
         }

@@ -45,24 +45,71 @@
       <div class="navbar-inner">
         <div class="container">
             <ul class="nav nav2" style="margin-top: -55px;">
-              <li style="float: left; width: 150px; list-style-type: none; text-align: center;"><a style="color: #c6c8c9;" href="{{ path('_home') }}">Domov</a></li>
-              <li style="float: left; width: 150px; list-style-type: none; text-align: center;"><a style="color: #c6c8c9;" href="{{ path('_about') }}">O nas</a></li>
-              <li style="float: left; width: 150px; list-style-type: none; text-align: center;"><a style="color: #c6c8c9;" href="{{ path('_news') }}">Novice</a></li>
-              <li style="float: left; width: 150px; list-style-type: none; text-align: center;"><a style="color: #c6c8c9;" href="{{ path('_tours') }}">Izleti</a></li>
-              <li style="float: left; width: 150px; list-style-type: none; text-align: center;"><a style="color: #c6c8c9;" href="{{ path('_inquiry') }}">Povpraševanje</a></li>
-              <li class="dropdown" style="background-color: transparent; float: left; width: 150px; list-style-type: none; text-align: center;"  text-align: center;>
-                <a style="color: #c6c8c9; background-color: none;" class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">Galerija <b class="caret"></b></a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                  <li style="text-align: left;"><a style="color: #020202;" href="{{ path('_galery') }}">Galerija slik</a></li>
-                  <li style="text-align: left;"><a style="color: #020202;" href="{{ path('_video_galery') }}">Video galerija</a></li>
-                </ul>
+              <li style="float: left; width: 150px; list-style-type: none; text-align: center;">
+                <a style="color: #c6c8c9;" 
+                   onmouseover="document.getElementById('div1').style.visibility = 'visible';"
+                   onmouseout="document.getElementById('div1').style.visibility = 'hidden';"
+                   href="{{ path('_home') }}">Domov</a>
+                <img id="div1" class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
               </li>
-              <li style="float: left; width: 150px; list-style-type: none; text-align: center;"><a style="color: #c6c8c9;" href="{{ path('_contact') }}">Kontakt</a></li>
+              <li style="float: left; width: 150px; list-style-type: none; text-align: center;">
+                  <a style="color: #c6c8c9;"
+                     onmouseover="document.getElementById('div2').style.visibility = 'visible';"
+                     onmouseout="document.getElementById('div2').style.visibility = 'hidden';"
+                     href="{{ path('_about') }}">O nas</a>
+                <img id="div2" class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
+              </li>
+              <li style="float: left; width: 150px; list-style-type: none; text-align: center;">
+                  <a style="color: #c6c8c9;"
+                     onmouseover="document.getElementById('div3').style.visibility = 'visible';"
+                     onmouseout="document.getElementById('div3').style.visibility = 'hidden';"
+                     href="{{ path('_news') }}">Novice</a>
+                  <img id="div3" class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
+              </li>
+              <li style="float: left; width: 150px; list-style-type: none; text-align: center;">
+                  <a style="color: #c6c8c9;"
+                     onmouseover="document.getElementById('div4').style.visibility = 'visible';"
+                     onmouseout="document.getElementById('div4').style.visibility = 'hidden';"
+                     href="{{ path('_tours') }}">Izleti</a>
+                  <img id="div4" class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
+              </li>
+              <li style="float: left; width: 150px; list-style-type: none; text-align: center;">
+                  <a style="color: #c6c8c9;"
+                     onmouseover="document.getElementById('div5').style.visibility = 'visible';"
+                     onmouseout="document.getElementById('div5').style.visibility = 'hidden';"
+                     href="{{ path('_inquiry') }}">Povpraševanje</a>
+                  <img id="div5" class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
+              </li>
+              <li class="dropdown" id="div8"
+                  style="background-color: transparent; float: left; width: 150px; list-style-type: none; text-align: center;"  
+                  onmouseover="document.getElementById('div6').style.visibility = 'visible';"
+                  onmouseout="document.getElementById('div6').style.visibility = 'hidden';">
+                <a style="color: #c6c8c9; background-color: none;" class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">Galerija <b class="caret"></b></a>
+                <ul class="dropdown-menu mydropdown" role="menu" aria-labelledby="dLabel">
+                  <li style="text-align: left;">
+                      <a style="color: #020202;" href="{{ path('_galery') }}">Galerija slik</a>
+                  </li>
+                  <li style="text-align: left;">
+                      <a style="color: #020202;" href="{{ path('_video_galery') }}">Video galerija</a>
+                  </li>
+                </ul>
+                <img id="div6" class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
+              </li>
+              <li style="float: left; width: 150px; list-style-type: none; text-align: center;">
+                  <a style="color: #c6c8c9;"
+                     onmouseover="document.getElementById('div7').style.visibility = 'visible';"
+                     onmouseout="document.getElementById('div7').style.visibility = 'hidden';"
+                     href="{{ path('_contact') }}">Kontakt</a>
+                  <img id="div7"class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
+              </li>
             </ul>
         </div>
       </div>
     </div>
-
+      <div style="margin-top: 100px; font-size: 130%; margin-left: 80px; margin-bottom: -50px;" class="control-panel">
+          <a href="{{ path('_admin') }}">Nadzorna Plošča</a>
+      </div>
+      
     <div class="container">
       {% for type, messages in app.session.flashbag.all() %}
           {% for message in messages %}

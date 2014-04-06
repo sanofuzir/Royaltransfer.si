@@ -7558,7 +7558,7 @@ body {
     border: 2px ridge black;
     padding: 20px;
     margin-top: 50px;
-    background-color: #E6E6E6;
+    background-color: #221f1f;
 }
 
 .admin-panel-category {
@@ -7569,7 +7569,9 @@ body {
     border: 1px dotted darkgray;
     text-align: center;
 }
-
+.control-panel a:hover {
+    text-decoration: none;
+}
 .admin-panel-category a:link, .admin-panel-category a:visited {
     text-decoration: none;
     color: #08C;
@@ -7577,6 +7579,9 @@ body {
 }
 .admin-panel-category a:hover {
     color: #000000;
+}
+.mytable th {
+    font-size: 120%;
 }
 .span1 {
     margin-left: 0px;

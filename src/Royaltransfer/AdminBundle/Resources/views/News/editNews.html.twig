@@ -1,10 +1,10 @@
-{% extends 'StaticBundle::layout.html.twig' %}
+{% extends 'UserBundle::layout.html.twig' %}
 
 {% block title %}Novice{% endblock %}
 
 {% block content %}
-<h2 style="margin-top: 50px;">Dodajanje in urejanje novic</h2>
-<form class="news_form" action="{{ news.id ? path('_admin_edit_news', {'id': news.id}) : path('_admin_add_news') }}" method="post" {{ form_enctype(form) }} novalidate>
+<h2 style="margin-top: 50px;" class="title">Dodajanje in urejanje novic</h2>
+<form class="border news_form" action="{{ news.id ? path('_admin_edit_news', {'id': news.id}) : path('_admin_add_news') }}" method="post" {{ form_enctype(form) }} novalidate>
     {{ form_widget(form) }}
     <!--div class="form-actions"-->
         <input type="submit" name="save" value="Shrani" class="btn btn-primary">
