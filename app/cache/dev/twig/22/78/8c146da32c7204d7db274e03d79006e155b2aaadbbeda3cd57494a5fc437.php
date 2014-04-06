@@ -37,7 +37,7 @@ class __TwigTemplate_22788c146da32c7204d7db274e03d79006e155b2aaadbbeda3cd57494a5
         // line 6
         echo "
 <div class=\"center\">
-    <div class=\"flags\">
+    <div class=\"flags\" style=\"position: relative; margin-top: 15px;>
         <a href=\"";
         // line 9
         echo $this->env->getExtension('routing')->getPath("_home");
@@ -111,13 +111,13 @@ class __TwigTemplate_22788c146da32c7204d7db274e03d79006e155b2aaadbbeda3cd57494a5
         echo "\" alt=\"spa\">
         </a>
     </div>
-    <div class=\"rotate\">
-        <img src=\"";
+    <div class=\"rotate\" style=\"padding-top: 250px;\">
+        <img style=\"margin-top: 10px;\" class=\"image\" src=\"";
         // line 35
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"index\">
     </div>
-    <img style=\"width: 100%;\" src=\"";
+    <img style=\"width: 100%; margin-top: -300px;\" src=\"";
         // line 37
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/index.jpg"), "html", null, true);
         echo "\" alt=\"index\">

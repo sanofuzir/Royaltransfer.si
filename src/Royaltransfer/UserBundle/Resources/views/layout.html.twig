@@ -17,40 +17,48 @@
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
     <!--script src="js/vendor/modernizr-2.6.2.min.js"></script-->
+    <style>
+        .nav li {
+            margin-left: 5px;
+        }
+        .nav {
+            margin-left: -10px;
+        }
+        .color a:link, color a:visited {
+            color: #c6c8c9;
+        }
+        .nav2 li a:hover {
+            color #c6c8c9;
+            font-size: 120%;
+            background-color: transparent;
+        }
+        #color a:link, #color a:visited;{
+            color: #c6c8c9;
+        }
+        
+     </style>
   </head>
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-fixed-top" style="height: 60px; background-color: black;">
       <div class="navbar-inner">
         <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="{{ path('_home') }}">Royaltransfer</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="{{ path('_home') }}">Home</a></li>
-              <li><a href="{{ path('_about') }}">About</a></li>
-              <li><a href="{{ path('_tours') }}">Izleti</a></li>
-              <li><a href="{{ path('_news') }}">Novice</a></li>
-              <li><a href="{{ path('_galery') }}">Galerija slik</a></li>
-              <li><a href="{{ path('_video_galery') }}">Video galerija</a></li>
-              <li><a href="{{ path('_order') }}">Naročilo transporta</a></li>
-              <li><a href="{{ path('_contact') }}">Kontakt</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">Šifranti <b class="caret"></b></a>
+            <ul class="nav nav2" style="margin-top: -55px;">
+              <li style="float: left; width: 150px; list-style-type: none; text-align: center;"><a style="color: #c6c8c9;" href="{{ path('_home') }}">Domov</a></li>
+              <li style="float: left; width: 150px; list-style-type: none; text-align: center;"><a style="color: #c6c8c9;" href="{{ path('_about') }}">O nas</a></li>
+              <li style="float: left; width: 150px; list-style-type: none; text-align: center;"><a style="color: #c6c8c9;" href="{{ path('_news') }}">Novice</a></li>
+              <li style="float: left; width: 150px; list-style-type: none; text-align: center;"><a style="color: #c6c8c9;" href="{{ path('_tours') }}">Izleti</a></li>
+              <li style="float: left; width: 150px; list-style-type: none; text-align: center;"><a style="color: #c6c8c9;" href="{{ path('_inquiry') }}">Povpraševanje</a></li>
+              <li class="dropdown" style="background-color: transparent; float: left; width: 150px; list-style-type: none; text-align: center;"  text-align: center;>
+                <a style="color: #c6c8c9; background-color: none;" class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">Galerija <b class="caret"></b></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                  <li><a href="{{ path('_home') }}">Zvrsti</a></li>
-                  <li><a href="{{ path('_home') }}">Spremljave</a></li>
-                  <li><a href="{{ path('_home') }}">Zasedbe</a></li>
-                  <li><a href="{{ path('_home') }}">Obdobja</a></li>
+                  <li style="text-align: left;"><a style="color: #020202;" href="{{ path('_galery') }}">Galerija slik</a></li>
+                  <li style="text-align: left;"><a style="color: #020202;" href="{{ path('_video_galery') }}">Video galerija</a></li>
                 </ul>
               </li>
+              <li style="float: left; width: 150px; list-style-type: none; text-align: center;"><a style="color: #c6c8c9;" href="{{ path('_contact') }}">Kontakt</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
@@ -74,6 +82,6 @@
         '@CoreBundle/Resources/assets/js/*' %}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
-    
+
   </body>
 </html>

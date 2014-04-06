@@ -4,11 +4,13 @@
 
 {% block content %}
 <h1 class="title">Povpraševanje</h1>
-<form class="order_form" action="{{ path('_add_inquiry') }}" method="post" {{ form_enctype(form) }} novalidate>
-    {{ form_widget(form) }}
-    <!--div class="form-actions"-->
-        <br />
-        <input type="submit" name="naroči" value="Pošlji" class="btn btn-primary">
-    <!--/div-->
-</form>
+<div class="border">
+    <form class="order_form" action="{{ path('_add_inquiry') }}" method="post" {{ form_enctype(form) }} novalidate>
+        {{ form_widget(form) }}
+        <!--div class="form-actions"-->
+            <br />
+            <input type="submit" name="naroči" value="Pošlji" class="btn btn-primary">
+        <!--/div-->
+    </form>
+</div>
 {% endblock %}

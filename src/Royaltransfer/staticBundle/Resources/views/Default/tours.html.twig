@@ -4,9 +4,9 @@
 
 {% block content %}
 <h1 class="title">Ponujamo izlete na naslednje destinacije:</h1>
-<div>
+<div class="border">
     {% for item in tours %}
-    <div style="border: 10px ridge #707F8E; margin: 5px 5px; padding: 0 5px; width: 46%; float: left; min-height: 150px;">
+    <div class="border-item">
         <p><span style="font-size: 1.5em;"><strong>{{ item.title}}</strong></span></p>
         <p>{{ item.description|length > 50 ? item.description|slice(0, 450) ~ '...' : item.description }}</p>
         <p>Datum izleta:&nbsp;{{ item.date|date('d.m.Y') }}</p>

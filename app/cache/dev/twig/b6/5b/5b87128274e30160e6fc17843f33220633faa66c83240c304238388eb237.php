@@ -36,21 +36,23 @@ class __TwigTemplate_b65b5b87128274e30160e6fc17843f33220633faa66c83240c304238388
     {
         // line 6
         echo "<h1 class=\"title\">Povpraševanje</h1>
-<form class=\"order_form\" action=\"";
-        // line 7
+<div class=\"border\">
+    <form class=\"order_form\" action=\"";
+        // line 8
         echo $this->env->getExtension('routing')->getPath("_add_inquiry");
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
         echo " novalidate>
-    ";
-        // line 8
+        ";
+        // line 9
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'widget');
         echo "
-    <!--div class=\"form-actions\"-->
-        <br />
-        <input type=\"submit\" name=\"naroči\" value=\"Pošlji\" class=\"btn btn-primary\">
-    <!--/div-->
-</form>
+        <!--div class=\"form-actions\"-->
+            <br />
+            <input type=\"submit\" name=\"naroči\" value=\"Pošlji\" class=\"btn btn-primary\">
+        <!--/div-->
+    </form>
+</div>
 ";
     }
 
@@ -66,6 +68,6 @@ class __TwigTemplate_b65b5b87128274e30160e6fc17843f33220633faa66c83240c304238388
 
     public function getDebugInfo()
     {
-        return array (  47 => 8,  41 => 7,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  48 => 9,  42 => 8,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

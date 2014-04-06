@@ -4,15 +4,15 @@
 
 {% block content %}
 <h1 class="title">Galerija slik</h1>
+    <div class="border">
     {% for item in images %}
-    <div style="border: 10px ridge #707F8E; margin: 5px 5px; padding: 0 5px; width: 46%; float: left; min-height: 150px;">
-        <p style="text-align: center;">
+        <div class="border-item galery">
             <a href="{{ asset('galery/')}}{{item.path }}" rel="lightbox">
-              <img style="padding-top: 10px;" src="{{ asset('galery/')}}{{item.path }}" alt="slika" width="250"/>
+              <img src="{{ asset('galery/')}}{{item.path }}" alt="slika"/>
             </a><br />
-            <span style="text-align: center"><strong>{{ item.description|length > 50 ? item.description|slice(0, 450) ~ '...' : item.description }}</strong></span><br />
-            <span style="text-align: center">{{ item.created|date('d.m.Y') }}</span>
-        </p>
-    </div>
+            <span><strong>{{ item.description|length > 50 ? item.description|slice(0, 450) ~ '...' : item.description }}</strong></span><br />
+            <span>{{ item.created|date('d.m.Y') }}</span>
+        </div>
     {% endfor %}
+    </div>
 {% endblock %}

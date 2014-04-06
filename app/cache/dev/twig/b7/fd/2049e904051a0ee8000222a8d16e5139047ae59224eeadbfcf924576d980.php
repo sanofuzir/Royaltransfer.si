@@ -36,7 +36,7 @@ class __TwigTemplate_b7fd2049e904051a0ee8000222a8d16e5139047ae59224eeadbfcf92457
     {
         // line 6
         echo "<h1 class=\"title\">O nas</h1>
-<div style=\"text-align: justify;\">
+<div class=\"border\" style=\"text-align: justify;\">
     <br />
     <p style=\"font-size: 120%;\"><b>Dobrodošli na naši spletni strani</b></p>
     

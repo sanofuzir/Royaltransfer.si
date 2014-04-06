@@ -4,13 +4,13 @@
 
 {% block content %}
 <h1 class="title">Video galerija</h1>
+    <div class="border">
     {% for item in videos %}
-    <div style="border: 10px ridge #707F8E; margin: 5px 5px; padding: 0 5px; width: 46%; float: left; min-height: 150px;">
-        <p style="text-align: center;">
-            <iframe width="400" height="300" src="{{ item.link }}" style="margin-top: 10px;"></iframe><br />
-            <span style="text-align: center"><strong>{{ item.title|length > 50 ? item.title|slice(0, 450) ~ '...' : item.title }}</strong></span><br />
-            <span style="text-align: center">{{ item.created|date('d.m.Y') }}</span>
-        </p>
+    <div class="border-item galery" style="height: 350px;">
+        <iframe src="{{ item.link }}" style="height: 280px;"></iframe><br />
+        <span><strong>{{ item.title|length > 50 ? item.title|slice(0, 450) ~ '...' : item.title }}</strong></span><br />
+        <span>{{ item.created|date('d.m.Y') }}</span>
     </div>
     {% endfor %}
+    </div>
 {% endblock %}

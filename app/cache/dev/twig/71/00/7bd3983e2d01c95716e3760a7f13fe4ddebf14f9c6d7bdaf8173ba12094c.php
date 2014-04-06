@@ -36,14 +36,14 @@ class __TwigTemplate_71007bd3983e2d01c95716e3760a7f13fe4ddebf14f9c6d7bdaf8173ba1
     {
         // line 6
         echo "<h1 class=\"title\">Ponujamo izlete na naslednje destinacije:</h1>
-<div>
+<div class=\"border\">
     ";
         // line 8
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["tours"]) ? $context["tours"] : $this->getContext($context, "tours")));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
             // line 9
-            echo "    <div style=\"border: 10px ridge #707F8E; margin: 5px 5px; padding: 0 5px; width: 46%; float: left; min-height: 150px;\">
+            echo "    <div class=\"border-item\">
         <p><span style=\"font-size: 1.5em;\"><strong>";
             // line 10
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "title"), "html", null, true);
