@@ -35,7 +35,20 @@
         #color a:link, #color a:visited;{
             color: #c6c8c9;
         }
-        
+        .border {
+           /* border: 10px ridge #c6c8c9;
+            -webkit-border-image:url({{ asset('bundles/static/images/krona.png') }}) 30 30 stretch; /* Safari 5 */
+          /*  -o-border-image:url({{ asset('bundles/static/images/krona.png') }}) 30 30 stretch; /* Opera */
+          /*  border-image:url({{ asset('bundles/static/images/krom-2.png') }}) 30 30 stretch; */
+            margin: 25px 0; 
+            padding: 10px 30px;
+            border: 15px solid transparent;
+            border-image: url('{{ asset('bundles/static/images/krom-2.png') }}');
+            border-image-slice: 20;
+            border-image-width: 1 2 1 2;
+            border-image-outset: 0;
+            border-image-repeat: repeat;
+        }   
      </style>
   </head>
 

@@ -7,6 +7,7 @@
 <form class="border tour_form" action="{{ tour.id ? path('_admin_edit_tour', {'id': tour.id}) : path('_admin_add_tour') }}" method="post" {{ form_enctype(form) }} novalidate>
     {{ form_widget(form) }}
     <!--div class="form-actions"-->
+        <br />
         <input type="submit" name="save" value="Shrani" class="btn btn-primary">
     <!--/div-->
 </form>

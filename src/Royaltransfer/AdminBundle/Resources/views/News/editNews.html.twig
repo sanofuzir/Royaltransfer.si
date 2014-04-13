@@ -7,6 +7,7 @@
 <form class="border news_form" action="{{ news.id ? path('_admin_edit_news', {'id': news.id}) : path('_admin_add_news') }}" method="post" {{ form_enctype(form) }} novalidate>
     {{ form_widget(form) }}
     <!--div class="form-actions"-->
+        <br />
         <input type="submit" name="save" value="Shrani" class="btn btn-primary">
     <!--/div-->
 </form>

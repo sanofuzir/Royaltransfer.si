@@ -138,11 +138,6 @@ body {
     text-indent: 10px;
 }
 /*News styles*/
-.border {
-    border: 10px ridge #c6c8c9; 
-    margin: 25px 0; 
-    padding: 20px 10px; 
-}
 .border-item {
     background-color: #221f1f;
     margin-bottom: 20px;
@@ -179,9 +174,9 @@ body {
     -moz-animation:spin 4s linear infinite;
     animation:spin 4s linear infinite;
 }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-moz-keyframes spin { 100% { -moz-transform: rotatey(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotatey(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotatey(360deg); transform:rotatey(360deg); } }
 
 .image-meni {
     visibility: hidden;

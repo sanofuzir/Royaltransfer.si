@@ -19,6 +19,10 @@ class NewsType extends AbstractType
                 'attr'  => array('class' => 'span2', 'rows' => 15, 'cols'=>80),
                 'label' => 'Novica'
             ))
+            ->add('file', 'file', array(
+                'attr'  => array('class' => 'span2'),
+                'label' =>  'Slika'
+            ))
             ;
     }
 

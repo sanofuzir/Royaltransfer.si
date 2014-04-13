@@ -9,8 +9,9 @@
     <div class="border-item">
         <p><span style="font-size: 1.5em;"><strong>{{ item.title}}</strong></span></p>
         <p>{{ item.description|length > 50 ? item.description|slice(0, 450) ~ '...' : item.description }}</p>
-        <p>Datum izleta:&nbsp;{{ item.date|date('d.m.Y') }}</p>
-        <p style="text-align: right; padding-top: 10px; padding-right: 10px;"><strong>{{ item.created|date('d.m.Y')}}</strong></p>
+        <a href="{{ asset('tour/')}}{{item.path }}" rel="lightbox">
+        <img src="{{ asset('tour/')}}{{item.path }}" alt="slika" width=300/>
+      </a><br />
     </div>
     {% endfor %}
 </div>

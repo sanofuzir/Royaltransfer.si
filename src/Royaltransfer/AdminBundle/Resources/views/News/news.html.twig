@@ -11,6 +11,7 @@
       <th>Id</th>
       <th>Naslov</th>
       <th>Text</th>
+      <th>Slika</th>
       <th>Datum vnosa</th>
       <th>&nbsp;</th>
     </tr>
@@ -21,6 +22,11 @@
       <td>{{ item.id }}</td>
       <td>{{ item.name}}</td>
       <td>{{ item.text|length > 50 ? item.text|slice(0, 50) ~ '...' : item.text }}</td>
+      <td>
+          <a href="{{ asset('news/')}}{{item.path }}" rel="lightbox">
+            <img src="{{ asset('news/')}}{{item.path }}" alt="slika" width="50"/>
+          </a>
+      </td>
       <td>{{ item.created|date('d.m.Y H:i:s')}}</td>
       <td><a href="{{ path('_admin_edit_news', {'id': item.id}) }}" title="Uredi novico">
               <i class="icon-edit"></i>Uredi</a>&nbsp;

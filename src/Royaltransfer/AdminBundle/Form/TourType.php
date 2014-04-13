@@ -19,11 +19,9 @@ class TourType extends AbstractType
                 'attr'  => array('class' => 'span2', 'rows' => 15, 'cols'=>80),
                 'label' => 'Opis:'
             ))
-            ->add('date', 'date', array(
-                'attr'  => array('class' => 'span1'),
-                'label' => 'Datum izleta:',
-                'widget' => 'single_text',
-                'format' => 'dd.MM.yyyy'
+            ->add('file', 'file', array(
+                'attr'  => array('class' => 'span2'),
+                'label' =>  'Slika'
             ))
         ;
     }

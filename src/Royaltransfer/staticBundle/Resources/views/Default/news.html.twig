@@ -9,6 +9,9 @@
       <div class="border-item">
           <p><span style="font-size: 1.5em;"><strong>{{ item.name}}</strong></span></p>
           <p>{{ item.text|length > 50 ? item.text|slice(0, 450) ~ '...' : item.text }}</p>
+          <a href="{{ asset('news/')}}{{item.path }}" rel="lightbox">
+              <img src="{{ asset('news/')}}{{item.path }}" alt="slika" width=300/>
+            </a><br />
           <p style="text-align: right; padding-top: 10px; padding-right: 10px;"><strong>{{ item.created|date('d.m.Y')}}</strong></p>
       </div>
     {% endfor %}

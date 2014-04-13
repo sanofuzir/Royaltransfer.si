@@ -83,7 +83,32 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         #color a:link, #color a:visited;{
             color: #c6c8c9;
         }
-        
+        .border {
+           /* border: 10px ridge #c6c8c9;
+            -webkit-border-image:url(";
+        // line 40
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
+        echo ") 30 30 stretch; /* Safari 5 */
+          /*  -o-border-image:url(";
+        // line 41
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
+        echo ") 30 30 stretch; /* Opera */
+          /*  border-image:url(";
+        // line 42
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krom-2.png"), "html", null, true);
+        echo ") 30 30 stretch; */
+            margin: 25px 0; 
+            padding: 10px 30px;
+            border: 15px solid transparent;
+            border-image: url('";
+        // line 46
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krom-2.png"), "html", null, true);
+        echo "');
+            border-image-slice: 20;
+            border-image-width: 1 2 1 2;
+            border-image-outset: 0;
+            border-image-repeat: repeat;
+        }   
      </style>
   </head>
 
@@ -98,11 +123,11 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                    onmouseover=\"document.getElementById('div1').style.visibility = 'visible';\"
                    onmouseout=\"document.getElementById('div1').style.visibility = 'hidden';\"
                    href=\"";
-        // line 52
+        // line 65
         echo $this->env->getExtension('routing')->getPath("_home");
         echo "\">Domov</a>
                 <img id=\"div1\" class=\"image image-meni\" src=\"";
-        // line 53
+        // line 66
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
               </li>
@@ -111,11 +136,11 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                      onmouseover=\"document.getElementById('div2').style.visibility = 'visible';\"
                      onmouseout=\"document.getElementById('div2').style.visibility = 'hidden';\"
                      href=\"";
-        // line 59
+        // line 72
         echo $this->env->getExtension('routing')->getPath("_about");
         echo "\">O nas</a>
                 <img id=\"div2\" class=\"image image-meni\" src=\"";
-        // line 60
+        // line 73
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
               </li>
@@ -124,11 +149,11 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                      onmouseover=\"document.getElementById('div3').style.visibility = 'visible';\"
                      onmouseout=\"document.getElementById('div3').style.visibility = 'hidden';\"
                      href=\"";
-        // line 66
+        // line 79
         echo $this->env->getExtension('routing')->getPath("_news");
         echo "\">Novice</a>
                   <img id=\"div3\" class=\"image image-meni\" src=\"";
-        // line 67
+        // line 80
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
               </li>
@@ -137,11 +162,11 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                      onmouseover=\"document.getElementById('div4').style.visibility = 'visible';\"
                      onmouseout=\"document.getElementById('div4').style.visibility = 'hidden';\"
                      href=\"";
-        // line 73
+        // line 86
         echo $this->env->getExtension('routing')->getPath("_tours");
         echo "\">Izleti</a>
                   <img id=\"div4\" class=\"image image-meni\" src=\"";
-        // line 74
+        // line 87
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
               </li>
@@ -150,11 +175,11 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                      onmouseover=\"document.getElementById('div5').style.visibility = 'visible';\"
                      onmouseout=\"document.getElementById('div5').style.visibility = 'hidden';\"
                      href=\"";
-        // line 80
+        // line 93
         echo $this->env->getExtension('routing')->getPath("_inquiry");
         echo "\">Povpraševanje</a>
                   <img id=\"div5\" class=\"image image-meni\" src=\"";
-        // line 81
+        // line 94
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
               </li>
@@ -166,19 +191,19 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                 <ul class=\"dropdown-menu mydropdown\" role=\"menu\" aria-labelledby=\"dLabel\">
                   <li style=\"text-align: left;\">
                       <a style=\"color: #020202;\" href=\"";
-        // line 90
+        // line 103
         echo $this->env->getExtension('routing')->getPath("_galery");
         echo "\">Galerija slik</a>
                   </li>
                   <li style=\"text-align: left;\">
                       <a style=\"color: #020202;\" href=\"";
-        // line 93
+        // line 106
         echo $this->env->getExtension('routing')->getPath("_video_galery");
         echo "\">Video galerija</a>
                   </li>
                 </ul>
                 <img id=\"div6\" class=\"image image-meni\" src=\"";
-        // line 96
+        // line 109
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
               </li>
@@ -187,11 +212,11 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                      onmouseover=\"document.getElementById('div7').style.visibility = 'visible';\"
                      onmouseout=\"document.getElementById('div7').style.visibility = 'hidden';\"
                      href=\"";
-        // line 102
+        // line 115
         echo $this->env->getExtension('routing')->getPath("_contact");
         echo "\">Kontakt</a>
                   <img id=\"div7\"class=\"image image-meni\" src=\"";
-        // line 103
+        // line 116
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
               </li>
@@ -202,16 +227,16 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
 
     <div class=\"container\">
       ";
-        // line 111
+        // line 124
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "flashbag"), "all", array(), "method"));
         foreach ($context['_seq'] as $context["type"] => $context["messages"]) {
-            // line 112
+            // line 125
             echo "          ";
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["messages"]) ? $context["messages"] : $this->getContext($context, "messages")));
             foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-                // line 113
+                // line 126
                 echo "              <div class=\"alert alert-";
                 echo twig_escape_filter($this->env, (isset($context["type"]) ? $context["type"] : $this->getContext($context, "type")), "html", null, true);
                 echo " fade in\" data-alert=\"alert\"><a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a><div class=\"alert-heading\">";
@@ -222,16 +247,16 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 115
+            // line 128
             echo "      ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['type'], $context['messages'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 116
+        // line 129
         echo "      ";
         $this->displayBlock('content', $context, $blocks);
-        // line 117
+        // line 130
         echo "
     </div> <!-- /container -->
 
@@ -239,11 +264,11 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     ";
-        // line 123
+        // line 136
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "7930e18_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7930e18_0") : $this->env->getExtension('assets')->getAssetUrl("js/scripts_jquery-1.9.1_1.js");
-            // line 127
+            // line 140
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -269,7 +294,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
     ";
         }
         unset($context["asset_url"]);
-        // line 129
+        // line 142
         echo "
   </body>
 </html>
@@ -281,7 +306,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
     {
     }
 
-    // line 116
+    // line 129
     public function block_content($context, array $blocks = array())
     {
     }
@@ -298,6 +323,6 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
 
     public function getDebugInfo()
     {
-        return array (  285 => 116,  280 => 8,  273 => 129,  247 => 127,  243 => 123,  235 => 117,  232 => 116,  226 => 115,  215 => 113,  210 => 112,  206 => 111,  195 => 103,  191 => 102,  182 => 96,  176 => 93,  170 => 90,  158 => 81,  154 => 80,  145 => 74,  141 => 73,  132 => 67,  128 => 66,  119 => 60,  115 => 59,  106 => 53,  102 => 52,  67 => 19,  41 => 17,  37 => 12,  30 => 8,  21 => 1,  48 => 9,  42 => 8,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  310 => 129,  305 => 8,  298 => 142,  272 => 140,  268 => 136,  260 => 130,  257 => 129,  251 => 128,  240 => 126,  235 => 125,  231 => 124,  220 => 116,  216 => 115,  207 => 109,  201 => 106,  195 => 103,  183 => 94,  179 => 93,  170 => 87,  166 => 86,  157 => 80,  153 => 79,  144 => 73,  140 => 72,  131 => 66,  127 => 65,  105 => 46,  98 => 42,  94 => 41,  90 => 40,  67 => 19,  41 => 17,  37 => 12,  30 => 8,  21 => 1,);
     }
 }
