@@ -7527,9 +7527,11 @@ root {
 body {
     background-color: #020202;
     color: #c6c8c9;
-    font-size: 16px;
+    font-size: 18px;
 }
-
+.main-menu-title {
+    font-size: 1.3em;
+}
 .container {
     margin-top: 60px;
     background-color: #020202;
@@ -7537,7 +7539,8 @@ body {
 }
 
 .title {
-    margin-top: 50px;
+    text-align: center;
+    margin-top: 90px;
     padding-left: 50px;
     line-height: 1em;
     color: #c6c8c9;
@@ -7546,7 +7549,6 @@ body {
     text-shadow:0px 0px 0 rgb(174,176,177),
                 1px 1px 0 rgb(159,161,162),
                 2px 2px 0 rgb(145,147,148),
-                3px 3px 0 rgb(130,132,133),
                 0px 0px 6px rgba(0,0,0,.2);
 }
 
@@ -7618,12 +7620,12 @@ body {
 }
 .flags {
     float: right;
-    margin-right: 80px;
+    margin-right: 88px;
 }
 .flags img {
     display: inline-block;
-    height: 15px;
-    width: 25px;
+    height: 12px;
+    width: 22px;
     border: 3px solid none;
 }
 .flags a:link, .flags a:visited {

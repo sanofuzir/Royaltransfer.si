@@ -66,8 +66,7 @@ class __TwigTemplate_7bea14ca7fef0d828edb7d0fa00f3425b7652ac4ff80432a5877d033e0c
         // line 21
         echo $this->env->getExtension('routing')->getPath("_admin_inquirys");
         echo "\">Pregled naročil in urejanje</a>
-            <br /><br />
-            <a href=\"#\">Seznam povezav in urejanje</a>
+            <br /><br /><br />
         </div>
     </div>
 </section>

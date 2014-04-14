@@ -5,6 +5,7 @@
 {% block content %}
 
 <div class="center">
+    <!--
     <div style="margin: 50px 0px 0px 30px; width: 50px; height: 30px;">
         <audio controls>
           <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/mpeg">
@@ -12,35 +13,11 @@
           <embed height="50" width="50" src="{{ asset('bundles/static/Music/music.mp3') }}">
         </audio>
     </div>
-    <div class="flags" style="position: relative; margin-top: -30px;">
-        <a href="{{ path('_home') }}">
-            <img src="{{ asset('bundles/static/images/eng.png') }}" alt="eng">
-        </a>
-        <a href="{{ path('_home') }}">
-            <img src="{{ asset('bundles/static/images/slo.gif') }}" alt="slo">
-        </a>
-        <a href="{{ path('_home') }}">
-            <img src="{{ asset('bundles/static/images/hr.jpg')  }}" alt="hr">
-        </a>
-        <a href="{{ path('_home') }}">
-            <img src="{{ asset('bundles/static/images/srb.jpg') }}" alt="srb">
-        </a>
-        <a href="{{ path('_home') }}">
-            <img src="{{ asset('bundles/static/images/bih.gif') }}" alt="bih">
-        </a>
-        <a href="{{ path('_home') }}">
-            <img src="{{ asset('bundles/static/images/ita.jpg') }}" alt="ita">
-        </a>
-        <a href="{{ path('_home') }}">
-            <img src="{{ asset('bundles/static/images/nem.jpg') }}" alt="nem">
-        </a>
-        <a href="{{ path('_home') }}">
-            <img src="{{ asset('bundles/static/images/spa.jpg') }}" alt="spa">
-        </a>
-    </div>
+    -->
     <div class="rotate" style="padding-top: 250px;">
         <img style="margin-top: 10px;" class="image" src="{{ asset('bundles/static/images/krona.png') }}" alt="index">
     </div>
     <img style="width: 100%; margin-top: -300px;" src="{{ asset('bundles/static/images/index.jpg') }}" alt="index">
 </div>
+<div style="margin-top: -100px;" class="border"><img src="{{ asset('bundles/static/images/border-bottom.jpg') }}" alt="slika" width=300/></div>
 {% endblock %}
