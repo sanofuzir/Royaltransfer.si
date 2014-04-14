@@ -13,6 +13,7 @@
            '@CoreBundle/Resources/assets/css/bootstrap.css'
            '@CoreBundle/Resources/assets/css/bootstrap-theme.css'
            '@CoreBundle/Resources/assets/css/style.css'
+           '@CoreBundle/Resources/assets/css/lightbox.css'
     %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -28,27 +29,40 @@
             color: #c6c8c9;
         }
         .nav2 li a:hover {
-            color #c6c8c9;
+            color: #c6c8c9;
             font-size: 120%;
             background-color: transparent;
         }
-        #color a:link, #color a:visited;{
+        #color a:link, #color a:visited{
             color: #c6c8c9;
         }
-        .border {
-           /* border: 10px ridge #c6c8c9;
-            -webkit-border-image:url({{ asset('bundles/static/images/krona.png') }}) 30 30 stretch; /* Safari 5 */
-          /*  -o-border-image:url({{ asset('bundles/static/images/krona.png') }}) 30 30 stretch; /* Opera */
-          /*  border-image:url({{ asset('bundles/static/images/krom-2.png') }}) 30 30 stretch; */
-            margin: 25px 0; 
-            padding: 10px 30px;
-            border: 15px solid transparent;
-            border-image: url('{{ asset('bundles/static/images/krom-2.png') }}');
-            border-image-slice: 20;
-            border-image-width: 1 2 1 2;
-            border-image-outset: 0;
-            border-image-repeat: repeat;
-        }   
+        .table {
+            width: 100%;
+            background-image:url('{{ asset('bundles/static/images/polje.jpg') }}');
+            background-color: black;
+            margin: 10px 0px;
+            height: 350px;
+        }
+        .galery {
+            height: 100%;
+        }
+        .galery-item {
+            width: 31%;
+            border-image: url('{{ asset('bundles/static/images/border.jpg') }}') 20 10 repeat;
+            border-image-width: 10px;
+            height: 300px;
+            background-image:url('{{ asset('bundles/static/images/polje-small.png') }}');
+            background-color: black;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            float: left;
+            text-align: center;
+        }
+        .galery-item img {
+            padding: 30px;
+            display: inline;
+            width: 250px;
+        }
      </style>
   </head>
 
@@ -60,58 +74,73 @@
             <ul class="nav nav2" style="margin-top: -55px;">
               <li style="float: left; width: 150px; list-style-type: none; text-align: center;">
                 <a style="color: #c6c8c9;" 
-                   onmouseover="document.getElementById('div1').style.visibility = 'visible';"
-                   onmouseout="document.getElementById('div1').style.visibility = 'hidden';"
-                   href="{{ path('_home') }}">Domov</a>
+                   onmouseover="document.getElementById('div1').style.visibility = 'visible';
+                   var audio = document.getElementById('mySoundClip');audio.load();audio.play();"
+                   onmouseout="document.getElementById('div1').style.visibility = 'hidden';
+                   var audio = document.getElementById('mySoundClip');audio.pause();"
+               href="{{ path('_home') }}"><span class="main-menu-title">Domov</span></a>
                 <img id="div1" class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
               </li>
               <li style="float: left; width: 150px; list-style-type: none; text-align: center;">
                   <a style="color: #c6c8c9;"
-                     onmouseover="document.getElementById('div2').style.visibility = 'visible';"
-                     onmouseout="document.getElementById('div2').style.visibility = 'hidden';"
-                     href="{{ path('_about') }}">O nas</a>
+                     onmouseover="document.getElementById('div2').style.visibility = 'visible';
+                     var audio = document.getElementById('mySoundClip');audio.load();audio.play();"
+                     onmouseout="document.getElementById('div2').style.visibility = 'hidden';
+                     var audio = document.getElementById('mySoundClip');audio.pause();"
+                 href="{{ path('_about') }}"><span class="main-menu-title">O nas</span></a>
                 <img id="div2" class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
               </li>
               <li style="float: left; width: 150px; list-style-type: none; text-align: center;">
                   <a style="color: #c6c8c9;"
-                     onmouseover="document.getElementById('div3').style.visibility = 'visible';"
-                     onmouseout="document.getElementById('div3').style.visibility = 'hidden';"
-                     href="{{ path('_news') }}">Novice</a>
+                     onmouseover="document.getElementById('div3').style.visibility = 'visible';
+                     var audio = document.getElementById('mySoundClip');audio.load();audio.play();"
+                     onmouseout="document.getElementById('div3').style.visibility = 'hidden';
+                     var audio = document.getElementById('mySoundClip');audio.pause();"
+                 href="{{ path('_news') }}"><span class="main-menu-title">Novice</span></a>
                   <img id="div3" class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
               </li>
               <li style="float: left; width: 150px; list-style-type: none; text-align: center;">
                   <a style="color: #c6c8c9;"
-                     onmouseover="document.getElementById('div4').style.visibility = 'visible';"
-                     onmouseout="document.getElementById('div4').style.visibility = 'hidden';"
-                     href="{{ path('_tours') }}">Izleti</a>
+                     onmouseover="document.getElementById('div4').style.visibility = 'visible';
+                     var audio = document.getElementById('mySoundClip');audio.load();audio.play();"
+                     onmouseout="document.getElementById('div4').style.visibility = 'hidden';
+                     var audio = document.getElementById('mySoundClip');audio.pause();"
+                 href="{{ path('_tours') }}"><span class="main-menu-title">Izleti</span></a>
                   <img id="div4" class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
               </li>
               <li style="float: left; width: 150px; list-style-type: none; text-align: center;">
                   <a style="color: #c6c8c9;"
-                     onmouseover="document.getElementById('div5').style.visibility = 'visible';"
-                     onmouseout="document.getElementById('div5').style.visibility = 'hidden';"
-                     href="{{ path('_inquiry') }}">Povpraševanje</a>
+                     onmouseover="document.getElementById('div5').style.visibility = 'visible';
+                     var audio = document.getElementById('mySoundClip');audio.load();audio.play();"
+                     onmouseout="document.getElementById('div5').style.visibility = 'hidden';
+                     var audio = document.getElementById('mySoundClip');audio.pause();"
+                 href="{{ path('_inquiry') }}"><span class="main-menu-title">Povpraševanje</span></a>
                   <img id="div5" class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
               </li>
               <li class="dropdown" id="div8"
                   style="background-color: transparent; float: left; width: 150px; list-style-type: none; text-align: center;"  
-                  onmouseover="document.getElementById('div6').style.visibility = 'visible';"
-                  onmouseout="document.getElementById('div6').style.visibility = 'hidden';">
-                <a style="color: #c6c8c9; background-color: none;" class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">Galerija <b class="caret"></b></a>
+                  onmouseover="document.getElementById('div6').style.visibility = 'visible';
+                   var audio = document.getElementById('mySoundClip');audio.load();audio.play();"
+                   onmouseout="document.getElementById('div6').style.visibility = 'hidden';
+                   var audio = document.getElementById('mySoundClip');audio.pause();">
+                <a style="color: #c6c8c9; background-color: none;" class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
+                    <span class="main-menu-title">Galerija</span><b class="caret"></b></a>
                 <ul class="dropdown-menu mydropdown" role="menu" aria-labelledby="dLabel">
                   <li style="text-align: left;">
-                      <a style="color: #020202;" href="{{ path('_galery') }}">Galerija slik</a>
+                      <a style="color: #020202;" href="{{ path('_galery') }}"><span class="main-menu-title">Galerija</span> slik</a>
                   </li>
                   <li style="text-align: left;">
-                      <a style="color: #020202;" href="{{ path('_video_galery') }}">Video galerija</a>
+                      <a style="color: #020202;" href="{{ path('_video_galery') }}"><span class="main-menu-title">Video galerija</span></a>
                   </li>
                 </ul>
                 <img id="div6" class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
               </li>
               <li style="float: left; width: 150px; list-style-type: none; text-align: center;">
                   <a style="color: #c6c8c9;"
-                     onmouseover="document.getElementById('div7').style.visibility = 'visible';"
-                     onmouseout="document.getElementById('div7').style.visibility = 'hidden';"
+                     onmouseover="document.getElementById('div7').style.visibility = 'visible';
+                     var audio = document.getElementById('mySoundClip');audio.load();audio.play();"
+                     onmouseout="document.getElementById('div7').style.visibility = 'hidden';
+                     var audio = document.getElementById('mySoundClip');audio.pause();"
                      href="{{ path('_contact') }}">Kontakt</a>
                   <img id="div7"class="image image-meni" src="{{ asset('bundles/static/images/krona.png') }}" alt="eng">
               </li>
@@ -119,7 +148,10 @@
         </div>
       </div>
     </div>
-
+    <audio id="mySoundClip">
+        <source src="{{ asset('bundles/static/Music/car.mp3') }}" type="audio/ogg">
+        <source src="{{ asset('bundles/static/Music/car.mp3') }}" type="audio/mpeg">
+    </audio>
     <div class="container">
       {% for type, messages in app.session.flashbag.all() %}
           {% for message in messages %}
@@ -134,7 +166,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     {% javascripts  output='js/scripts.js'
-        '@CoreBundle/Resources/assets/js/vendor/jquery-1.9.1.js'
+        '@CoreBundle/Resources/assets/js/vendor/jquery-1.11.0.min.js'
+        '@CoreBundle/Resources/assets/js/vendor/lightbox.min.js'
         '@CoreBundle/Resources/assets/js/vendor/bootstrap.js'
         '@CoreBundle/Resources/assets/js/*' %}
         <script src="{{ asset_url }}"></script>

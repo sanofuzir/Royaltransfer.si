@@ -4,7 +4,8 @@
 
 {% block content %}
 <h1 class="title">O nas</h1>
-<div class="border" style="text-align: justify;">
+<div class="border"><img src="{{ asset('bundles/static/images/border-top.jpg') }}" alt="slika" width=300/></div>
+<div style="text-align: justify; padding: 10px 50px;">
     <br />
     <p style="font-size: 120%;"><b>Dobrodošli na naši spletni strani</b></p>
     
@@ -34,4 +35,5 @@
     <br />
     <p><b>Zahvaljujemo se Vam za obisk naše spletne strani.</b></p>
 </div>
+<div class="border"><img src="{{ asset('bundles/static/images/border-bottom.jpg') }}" alt="slika" width=300/></div>
 {% endblock %}

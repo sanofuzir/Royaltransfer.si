@@ -36,7 +36,11 @@ class __TwigTemplate_b7fd2049e904051a0ee8000222a8d16e5139047ae59224eeadbfcf92457
     {
         // line 6
         echo "<h1 class=\"title\">O nas</h1>
-<div class=\"border\" style=\"text-align: justify;\">
+<div class=\"border\"><img src=\"";
+        // line 7
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/border-top.jpg"), "html", null, true);
+        echo "\" alt=\"slika\" width=300/></div>
+<div style=\"text-align: justify; padding: 10px 50px;\">
     <br />
     <p style=\"font-size: 120%;\"><b>Dobrodošli na naši spletni strani</b></p>
     
@@ -66,6 +70,10 @@ class __TwigTemplate_b7fd2049e904051a0ee8000222a8d16e5139047ae59224eeadbfcf92457
     <br />
     <p><b>Zahvaljujemo se Vam za obisk naše spletne strani.</b></p>
 </div>
+<div class=\"border\"><img src=\"";
+        // line 38
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/border-bottom.jpg"), "html", null, true);
+        echo "\" alt=\"slika\" width=300/></div>
 ";
     }
 
@@ -81,6 +89,6 @@ class __TwigTemplate_b7fd2049e904051a0ee8000222a8d16e5139047ae59224eeadbfcf92457
 
     public function getDebugInfo()
     {
-        return array (  38 => 6,  35 => 5,  29 => 3,);
+        return array (  75 => 38,  41 => 7,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

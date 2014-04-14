@@ -5,7 +5,14 @@
 {% block content %}
 
 <div class="center">
-    <div class="flags" style="position: relative; margin-top: 15px;">
+    <div style="margin: 50px 0px 0px 30px; width: 50px; height: 30px;">
+        <audio controls>
+          <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/mpeg">
+          <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/ogg">
+          <embed height="50" width="50" src="{{ asset('bundles/static/Music/music.mp3') }}">
+        </audio>
+    </div>
+    <div class="flags" style="position: relative; margin-top: -30px;">
         <a href="{{ path('_home') }}">
             <img src="{{ asset('bundles/static/images/eng.png') }}" alt="eng">
         </a>

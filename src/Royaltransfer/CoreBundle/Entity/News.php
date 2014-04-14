@@ -59,6 +59,13 @@ class News
     /**
      * @var string
      *
+     * @ORM\Column(length=255, nullable=true)
+     */
+    protected $video;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(type="datetime")
      */
     protected $created;
@@ -237,6 +244,29 @@ class News
     public function getText()
     {
         return $this->text;
+    }
+    
+    /**
+     * Set video
+     *
+     * @param string $video
+     * @return News
+     */
+    public function setVideo($video)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return string
+     */
+    public function getVideo()
+    {
+        return $this->video;
     }
     
     /**

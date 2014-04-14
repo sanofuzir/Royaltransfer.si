@@ -13,6 +13,7 @@
            '@CoreBundle/Resources/assets/css/bootstrap.css'
            '@CoreBundle/Resources/assets/css/bootstrap-theme.css'
            '@CoreBundle/Resources/assets/css/style.css'
+           '@CoreBundle/Resources/assets/css/lightbox.css'
     %}
     <link rel="stylesheet" href="{{ asset_url }}" />
     {% endstylesheets %}
@@ -124,7 +125,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     {% javascripts  output='js/scripts.js'
-        '@CoreBundle/Resources/assets/js/vendor/jquery-1.9.1.js'
+        '@CoreBundle/Resources/assets/js/vendor/jquery-1.11.0.min.js'
+        '@CoreBundle/Resources/assets/js/vendor/lightbox.min.js'
         '@CoreBundle/Resources/assets/js/vendor/bootstrap.js'
         '@CoreBundle/Resources/assets/js/*' %}
         <script src="{{ asset_url }}"></script>

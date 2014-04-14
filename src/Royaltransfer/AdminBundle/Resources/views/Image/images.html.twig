@@ -16,13 +16,15 @@
     </tr>
   </thead>
   <tbody>
+    {% set counter = 0 %}
     {% for image in images %}
+    {% set counter = counter + 1 %}
     <tr>
       <td>{{ image.id }}</td>
       <td>{{ image.description|length > 50 ? image.description|slice(0, 50) ~ '...' : image.description }}</td>
       <td>{{ image.created|date('d.m.Y H:i:s')}}</td>
       <td>
-          <a href="{{ asset('galery/')}}{{image.path }}" rel="lightbox">
+          <a href="{{ asset('galery/')}}{{image.path }}" data-lightbox="galery-{{ counter}}">
             <img src="{{ asset('galery/')}}{{image.path }}" alt="slika" width="50"/>
           </a>
       </td>

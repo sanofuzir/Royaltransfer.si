@@ -36,11 +36,21 @@ class __TwigTemplate_926fe9f5a9c779fda473b3cb7c680bdb23a8e7be1e20046df4ba2fa41f4
     {
         // line 6
         echo "<h1 class=\"title\">Kontakt</h1>
-<br />
+<div class=\"border\"><img src=\"";
+        // line 7
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/border-top.jpg"), "html", null, true);
+        echo "\" alt=\"slika\" width=300/></div>
+
 <div class=\"border\" style=\"width: 40%; padding: 30px;\">
     <p><b>Telefon:</b>&nbsp;+386 70 66 57 18</p>
+    <br />
     <p class=\"email\"><b>Email:</b>&nbsp;<a href=\"mailto:info@royaltransfer.com\">info@royaltransfer.com</a></p>
 </div>
+
+<div style=\"margin-top: 300px;\" class=\"border\"><img src=\"";
+        // line 15
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/border-bottom.jpg"), "html", null, true);
+        echo "\" alt=\"slika\" width=300/></div>
 ";
     }
 
@@ -56,6 +66,6 @@ class __TwigTemplate_926fe9f5a9c779fda473b3cb7c680bdb23a8e7be1e20046df4ba2fa41f4
 
     public function getDebugInfo()
     {
-        return array (  38 => 6,  35 => 5,  29 => 3,);
+        return array (  52 => 15,  41 => 7,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

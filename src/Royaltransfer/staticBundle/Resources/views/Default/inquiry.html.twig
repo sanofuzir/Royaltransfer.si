@@ -4,7 +4,8 @@
 
 {% block content %}
 <h1 class="title">Povpraševanje</h1>
-<div class="border">
+<div class="border"><img src="{{ asset('bundles/static/images/border-top.jpg') }}" alt="slika" width=300/></div>
+<div>
     <form class="order_form" action="{{ path('_add_inquiry') }}" method="post" {{ form_enctype(form) }} novalidate>
         {{ form_widget(form) }}
         <!--div class="form-actions"-->
@@ -13,4 +14,5 @@
         <!--/div-->
     </form>
 </div>
+<div style="margin-top: 30px;" class="border"><img src="{{ asset('bundles/static/images/border-bottom.jpg') }}" alt="slika" width=300/></div>
 {% endblock %}

@@ -34,7 +34,7 @@ class NewsManager {
     }
 
     /**
-     * Persist ad details
+     * Persist News details
      *
      * @param  News $entity
      * @return News

@@ -9,23 +9,33 @@
   <thead>
     <tr>
       <th>Id</th>
-      <th>Naslov</th>
-      <th>Text</th>
-      <th>Slika</th>
-      <th>Datum vnosa</th>
+      <th style="text-align: center;">Naslov</th>
+      <th style="text-align: center;">Text</th>
+      <th style="text-align: center;">Slika</th>
+      <th style="text-align: center;">Video</th>
+      <th style="text-align: center;">Datum vnosa</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
+    {% set counter = 0 %}
     {% for item in news %}
+    {% set counter = counter + 1 %}
     <tr>
       <td>{{ item.id }}</td>
       <td>{{ item.name}}</td>
       <td>{{ item.text|length > 50 ? item.text|slice(0, 50) ~ '...' : item.text }}</td>
       <td>
-          <a href="{{ asset('news/')}}{{item.path }}" rel="lightbox">
-            <img src="{{ asset('news/')}}{{item.path }}" alt="slika" width="50"/>
+          <a href="{{ asset('news/')}}{{item.path }}" data-lightbox="Novice-{{ counter}}">
+            <img src="{{ asset('news/')}}{{item.path }}" alt="slika" style="width: 50px; height: 50px;"/>
           </a>
+      </td>
+      <td>
+          {% if item.video is not empty %}
+          <iframe src="{{ item.video }}" style="height: 80px; width: 100px;"></iframe>
+          {% else %}
+          <p style="text-align: center;">Ni videa!</p>
+          {% endif %}
       </td>
       <td>{{ item.created|date('d.m.Y H:i:s')}}</td>
       <td><a href="{{ path('_admin_edit_news', {'id': item.id}) }}" title="Uredi novico">

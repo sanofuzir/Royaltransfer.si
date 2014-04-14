@@ -44,57 +44,82 @@ class __TwigTemplate_9abfc19f07c8db252bfdaccb09248d376bf6c087482b5bd98bc4719c13d
   <thead>
     <tr>
       <th>Id</th>
-      <th>Naslov</th>
-      <th>opis</th>
-      <th>Slika</th>
-      <th>Datum vnosa</th>
+      <th style=\"text-align: center;\">Naslov</th>
+      <th style=\"text-align: center;\">opis</th>
+      <th style=\"text-align: center;\">Slika</th>
+      <th style=\"text-align: center;\">Video</th>
+      <th style=\"text-align: center;\">Datum vnosa</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
     ";
-        // line 20
+        // line 21
+        $context["counter"] = 0;
+        // line 22
+        echo "    ";
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["tours"]) ? $context["tours"] : $this->getContext($context, "tours")));
         foreach ($context['_seq'] as $context["_key"] => $context["tour"]) {
-            // line 21
+            // line 23
+            echo "    ";
+            $context["counter"] = ((isset($context["counter"]) ? $context["counter"] : $this->getContext($context, "counter")) + 1);
+            // line 24
             echo "    <tr>
       <td>";
-            // line 22
+            // line 25
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["tour"]) ? $context["tour"] : $this->getContext($context, "tour")), "id"), "html", null, true);
             echo "</td>
       <td>";
-            // line 23
+            // line 26
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["tour"]) ? $context["tour"] : $this->getContext($context, "tour")), "title"), "html", null, true);
             echo "</td>
       <td>";
-            // line 24
+            // line 27
             echo twig_escape_filter($this->env, (((twig_length_filter($this->env, $this->getAttribute((isset($context["tour"]) ? $context["tour"] : $this->getContext($context, "tour")), "description")) > 50)) ? ((twig_slice($this->env, $this->getAttribute((isset($context["tour"]) ? $context["tour"] : $this->getContext($context, "tour")), "description"), 0, 50) . "...")) : ($this->getAttribute((isset($context["tour"]) ? $context["tour"] : $this->getContext($context, "tour")), "description"))), "html", null, true);
             echo "</td>
       <td>
           <a href=\"";
-            // line 26
+            // line 29
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("tour/"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["tour"]) ? $context["tour"] : $this->getContext($context, "tour")), "path"), "html", null, true);
-            echo "\" rel=\"lightbox\">
+            echo "\" data-lightbox=\"Izleti-";
+            echo twig_escape_filter($this->env, (isset($context["counter"]) ? $context["counter"] : $this->getContext($context, "counter")), "html", null, true);
+            echo "\">
             <img src=\"";
-            // line 27
+            // line 30
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("tour/"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["tour"]) ? $context["tour"] : $this->getContext($context, "tour")), "path"), "html", null, true);
-            echo "\" alt=\"slika\" width=\"50\"/>
+            echo "\" alt=\"slika\" style=\"width: 50px; height: 50px;\"/>
           </a>
       </td>
+      <td>
+          ";
+            // line 34
+            if ((!twig_test_empty($this->getAttribute((isset($context["tour"]) ? $context["tour"] : $this->getContext($context, "tour")), "video")))) {
+                // line 35
+                echo "          <iframe src=\"";
+                echo twig_escape_filter($this->env, $this->getAttribute((isset($context["tour"]) ? $context["tour"] : $this->getContext($context, "tour")), "video"), "html", null, true);
+                echo "\" style=\"height: 80px; width: 100px;\"></iframe>
+          ";
+            } else {
+                // line 37
+                echo "          <p style=\"text-align: center;\">Ni videa!</p>
+          ";
+            }
+            // line 39
+            echo "      </td>
       <td>";
-            // line 30
+            // line 40
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["tour"]) ? $context["tour"] : $this->getContext($context, "tour")), "created"), "d.m.Y H:i:s"), "html", null, true);
             echo "</td>
       <td><a href=\"";
-            // line 31
+            // line 41
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_admin_edit_tour", array("id" => $this->getAttribute((isset($context["tour"]) ? $context["tour"] : $this->getContext($context, "tour")), "id"))), "html", null, true);
             echo "\" title=\"Uredi izlet\">
               <i class=\"icon-edit\"></i>Uredi</a>&nbsp;
               <a href=\"";
-            // line 33
+            // line 43
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_admin_delete_tour", array("id" => $this->getAttribute((isset($context["tour"]) ? $context["tour"] : $this->getContext($context, "tour")), "id"))), "html", null, true);
             echo "\" class=\"confirmation\" title=\"Odstrani izlet\" data-confirmation=\"Ali si prepričan?\">
                   <i class=\"icon-trash\">Izbriši</i></a></td>
@@ -104,7 +129,7 @@ class __TwigTemplate_9abfc19f07c8db252bfdaccb09248d376bf6c087482b5bd98bc4719c13d
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['tour'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 37
+        // line 47
         echo "  </tbody>
 </table>
 
@@ -123,6 +148,6 @@ class __TwigTemplate_9abfc19f07c8db252bfdaccb09248d376bf6c087482b5bd98bc4719c13d
 
     public function getDebugInfo()
     {
-        return array (  108 => 37,  98 => 33,  93 => 31,  89 => 30,  82 => 27,  77 => 26,  72 => 24,  68 => 23,  64 => 22,  61 => 21,  57 => 20,  41 => 7,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  133 => 47,  123 => 43,  118 => 41,  114 => 40,  111 => 39,  107 => 37,  101 => 35,  99 => 34,  91 => 30,  84 => 29,  79 => 27,  75 => 26,  71 => 25,  68 => 24,  65 => 23,  60 => 22,  58 => 21,  41 => 7,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

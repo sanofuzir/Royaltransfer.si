@@ -3,16 +3,35 @@
 {% block title %}Izleti{% endblock %}
 
 {% block content %}
-<h1 class="title">Ponujamo izlete na naslednje destinacije:</h1>
-<div class="border">
-    {% for item in tours %}
-    <div class="border-item">
-        <p><span style="font-size: 1.5em;"><strong>{{ item.title}}</strong></span></p>
-        <p>{{ item.description|length > 50 ? item.description|slice(0, 450) ~ '...' : item.description }}</p>
-        <a href="{{ asset('tour/')}}{{item.path }}" rel="lightbox">
-        <img src="{{ asset('tour/')}}{{item.path }}" alt="slika" width=300/>
-      </a><br />
-    </div>
-    {% endfor %}
-</div>
+    <h1 class="title">Ponujamo izlete na naslednje destinacije:</h1>
+    <div class="border"><img src="{{ asset('bundles/static/images/border-top.jpg') }}" alt="slika" width=300/></div>
+{% for item in tours %}
+    <table class="table">
+        <tr>
+            {% if item.video is not empty %}
+                <td style="width: 50%; padding-left: 45px;">
+            {% else %}
+                <td style="width: 80%; padding-left: 45px;">    
+            {% endif %}
+                <h2>{{ item.title}}</h2>
+                {{ item.description|length > 450 ? item.description|slice(0, 450) ~ '...' : item.description }}
+            </td>
+            {% set counter = 0 %}
+            {% if item.path is not empty %}
+            {% set counter = counter + 1 %}
+            <td>
+                <a class="table-image" href="{{ asset('tour/')}}{{item.path }}"  data-lightbox="izleti-{{ counter}}">
+                    <img src="{{ asset('tour/')}}{{item.path }}" alt="slika" width=150/>
+                </a>
+            </td>
+            {% endif %}
+            {% if item.video is not empty %}
+            <td style="padding-top: 60px;">
+                <iframe src="{{ item.video }}" style="height: 220px; width: 250px;"></iframe>
+            </td>
+            {% endif %}
+        </tr>
+    </table>
+{% endfor %} 
+    <div class="border"><img src="{{ asset('bundles/static/images/border-bottom.jpg') }}" alt="slika" width=300/></div>
 {% endblock %}

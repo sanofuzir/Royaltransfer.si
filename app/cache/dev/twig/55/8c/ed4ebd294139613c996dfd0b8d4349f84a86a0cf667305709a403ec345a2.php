@@ -35,35 +35,41 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
     ";
         // line 12
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "759cdea_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_759cdea_0") : $this->env->getExtension('assets')->getAssetUrl("css/style_bootstrap_1.css");
-            // line 17
+            // asset "7797d03_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7797d03_0") : $this->env->getExtension('assets')->getAssetUrl("css/style_bootstrap_1.css");
+            // line 18
             echo "    <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" />
     ";
-            // asset "759cdea_1"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_759cdea_1") : $this->env->getExtension('assets')->getAssetUrl("css/style_bootstrap-theme_2.css");
+            // asset "7797d03_1"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7797d03_1") : $this->env->getExtension('assets')->getAssetUrl("css/style_bootstrap-theme_2.css");
             echo "    <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" />
     ";
-            // asset "759cdea_2"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_759cdea_2") : $this->env->getExtension('assets')->getAssetUrl("css/style_style_3.css");
+            // asset "7797d03_2"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7797d03_2") : $this->env->getExtension('assets')->getAssetUrl("css/style_style_3.css");
+            echo "    <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" />
+    ";
+            // asset "7797d03_3"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7797d03_3") : $this->env->getExtension('assets')->getAssetUrl("css/style_lightbox_4.css");
             echo "    <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" />
     ";
         } else {
-            // asset "759cdea"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_759cdea") : $this->env->getExtension('assets')->getAssetUrl("css/style.css");
+            // asset "7797d03"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7797d03") : $this->env->getExtension('assets')->getAssetUrl("css/style.css");
             echo "    <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" />
     ";
         }
         unset($context["asset_url"]);
-        // line 19
+        // line 20
         echo "    <!--script src=\"js/vendor/modernizr-2.6.2.min.js\"></script-->
     <style>
         .nav li {
@@ -76,39 +82,49 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
             color: #c6c8c9;
         }
         .nav2 li a:hover {
-            color #c6c8c9;
+            color: #c6c8c9;
             font-size: 120%;
             background-color: transparent;
         }
-        #color a:link, #color a:visited;{
+        #color a:link, #color a:visited{
             color: #c6c8c9;
         }
-        .border {
-           /* border: 10px ridge #c6c8c9;
-            -webkit-border-image:url(";
-        // line 40
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
-        echo ") 30 30 stretch; /* Safari 5 */
-          /*  -o-border-image:url(";
+        .table {
+            width: 100%;
+            background-image:url('";
         // line 41
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
-        echo ") 30 30 stretch; /* Opera */
-          /*  border-image:url(";
-        // line 42
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krom-2.png"), "html", null, true);
-        echo ") 30 30 stretch; */
-            margin: 25px 0; 
-            padding: 10px 30px;
-            border: 15px solid transparent;
-            border-image: url('";
-        // line 46
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krom-2.png"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/polje.jpg"), "html", null, true);
         echo "');
-            border-image-slice: 20;
-            border-image-width: 1 2 1 2;
-            border-image-outset: 0;
-            border-image-repeat: repeat;
-        }   
+            background-color: black;
+            margin: 10px 0px;
+            height: 350px;
+        }
+        .galery {
+            height: 100%;
+        }
+        .galery-item {
+            width: 31%;
+            border-image: url('";
+        // line 51
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/border.jpg"), "html", null, true);
+        echo "') 20 10 repeat;
+            border-image-width: 10px;
+            height: 300px;
+            background-image:url('";
+        // line 54
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/polje-small.png"), "html", null, true);
+        echo "');
+            background-color: black;
+            margin-left: 20px;
+            margin-bottom: 20px;
+            float: left;
+            text-align: center;
+        }
+        .galery-item img {
+            padding: 30px;
+            display: inline;
+            width: 250px;
+        }
      </style>
   </head>
 
@@ -120,103 +136,118 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
             <ul class=\"nav nav2\" style=\"margin-top: -55px;\">
               <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\">
                 <a style=\"color: #c6c8c9;\" 
-                   onmouseover=\"document.getElementById('div1').style.visibility = 'visible';\"
-                   onmouseout=\"document.getElementById('div1').style.visibility = 'hidden';\"
-                   href=\"";
-        // line 65
+                   onmouseover=\"document.getElementById('div1').style.visibility = 'visible';
+                   var audio = document.getElementById('mySoundClip');audio.load();audio.play();\"
+                   onmouseout=\"document.getElementById('div1').style.visibility = 'hidden';
+                   var audio = document.getElementById('mySoundClip');audio.pause();\"
+               href=\"";
+        // line 81
         echo $this->env->getExtension('routing')->getPath("_home");
-        echo "\">Domov</a>
+        echo "\"><span class=\"main-menu-title\">Domov</span></a>
                 <img id=\"div1\" class=\"image image-meni\" src=\"";
-        // line 66
+        // line 82
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
               </li>
               <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\">
                   <a style=\"color: #c6c8c9;\"
-                     onmouseover=\"document.getElementById('div2').style.visibility = 'visible';\"
-                     onmouseout=\"document.getElementById('div2').style.visibility = 'hidden';\"
-                     href=\"";
-        // line 72
+                     onmouseover=\"document.getElementById('div2').style.visibility = 'visible';
+                     var audio = document.getElementById('mySoundClip');audio.load();audio.play();\"
+                     onmouseout=\"document.getElementById('div2').style.visibility = 'hidden';
+                     var audio = document.getElementById('mySoundClip');audio.pause();\"
+                 href=\"";
+        // line 90
         echo $this->env->getExtension('routing')->getPath("_about");
-        echo "\">O nas</a>
+        echo "\"><span class=\"main-menu-title\">O nas</span></a>
                 <img id=\"div2\" class=\"image image-meni\" src=\"";
-        // line 73
+        // line 91
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
               </li>
               <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\">
                   <a style=\"color: #c6c8c9;\"
-                     onmouseover=\"document.getElementById('div3').style.visibility = 'visible';\"
-                     onmouseout=\"document.getElementById('div3').style.visibility = 'hidden';\"
-                     href=\"";
-        // line 79
+                     onmouseover=\"document.getElementById('div3').style.visibility = 'visible';
+                     var audio = document.getElementById('mySoundClip');audio.load();audio.play();\"
+                     onmouseout=\"document.getElementById('div3').style.visibility = 'hidden';
+                     var audio = document.getElementById('mySoundClip');audio.pause();\"
+                 href=\"";
+        // line 99
         echo $this->env->getExtension('routing')->getPath("_news");
-        echo "\">Novice</a>
+        echo "\"><span class=\"main-menu-title\">Novice</span></a>
                   <img id=\"div3\" class=\"image image-meni\" src=\"";
-        // line 80
+        // line 100
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
               </li>
               <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\">
                   <a style=\"color: #c6c8c9;\"
-                     onmouseover=\"document.getElementById('div4').style.visibility = 'visible';\"
-                     onmouseout=\"document.getElementById('div4').style.visibility = 'hidden';\"
-                     href=\"";
-        // line 86
+                     onmouseover=\"document.getElementById('div4').style.visibility = 'visible';
+                     var audio = document.getElementById('mySoundClip');audio.load();audio.play();\"
+                     onmouseout=\"document.getElementById('div4').style.visibility = 'hidden';
+                     var audio = document.getElementById('mySoundClip');audio.pause();\"
+                 href=\"";
+        // line 108
         echo $this->env->getExtension('routing')->getPath("_tours");
-        echo "\">Izleti</a>
+        echo "\"><span class=\"main-menu-title\">Izleti</span></a>
                   <img id=\"div4\" class=\"image image-meni\" src=\"";
-        // line 87
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
-        echo "\" alt=\"eng\">
-              </li>
-              <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\">
-                  <a style=\"color: #c6c8c9;\"
-                     onmouseover=\"document.getElementById('div5').style.visibility = 'visible';\"
-                     onmouseout=\"document.getElementById('div5').style.visibility = 'hidden';\"
-                     href=\"";
-        // line 93
-        echo $this->env->getExtension('routing')->getPath("_inquiry");
-        echo "\">Povpraševanje</a>
-                  <img id=\"div5\" class=\"image image-meni\" src=\"";
-        // line 94
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
-        echo "\" alt=\"eng\">
-              </li>
-              <li class=\"dropdown\" id=\"div8\"
-                  style=\"background-color: transparent; float: left; width: 150px; list-style-type: none; text-align: center;\"  
-                  onmouseover=\"document.getElementById('div6').style.visibility = 'visible';\"
-                  onmouseout=\"document.getElementById('div6').style.visibility = 'hidden';\">
-                <a style=\"color: #c6c8c9; background-color: none;\" class=\"dropdown-toggle\" id=\"dLabel\" role=\"button\" data-toggle=\"dropdown\" data-target=\"#\" href=\"#\">Galerija <b class=\"caret\"></b></a>
-                <ul class=\"dropdown-menu mydropdown\" role=\"menu\" aria-labelledby=\"dLabel\">
-                  <li style=\"text-align: left;\">
-                      <a style=\"color: #020202;\" href=\"";
-        // line 103
-        echo $this->env->getExtension('routing')->getPath("_galery");
-        echo "\">Galerija slik</a>
-                  </li>
-                  <li style=\"text-align: left;\">
-                      <a style=\"color: #020202;\" href=\"";
-        // line 106
-        echo $this->env->getExtension('routing')->getPath("_video_galery");
-        echo "\">Video galerija</a>
-                  </li>
-                </ul>
-                <img id=\"div6\" class=\"image image-meni\" src=\"";
         // line 109
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
               </li>
               <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\">
                   <a style=\"color: #c6c8c9;\"
-                     onmouseover=\"document.getElementById('div7').style.visibility = 'visible';\"
-                     onmouseout=\"document.getElementById('div7').style.visibility = 'hidden';\"
+                     onmouseover=\"document.getElementById('div5').style.visibility = 'visible';
+                     var audio = document.getElementById('mySoundClip');audio.load();audio.play();\"
+                     onmouseout=\"document.getElementById('div5').style.visibility = 'hidden';
+                     var audio = document.getElementById('mySoundClip');audio.pause();\"
+                 href=\"";
+        // line 117
+        echo $this->env->getExtension('routing')->getPath("_inquiry");
+        echo "\"><span class=\"main-menu-title\">Povpraševanje</span></a>
+                  <img id=\"div5\" class=\"image image-meni\" src=\"";
+        // line 118
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
+        echo "\" alt=\"eng\">
+              </li>
+              <li class=\"dropdown\" id=\"div8\"
+                  style=\"background-color: transparent; float: left; width: 150px; list-style-type: none; text-align: center;\"  
+                  onmouseover=\"document.getElementById('div6').style.visibility = 'visible';
+                   var audio = document.getElementById('mySoundClip');audio.load();audio.play();\"
+                   onmouseout=\"document.getElementById('div6').style.visibility = 'hidden';
+                   var audio = document.getElementById('mySoundClip');audio.pause();\">
+                <a style=\"color: #c6c8c9; background-color: none;\" class=\"dropdown-toggle\" id=\"dLabel\" role=\"button\" data-toggle=\"dropdown\" data-target=\"#\" href=\"#\">
+                    <span class=\"main-menu-title\">Galerija</span><b class=\"caret\"></b></a>
+                <ul class=\"dropdown-menu mydropdown\" role=\"menu\" aria-labelledby=\"dLabel\">
+                  <li style=\"text-align: left;\">
+                      <a style=\"color: #020202;\" href=\"";
+        // line 130
+        echo $this->env->getExtension('routing')->getPath("_galery");
+        echo "\"><span class=\"main-menu-title\">Galerija</span> slik</a>
+                  </li>
+                  <li style=\"text-align: left;\">
+                      <a style=\"color: #020202;\" href=\"";
+        // line 133
+        echo $this->env->getExtension('routing')->getPath("_video_galery");
+        echo "\"><span class=\"main-menu-title\">Video galerija</span></a>
+                  </li>
+                </ul>
+                <img id=\"div6\" class=\"image image-meni\" src=\"";
+        // line 136
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
+        echo "\" alt=\"eng\">
+              </li>
+              <li style=\"float: left; width: 150px; list-style-type: none; text-align: center;\">
+                  <a style=\"color: #c6c8c9;\"
+                     onmouseover=\"document.getElementById('div7').style.visibility = 'visible';
+                     var audio = document.getElementById('mySoundClip');audio.load();audio.play();\"
+                     onmouseout=\"document.getElementById('div7').style.visibility = 'hidden';
+                     var audio = document.getElementById('mySoundClip');audio.pause();\"
                      href=\"";
-        // line 115
+        // line 144
         echo $this->env->getExtension('routing')->getPath("_contact");
         echo "\">Kontakt</a>
                   <img id=\"div7\"class=\"image image-meni\" src=\"";
-        // line 116
+        // line 145
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
               </li>
@@ -224,19 +255,28 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         </div>
       </div>
     </div>
-
+    <audio id=\"mySoundClip\">
+        <source src=\"";
+        // line 152
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/Music/car.mp3"), "html", null, true);
+        echo "\" type=\"audio/ogg\">
+        <source src=\"";
+        // line 153
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/Music/car.mp3"), "html", null, true);
+        echo "\" type=\"audio/mpeg\">
+    </audio>
     <div class=\"container\">
       ";
-        // line 124
+        // line 156
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "flashbag"), "all", array(), "method"));
         foreach ($context['_seq'] as $context["type"] => $context["messages"]) {
-            // line 125
+            // line 157
             echo "          ";
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["messages"]) ? $context["messages"] : $this->getContext($context, "messages")));
             foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-                // line 126
+                // line 158
                 echo "              <div class=\"alert alert-";
                 echo twig_escape_filter($this->env, (isset($context["type"]) ? $context["type"] : $this->getContext($context, "type")), "html", null, true);
                 echo " fade in\" data-alert=\"alert\"><a class=\"close\" data-dismiss=\"alert\" href=\"#\">&times;</a><div class=\"alert-heading\">";
@@ -247,16 +287,16 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 128
+            // line 160
             echo "      ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['type'], $context['messages'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 129
+        // line 161
         echo "      ";
         $this->displayBlock('content', $context, $blocks);
-        // line 130
+        // line 162
         echo "
     </div> <!-- /container -->
 
@@ -264,37 +304,43 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     ";
-        // line 136
+        // line 168
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "7930e18_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7930e18_0") : $this->env->getExtension('assets')->getAssetUrl("js/scripts_jquery-1.9.1_1.js");
-            // line 140
+            // asset "aa92e5b_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_aa92e5b_0") : $this->env->getExtension('assets')->getAssetUrl("js/scripts_jquery-1.11.0.min_1.js");
+            // line 173
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
     ";
-            // asset "7930e18_1"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7930e18_1") : $this->env->getExtension('assets')->getAssetUrl("js/scripts_bootstrap_2.js");
+            // asset "aa92e5b_1"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_aa92e5b_1") : $this->env->getExtension('assets')->getAssetUrl("js/scripts_lightbox.min_2.js");
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
     ";
-            // asset "7930e18_2"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7930e18_2") : $this->env->getExtension('assets')->getAssetUrl("js/scripts_part_3_script_1.js");
+            // asset "aa92e5b_2"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_aa92e5b_2") : $this->env->getExtension('assets')->getAssetUrl("js/scripts_bootstrap_3.js");
+            echo "        <script src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+    ";
+            // asset "aa92e5b_3"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_aa92e5b_3") : $this->env->getExtension('assets')->getAssetUrl("js/scripts_part_4_script_1.js");
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
     ";
         } else {
-            // asset "7930e18"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7930e18") : $this->env->getExtension('assets')->getAssetUrl("js/scripts.js");
+            // asset "aa92e5b"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_aa92e5b") : $this->env->getExtension('assets')->getAssetUrl("js/scripts.js");
             echo "        <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
     ";
         }
         unset($context["asset_url"]);
-        // line 142
+        // line 175
         echo "
   </body>
 </html>
@@ -306,7 +352,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
     {
     }
 
-    // line 129
+    // line 161
     public function block_content($context, array $blocks = array())
     {
     }
@@ -323,6 +369,6 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
 
     public function getDebugInfo()
     {
-        return array (  310 => 129,  305 => 8,  298 => 142,  272 => 140,  268 => 136,  260 => 130,  257 => 129,  251 => 128,  240 => 126,  235 => 125,  231 => 124,  220 => 116,  216 => 115,  207 => 109,  201 => 106,  195 => 103,  183 => 94,  179 => 93,  170 => 87,  166 => 86,  157 => 80,  153 => 79,  144 => 73,  140 => 72,  131 => 66,  127 => 65,  105 => 46,  98 => 42,  94 => 41,  90 => 40,  67 => 19,  41 => 17,  37 => 12,  30 => 8,  21 => 1,);
+        return array (  356 => 161,  351 => 8,  344 => 175,  312 => 173,  308 => 168,  300 => 162,  297 => 161,  291 => 160,  280 => 158,  275 => 157,  271 => 156,  265 => 153,  261 => 152,  251 => 145,  247 => 144,  236 => 136,  230 => 133,  224 => 130,  209 => 118,  205 => 117,  194 => 109,  190 => 108,  179 => 100,  175 => 99,  164 => 91,  160 => 90,  149 => 82,  145 => 81,  115 => 54,  109 => 51,  96 => 41,  73 => 20,  41 => 18,  37 => 12,  30 => 8,  21 => 1,);
     }
 }

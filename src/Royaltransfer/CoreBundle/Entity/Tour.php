@@ -5,6 +5,7 @@ namespace royaltransfer\CoreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Tour
@@ -62,7 +63,14 @@ class Tour
      * @ORM\Column(type="integer", nullable=true)
      */
     protected $size;
-
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(length=255, nullable=true)
+     */
+    protected $video;
+    
     /**
      * @var string
      *
@@ -231,6 +239,29 @@ class Tour
     public function getDescription()
     {
         return $this->description;
+    }
+    
+    /**
+     * Set video
+     *
+     * @param string $video
+     * @return Tour
+     */
+    public function setVideo($video)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Get video
+     *
+     * @return string
+     */
+    public function getVideo()
+    {
+        return $this->video;
     }
 
     /**

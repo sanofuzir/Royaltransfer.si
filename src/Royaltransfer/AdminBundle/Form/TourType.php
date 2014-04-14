@@ -19,6 +19,10 @@ class TourType extends AbstractType
                 'attr'  => array('class' => 'span2', 'rows' => 15, 'cols'=>80),
                 'label' => 'Opis:'
             ))
+            ->add('video',null, array(
+                'attr'  => array('class' => 'span1'),
+                'label' => 'Povezava'
+            ))
             ->add('file', 'file', array(
                 'attr'  => array('class' => 'span2'),
                 'label' =>  'Slika'
