@@ -2239,6 +2239,10 @@
         <argument>Sensio\Bundle\FrameworkExtraBundle\EventListener\SecurityListener</argument>
       </call>
       <call method="addSubscriberService">
+        <argument>royaltransfer_locale.locale_listener</argument>
+        <argument>royaltransfer\staticBundle\EventListener\LocaleListener</argument>
+      </call>
+      <call method="addSubscriberService">
         <argument>fos_user.security.interactive_login_listener</argument>
         <argument>FOS\UserBundle\EventListener\LastLoginListener</argument>
       </call>
@@ -2879,7 +2883,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5359e5216bdd4</argument>
+            <argument>5359f4812a9da</argument>
           </service>
         </argument>
       </argument>
@@ -3149,7 +3153,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>5359e5216bdd4</argument>
+            <argument>5359f4812a9da</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3853,6 +3857,10 @@
     <service id="royaltransfer.inquiry_manager" class="royaltransfer\CoreBundle\Models\InquiryManager">
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument>royaltransfer\CoreBundle\Entity\Inquiry</argument>
+    </service>
+    <service id="royaltransfer_locale.locale_listener" class="royaltransfer\staticBundle\EventListener\LocaleListener">
+      <tag name="kernel.event_subscriber"/>
+      <argument>sl-SI</argument>
     </service>
     <service id="fos_user.security.interactive_login_listener" class="FOS\UserBundle\EventListener\LastLoginListener">
       <tag name="kernel.event_subscriber"/>

@@ -17,10 +17,12 @@
         </service>
     </services>
     -->
-    <service id="royaltransfer_locale.locale_listener"
-        class="royaltransfer\staticBundle\EventListener\LocaleListener">
-        <argument>%kernel.default_locale%</argument>
+    <services>
+        <service id="royaltransfer_locale.locale_listener"
+            class="royaltransfer\staticBundle\EventListener\LocaleListener">
+            <argument>%kernel.default_locale%</argument>
 
-        <tag name="kernel.event_subscriber" />
-    </service>
+            <tag name="kernel.event_subscriber" />
+        </service>
+    </services>
 </container>
