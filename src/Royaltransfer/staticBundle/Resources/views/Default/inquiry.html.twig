@@ -1,9 +1,9 @@
 {% extends 'StaticBundle::layout.html.twig' %}
 
-{% block title %}Povpraševanje{% endblock %}
+{% block title %}{% trans %}Povpraševanje{% endtrans %}{% endblock %}
 
 {% block content %}
-<h1 class="title">Povpraševanje</h1>
+<h1 class="title title-color">{% trans %}Povpraševanje{% endtrans %}</h1>
 <div class="border"><img src="{{ asset('bundles/static/images/border-top.jpg') }}" alt="slika" width=300/></div>
 <div>
     <form class="order_form" action="{{ path('_add_inquiry') }}" method="post" {{ form_enctype(form) }} novalidate>
@@ -15,4 +15,11 @@
     </form>
 </div>
 <div style="margin-top: 30px;" class="border"><img src="{{ asset('bundles/static/images/border-bottom.jpg') }}" alt="slika" width=300/></div>
+<div class="music-element" style="margin: 550px 0px 0px 500px; width: 50px; height: 30px; position: absolute;">
+    <audio controls autoplay>
+      <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/mpeg">
+      <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/ogg">
+      <embed height="50" width="50" src="{{ asset('bundles/static/Music/music.mp3') }}">
+    </audio>
+</div>
 {% endblock %}

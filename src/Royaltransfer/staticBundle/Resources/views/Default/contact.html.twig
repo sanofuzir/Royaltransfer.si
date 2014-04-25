@@ -1,16 +1,23 @@
 {% extends 'StaticBundle::layout.html.twig' %}
 
-{% block title %}Kontakt{% endblock %}
+{% block title %}{% trans %}Kontakt{% endtrans %}{% endblock %}
 
 {% block content %}
-<h1 class="title">Kontakt</h1>
+<h1 class="title title-color">{% trans %}Kontakt{% endtrans %}</h1>
 <div class="border"><img src="{{ asset('bundles/static/images/border-top.jpg') }}" alt="slika" width=300/></div>
 
 <div class="border" style="width: 40%; padding: 30px;">
-    <p><b>Telefon:</b>&nbsp;+386 70 66 57 18</p>
+    <p><b>{% trans %}Telefon{% endtrans %}:</b>&nbsp;+386 70 66 57 18</p>
     <br />
-    <p class="email"><b>Email:</b>&nbsp;<a href="mailto:info@royaltransfer.com">info@royaltransfer.com</a></p>
+    <p class="email"><b>{% trans %}Elektronska pošta{% endtrans %}:</b>&nbsp;<a href="mailto:info@royaltransfer.com">info@royaltransfer.com</a></p>
 </div>
 
 <div style="margin-top: 300px;" class="border"><img src="{{ asset('bundles/static/images/border-bottom.jpg') }}" alt="slika" width=300/></div>
+<div class="music-element" style="margin: 550px 0px 0px 500px; width: 50px; height: 30px; position: absolute;">
+    <audio controls autoplay>
+      <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/mpeg">
+      <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/ogg">
+      <embed height="50" width="50" src="{{ asset('bundles/static/Music/music.mp3') }}">
+    </audio>
+</div>
 {% endblock %}

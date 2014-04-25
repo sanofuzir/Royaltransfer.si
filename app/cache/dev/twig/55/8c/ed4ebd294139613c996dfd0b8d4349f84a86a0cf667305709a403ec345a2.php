@@ -77,7 +77,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
             font-family: Adobe;
             src: url('";
         // line 25
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/font/Adobe_Caslon Pro.ttf"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/Font/Adobe_Caslon Pro.ttf"), "html", null, true);
         echo "');
         }
         body, h2, .title {
@@ -94,7 +94,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         }
         .nav2 li a:hover {
             color: #c6c8c9;
-            font-size: 120%;
+            font-size: 110%;
             background-color: transparent;
         }
         #color a:link, #color a:visited{
@@ -148,10 +148,10 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                 <a href=\"";
         // line 83
         echo $this->env->getExtension('routing')->getPath("_home");
-        echo "\" style=\"margin-left: -9px;\">
+        echo "\" style=\"margin-left: -40px;\">
                     <img src=\"";
         // line 84
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/eng.png"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/en.gif"), "html", null, true);
         echo "\" alt=\"eng\">
                 </a>
                 <a href=\"";
@@ -160,7 +160,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         echo "\">
                     <img src=\"";
         // line 87
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/slo.gif"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/sl.jpg"), "html", null, true);
         echo "\" alt=\"slo\">
                 </a>
                 <a href=\"";
@@ -169,7 +169,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         echo "\">
                     <img src=\"";
         // line 90
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/hr.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/hr.gif"), "html", null, true);
         echo "\" alt=\"hr\">
                 </a>
                 <a href=\"";
@@ -178,7 +178,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         echo "\">
                     <img src=\"";
         // line 93
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/srb.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/rs.gif"), "html", null, true);
         echo "\" alt=\"srb\">
                 </a>
                 <a href=\"";
@@ -196,7 +196,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         echo "\">
                     <img src=\"";
         // line 99
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/ita.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/it.gif"), "html", null, true);
         echo "\" alt=\"ita\">
                 </a>
                 <a href=\"";
@@ -205,7 +205,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         echo "\">
                     <img src=\"";
         // line 102
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/nem.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/de.gif"), "html", null, true);
         echo "\" alt=\"nem\">
                 </a>
                 <a href=\"";
@@ -214,7 +214,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         echo "\">
                     <img src=\"";
         // line 105
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/spa.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/es.gif"), "html", null, true);
         echo "\" alt=\"spa\">
                 </a>
                 <a href=\"";
@@ -223,7 +223,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         echo "\">
                     <img src=\"";
         // line 108
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/fr.jpg"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/fr.gif"), "html", null, true);
         echo "\" alt=\"fr\">
                 </a>
             </div>
@@ -241,7 +241,9 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                href=\"";
         // line 119
         echo $this->env->getExtension('routing')->getPath("_home");
-        echo "\"><span class=\"main-menu-title\">Domov</span></a>
+        echo "\"><span class=\"main-menu-title title-color\">";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Domov", array(), "messages");
+        echo "</span></a>
                 <img id=\"div1\" class=\"image image-meni\" src=\"";
         // line 120
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
@@ -256,7 +258,9 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                  href=\"";
         // line 128
         echo $this->env->getExtension('routing')->getPath("_about");
-        echo "\"><span class=\"main-menu-title\">O nas</span></a>
+        echo "\"><span class=\"main-menu-title title-color\">";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("O nas", array(), "messages");
+        echo "</span></a>
                 <img id=\"div2\" class=\"image image-meni\" src=\"";
         // line 129
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
@@ -271,7 +275,9 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                  href=\"";
         // line 137
         echo $this->env->getExtension('routing')->getPath("_news");
-        echo "\"><span class=\"main-menu-title\">Novice</span></a>
+        echo "\"><span class=\"main-menu-title title-color\">";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Novice", array(), "messages");
+        echo "</span></a>
                   <img id=\"div3\" class=\"image image-meni\" src=\"";
         // line 138
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
@@ -286,7 +292,9 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                  href=\"";
         // line 146
         echo $this->env->getExtension('routing')->getPath("_tours");
-        echo "\"><span class=\"main-menu-title\">Izleti</span></a>
+        echo "\"><span class=\"main-menu-title title-color\">";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Izleti", array(), "messages");
+        echo "</span></a>
                   <img id=\"div4\" class=\"image image-meni\" src=\"";
         // line 147
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
@@ -301,7 +309,9 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                  href=\"";
         // line 155
         echo $this->env->getExtension('routing')->getPath("_inquiry");
-        echo "\"><span class=\"main-menu-title\">Povpraševanje</span></a>
+        echo "\"><span class=\"main-menu-title title-color\">";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Povpraševanje", array(), "messages");
+        echo "</span></a>
                   <img id=\"div5\" style=\"margin-left: 15px;\" class=\"image image-meni\" src=\"";
         // line 156
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
@@ -314,19 +324,26 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                    onmouseout=\"document.getElementById('div6').style.visibility = 'hidden';
                    var audio = document.getElementById('mySoundClip');audio.pause();\">
                 <a style=\"color: #c6c8c9; background-color: none;\" class=\"dropdown-toggle\" id=\"dLabel\" role=\"button\" data-toggle=\"dropdown\" data-target=\"#\" href=\"#\">
-                    <span class=\"main-menu-title\">Galerija</span><b class=\"caret\"></b></a>
+                    <span class=\"main-menu-title title-color\">";
+        // line 165
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Galerija", array(), "messages");
+        echo "</span><b class=\"caret\"></b></a>
                 <ul class=\"dropdown-menu mydropdown\" role=\"menu\" aria-labelledby=\"dLabel\">
                   <li style=\"text-align: left;\">
                       <a style=\"color: #020202;\" href=\"";
         // line 168
         echo $this->env->getExtension('routing')->getPath("_galery");
-        echo "\"><span class=\"main-menu-title\">Galerija</span> slik</a>
+        echo "\"><span class=\"main-menu-title title-color\">";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Galerija slik", array(), "messages");
+        echo "</span></a>
                   </li>
                   <li style=\"text-align: left;\">
                       <a style=\"color: #020202;\" href=\"";
         // line 171
         echo $this->env->getExtension('routing')->getPath("_video_galery");
-        echo "\"><span class=\"main-menu-title\">Video galerija</span></a>
+        echo "\"><span class=\"main-menu-title title-color\">";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Video galerija", array(), "messages");
+        echo "</span></a>
                   </li>
                 </ul>
                 <img id=\"div6\" class=\"image image-meni\" src=\"";
@@ -343,7 +360,9 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                  href=\"";
         // line 182
         echo $this->env->getExtension('routing')->getPath("_contact");
-        echo "\"><span class=\"main-menu-title\">Kontakt</span></a>
+        echo "\"><span class=\"main-menu-title\">";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Kontakt", array(), "messages");
+        echo "</span></a>
                   <img id=\"div7\"class=\"image image-meni\" src=\"";
         // line 183
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
@@ -466,6 +485,6 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
 
     public function getDebugInfo()
     {
-        return array (  453 => 199,  448 => 8,  442 => 213,  410 => 211,  406 => 206,  398 => 200,  395 => 199,  389 => 198,  378 => 196,  373 => 195,  369 => 194,  363 => 191,  359 => 190,  349 => 183,  345 => 182,  334 => 174,  328 => 171,  322 => 168,  307 => 156,  303 => 155,  292 => 147,  288 => 146,  277 => 138,  273 => 137,  262 => 129,  258 => 128,  247 => 120,  243 => 119,  232 => 111,  226 => 108,  222 => 107,  217 => 105,  213 => 104,  208 => 102,  204 => 101,  199 => 99,  195 => 98,  190 => 96,  186 => 95,  181 => 93,  177 => 92,  172 => 90,  168 => 89,  163 => 87,  159 => 86,  154 => 84,  150 => 83,  126 => 62,  120 => 59,  107 => 49,  80 => 25,  73 => 20,  41 => 18,  37 => 12,  30 => 8,  21 => 1,);
+        return array (  472 => 199,  467 => 8,  461 => 213,  429 => 211,  425 => 206,  417 => 200,  414 => 199,  408 => 198,  397 => 196,  392 => 195,  388 => 194,  382 => 191,  378 => 190,  368 => 183,  362 => 182,  351 => 174,  343 => 171,  335 => 168,  329 => 165,  317 => 156,  311 => 155,  300 => 147,  294 => 146,  283 => 138,  277 => 137,  266 => 129,  260 => 128,  249 => 120,  243 => 119,  232 => 111,  226 => 108,  222 => 107,  217 => 105,  213 => 104,  208 => 102,  204 => 101,  199 => 99,  195 => 98,  190 => 96,  186 => 95,  181 => 93,  177 => 92,  172 => 90,  168 => 89,  163 => 87,  159 => 86,  154 => 84,  150 => 83,  107 => 49,  80 => 25,  73 => 20,  41 => 18,  37 => 12,  30 => 8,  21 => 1,  149 => 46,  145 => 45,  141 => 44,  134 => 41,  126 => 62,  120 => 59,  117 => 34,  114 => 33,  106 => 29,  99 => 28,  96 => 27,  93 => 26,  90 => 25,  88 => 24,  83 => 22,  76 => 20,  70 => 17,  65 => 16,  61 => 14,  57 => 12,  55 => 11,  51 => 9,  47 => 8,  43 => 7,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

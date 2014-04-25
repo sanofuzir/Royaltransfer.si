@@ -1,39 +1,49 @@
 {% extends 'StaticBundle::layout.html.twig' %}
 
-{% block title %}About{% endblock %}
+{% block title %}{% trans %}O nas{% endtrans %}{% endblock %}
 
 {% block content %}
-<h1 class="title">O nas</h1>
+<h1 class="title title-color nov-class">{% trans %}O nas{% endtrans %}</h1>
 <div class="border"><img src="{{ asset('bundles/static/images/border-top.jpg') }}" alt="slika" width=300/></div>
 <div style="text-align: justify; padding: 10px 50px;">
     <br />
-    <p style="font-size: 120%;"><b>Dobrodošli na naši spletni strani</b></p>
+    <p style="font-size: 120%;">
+        <b>{% trans %}Dobrodošli na naši spletni strani{% endtrans %}</b></p>
     
-    <p class="about">Smo podjetje, ki je specializirano za opravljanje prevozov v Sloveniji in v tujini. 
-        Vedno urejeni vozniki z urejenimi vozili Vam nudijo kvaliteto storitev. 
-        Prevozi, ki jih opravljamo so lahko na določene destinacije ali kamorkoli na Vašo željo.</p>
+    <p class="about">
+        {% trans %}Smo podjetje, ki je specializirano za opravljanje prevozov v Sloveniji in v tujini. Vedno urejeni vozniki z urejenimi vozili Vam nudijo kvaliteto storitev. Prevozi, ki jih opravljamo so lahko na določene destinacije ali kamorkoli na Vašo željo.{% endtrans %}
+    </p>
     
     <p class="about">Zagotavljamo hitro odzivnost glede na Vaše potrebe. 
         Z našimi vozili bo vožnja vedno udobna in varna, saj vozila spadajo v višji cenovni razred, 
         prav tako pa tudi v najvišji razred varnosti.
     </p>
     <p class="about">
-        Galerijo vozil si lahko ogledate na naši spletni strani. 
-        Nudimo tudi enodnevne ali večdnevne najeme vozil z urejenimi vozniki, 
-        kateri Vas popeljejo po raznih opravkih ali  sestankih, Vas tam počakajo in na koncu dneva poskrbijo, 
-        da prispete varno domov ali v hotel.
+        {% trans %}Galerijo vozil si lahko ogledate na naši spletni strani. Nudimo tudi enodnevne ali večdnevne najeme vozil z urejenimi vozniki, kateri Vas popeljejo po raznih opravkih ali  sestankih, Vas tam počakajo in na koncu dneva poskrbijo, da prispete varno domov ali v hotel.{% endtrans %}
     </p>     
     <p class="about">
-        Organiziramo tudi izlete po raznih krajih v Sloveniji. 
-        Naš voznik Vas na kraju počaka in Vas varno pripelje tudi nazaj. 
-        Kraje in zanimive destinacije si lahko ogledate na naši spletni strani.
+        {% trans %}Organiziramo tudi izlete po raznih krajih v Sloveniji. Naš voznik Vas na kraju počaka in Vas varno pripelje tudi nazaj. Kraje in zanimive destinacije si lahko ogledate na naši spletni strani.{% endtrans %}
     </p>     
     <p class="about">
-        Za vse informacije nas lahko kontaktirate preko telefona ali elektronske pošte. 
-        V najkrajšem možnem času Vas bomo kontaktirali in Vam posredovali željene informacije.
+        {% trans %}Za vse informacije nas lahko kontaktirate preko telefona ali elektronske pošte. V najkrajšem možnem času Vas bomo kontaktirali in Vam posredovali željene informacije.{% endtrans %}
     </p>
     <br />
-    <p><b>Zahvaljujemo se Vam za obisk naše spletne strani.</b></p>
+    <p><b>{% trans %}Zahvaljujemo se Vam za obisk naše spletne strani.{% endtrans %}</b></p>
 </div>
+<div class="music-element" style="
+     width: 50px; 
+     height: 30px; 
+     position: absolute;
+     margin-left: 490px;
+     margin-right: auto;
+     width:70%;
+     ">
+    <audio controls autoplay>
+      <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/mpeg">
+      <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/ogg">
+      <embed height="50" width="50" src="{{ asset('bundles/static/Music/music.mp3') }}">
+    </audio>
+</div>
+    <p>&nbsp;</p>
 <div class="border"><img src="{{ asset('bundles/static/images/border-bottom.jpg') }}" alt="slika" width=300/></div>
 {% endblock %}

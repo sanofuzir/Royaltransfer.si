@@ -17,6 +17,18 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class Inquiry
 {
+    const STATUS_RECEIVED         =   "Received";
+    const STATUS_IN_PROCESSING    =   "In_progress";
+    const STATUS_COMPLETED        =   "Completed";
+
+    /**
+     * @var array
+     */
+    private static $_statuses = array(
+            self::STATUS_RECEIVED,
+            self::STATUS_IN_PROCESSING,
+            self::STATUS_COMPLETED
+        );
 
     /**
      * @var integer
@@ -65,6 +77,12 @@ class Inquiry
     
     /**
     * @var string
+    * @ORM\Column(length=255)
+    */
+    private $status;
+
+    /**
+    * @var string
     *
     * @ORM\Column(type="text")
     */
@@ -78,7 +96,8 @@ class Inquiry
     protected $created;
     
     public function __construct() {
-        $this->created = new \DateTime('now');
+        $this->created   = new \DateTime('now');
+        $this->status    = self::STATUS_RECEIVED;
     }
 
     /**
@@ -89,6 +108,29 @@ class Inquiry
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     * @return Inquiry
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
     
     /**

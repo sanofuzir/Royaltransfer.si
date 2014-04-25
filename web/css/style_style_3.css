@@ -23,20 +23,6 @@ body {
     margin-bottom: 100px;
 }
 
-.title {
-    text-align: center;
-    margin-top: 90px;
-    padding-left: 50px;
-    line-height: 1em;
-    color: #c6c8c9;
-    font-weight:bold;
-    font-size: 25px;
-    text-shadow:0px 0px 0 rgb(174,176,177),
-                1px 1px 0 rgb(159,161,162),
-                2px 2px 0 rgb(145,147,148),
-                0px 0px 6px rgba(0,0,0,.2);
-}
-
 .admin-panel {
     border: 2px ridge black;
     padding: 20px;
@@ -57,11 +43,11 @@ body {
 }
 .admin-panel-category a:link, .admin-panel-category a:visited {
     text-decoration: none;
-    color: #08C;
+    color: #c6c8c9;
     padding-top: 10px;
 }
 .admin-panel-category a:hover {
-    color: #000000;
+    color: #c6
 }
 .mytable th {
     font-size: 120%;
@@ -191,4 +177,40 @@ body {
 }
 .mydropdown li a:hover + div8{
     background-color: black;
+}
+.link {
+    margin-top: 20px;
+}
+.link a:link, .link a:visited {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.link a:hover {
+    color: #c6c8c9;
+}
+
+.title {
+    text-align: center;
+    margin-top: 90px;
+    padding-left: 50px;
+    line-height: 1em;
+    color: #c6c8c9;
+    font-weight:bold;
+    font-size: 20px;
+    text-shadow:0px 0px 0 rgb(174,176,177),
+                1px 1px 0 rgb(159,161,162),
+                2px 2px 0 rgb(145,147,148),
+                0px 0px 6px rgba(0,0,0,.2);
+}
+
+.title-color2 {
+    color: rgb(198,198,198); /* Old browsers */
+    color: -moz-linear-gradient(top,  rgba(198,198,198,1) 0%, rgba(242,242,242,1) 40%, rgba(242,242,242,1) 60%, rgba(198,198,198,1) 100%, rgba(198,198,198,1) 100%); /* FF3.6+ */
+    color: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(198,198,198,1)), color-stop(40%,rgba(242,242,242,1)), color-stop(60%,rgba(242,242,242,1)), color-stop(100%,rgba(198,198,198,1)), color-stop(100%,rgba(198,198,198,1))); /* Chrome,Safari4+ */
+    color: -webkit-linear-gradient(top,  rgba(198,198,198,1) 0%,rgba(242,242,242,1) 40%,rgba(242,242,242,1) 60%,rgba(198,198,198,1) 100%,rgba(198,198,198,1) 100%); /* Chrome10+,Safari5.1+ */
+    color: -o-linear-gradient(top,  rgba(198,198,198,1) 0%,rgba(242,242,242,1) 40%,rgba(242,242,242,1) 60%,rgba(198,198,198,1) 100%,rgba(198,198,198,1) 100%); /* Opera 11.10+ */
+    color: -ms-linear-gradient(top,  rgba(198,198,198,1) 0%,rgba(242,242,242,1) 40%,rgba(242,242,242,1) 60%,rgba(198,198,198,1) 100%,rgba(198,198,198,1) 100%); /* IE10+ */
+    color: linear-gradient(to bottom,  rgba(198,198,198,1) 0%,rgba(242,242,242,1) 40%,rgba(242,242,242,1) 60%,rgba(198,198,198,1) 100%,rgba(198,198,198,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c6c6c6', endColorstr='#c6c6c6',GradientType=0 ); /* IE6-9 */
 }

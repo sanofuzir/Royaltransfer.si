@@ -2,13 +2,14 @@
 
 // UserBundle:Registration:register.html.twig
 return array (
-  '759cdea' => 
+  '7797d03' => 
   array (
     0 => 
     array (
       0 => '@CoreBundle/Resources/assets/css/bootstrap.css',
       1 => '@CoreBundle/Resources/assets/css/bootstrap-theme.css',
       2 => '@CoreBundle/Resources/assets/css/style.css',
+      3 => '@CoreBundle/Resources/assets/css/lightbox.css',
     ),
     1 => 
     array (
@@ -16,7 +17,7 @@ return array (
     2 => 
     array (
       'output' => 'css/style.css',
-      'name' => '759cdea',
+      'name' => '7797d03',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 
@@ -24,13 +25,14 @@ return array (
       ),
     ),
   ),
-  '7930e18' => 
+  'aa92e5b' => 
   array (
     0 => 
     array (
-      0 => '@CoreBundle/Resources/assets/js/vendor/jquery-1.9.1.js',
-      1 => '@CoreBundle/Resources/assets/js/vendor/bootstrap.js',
-      2 => '@CoreBundle/Resources/assets/js/*',
+      0 => '@CoreBundle/Resources/assets/js/vendor/jquery-1.11.0.min.js',
+      1 => '@CoreBundle/Resources/assets/js/vendor/lightbox.min.js',
+      2 => '@CoreBundle/Resources/assets/js/vendor/bootstrap.js',
+      3 => '@CoreBundle/Resources/assets/js/*',
     ),
     1 => 
     array (
@@ -38,7 +40,7 @@ return array (
     2 => 
     array (
       'output' => 'js/scripts.js',
-      'name' => '7930e18',
+      'name' => 'aa92e5b',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 

@@ -11,17 +11,26 @@
       <th>Ime</th>
       <th>Podjetje</th>
       <th>Besedilo</th>
+      <th>Status</th>
       <th>Datum vnosa</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
     {% for item in inquirys %}
+    {% if item.status == "Received" %}
+      {% set color = "red" %}
+    {% elseif item.status == "In_progress" %}
+      {% set color = "blue" %}
+    {% else %}
+      {% set color = "green" %}
+    {% endif %}
     <tr>
       <td>{{ item.id }}</td>
       <td>{{ item.name }}</td>
       <td>{{ item.company }}</td>
       <td>{{ item.text|length > 50 ? item.text|slice(0, 50) ~ '...' : item.text }}</td>
+      <td style="color: {{ color }}">{{ item.status }}</td>
       <td>{{ item.created|date('d.m.Y H:i:s')}}</td>
       <td><a href="{{ path('_admin_edit_inquiry', {'id': item.id}) }}" title="Uredi novico">
               <i class="icon-edit"></i>Uredi</a>&nbsp;

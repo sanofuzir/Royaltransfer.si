@@ -25,7 +25,7 @@ class InquiryController extends Controller
     }
 
     /**
-     * @Route("/admin/inquiry", name="_admin_inquirys")
+     * @Route("/admin/inquiry", name="_admin_inquiry")
      * @Template()
      */
     public function inquiryAction()
@@ -67,7 +67,7 @@ class InquiryController extends Controller
             if ($form->isValid()) {
                 $this->getInquiryManager()->saveInquiry($entity);
                 $this->get('session')->getFlashBag()->add('success', 'Povpraševanje je bilo uspešno shranjeno!');
-                return $this->redirect($this->generateUrl('_admin_inquriy'));
+                return $this->redirect($this->generateUrl('_admin_inquiry'));
             }
         }
 

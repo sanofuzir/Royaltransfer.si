@@ -1,19 +1,18 @@
 {% extends 'StaticBundle::layout.html.twig' %}
 
-{% block title %}Index{% endblock %}
+{% block title %}{% trans %}Domov{% endtrans %}{% endblock %}
 
 {% block content %}
 
 <div class="center">
-    <!--
-    <div style="margin: 50px 0px 0px 30px; width: 50px; height: 30px;">
-        <audio controls>
+    <div style="margin: 550px 0px 0px 500px; width: 50px; height: 30px; position: absolute;">
+        <audio controls autoplay>
           <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/mpeg">
           <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/ogg">
           <embed height="50" width="50" src="{{ asset('bundles/static/Music/music.mp3') }}">
         </audio>
     </div>
-    -->
+    
     <div class="rotate" style="padding-top: 250px;">
         <img style="margin-top: 10px;" class="image" src="{{ asset('bundles/static/images/krona.png') }}" alt="index">
     </div>

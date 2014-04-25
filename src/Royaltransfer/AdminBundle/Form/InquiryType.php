@@ -15,6 +15,11 @@ class InquiryType extends AbstractType
                 'attr'  => array('class' => 'span3'),
                 'label' => 'Ime*:'
             ))
+            ->add('status', 'choice', array(
+                'choices' => array('Received' => 'Prejeto', 'In_progress' => 'V teku', 'Completed' => 'Končano'),
+                'preferred_choices' => array('baz'),
+                'label' => 'Status:'
+            ))
             ->add('company',null, array(
                 'attr'  => array('class' => 'span3'),
                 'label' => 'Podjetje:'

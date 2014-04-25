@@ -234,9 +234,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             if (0 === strpos($pathinfo, '/admin/inquiry')) {
-                // _admin_inquirys
+                // _admin_inquiry
                 if ($pathinfo === '/admin/inquiry') {
-                    return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\InquiryController::inquiryAction',  '_route' => '_admin_inquirys',);
+                    return array (  '_controller' => 'royaltransfer\\AdminBundle\\Controller\\InquiryController::inquiryAction',  '_route' => '_admin_inquiry',);
                 }
 
                 // _admin_delete_inquiry
@@ -280,6 +280,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         // _news
         if ($pathinfo === '/News') {
             return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::newsAction',  '_route' => '_news',);
+        }
+
+        // _single_news
+        if (0 === strpos($pathinfo, '/news') && preg_match('#^/news/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => '_single_news')), array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::singleNewsAction',));
+        }
+
+        // _single_tour
+        if (0 === strpos($pathinfo, '/tour') && preg_match('#^/tour/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => '_single_tour')), array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::singleTourAction',));
         }
 
         // _galery

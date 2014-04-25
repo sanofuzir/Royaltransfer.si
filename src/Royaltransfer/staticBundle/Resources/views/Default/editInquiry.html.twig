@@ -1,0 +1,14 @@
+{% extends 'StaticBundle::layout.html.twig' %}
+
+{% block title %}{% trans %}Povpraševanja{% endtrans %}{% endblock %}
+
+{% block content %}
+<h2 style="margin-top: 50px;" class="title">{% trans %}Povpraševanja{% endtrans %}</h2>
+<form class="border news_form" action="{{ inquiry.id ? path('_edit_inquiry', {'id': inquiry.id}) : path('_add_inquiry') }}" method="post" {{ form_enctype(form) }} novalidate>
+    {{ form_widget(form) }}
+    <!--div class="form-actions"-->
+        <input type="submit" name="save" value="{% trans %}Shrani{% endtrans %}" class="btn btn-primary">
+    <!--/div-->
+</form>
+
+{% endblock %}

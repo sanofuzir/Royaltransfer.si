@@ -1,9 +1,9 @@
 {% extends 'StaticBundle::layout.html.twig' %}
 
-{% block title %}Galerija{% endblock %}
+{% block title %}{% trans %}Galerija{% endtrans %}{% endblock %}
 
 {% block content %}
-<h1 class="title">Galerija slik</h1>
+<h1 class="title title-color">{% trans %}Galerija slik{% endtrans %}</h1>
 <div class="border"><img src="{{ asset('bundles/static/images/border-top.jpg') }}" alt="slika" width=300/></div>
 <div class="galery">
     {% for item in images %}
@@ -17,4 +17,11 @@
     {% endfor %}
 </div>
 <div style="margin-top: 30px;" class="border"><img src="{{ asset('bundles/static/images/border-bottom.jpg') }}" alt="slika" width=300/></div>
+<div class="music-element" style="margin: 550px 0px 0px 500px; width: 50px; height: 30px; position: absolute;">
+    <audio controls autoplay>
+      <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/mpeg">
+      <source src="{{ asset('bundles/static/Music/music.mp3') }}" type="audio/ogg">
+      <embed height="50" width="50" src="{{ asset('bundles/static/Music/music.mp3') }}">
+    </audio>
+</div>
 {% endblock %}

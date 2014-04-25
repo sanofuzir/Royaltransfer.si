@@ -1,14 +1,14 @@
 {% extends 'StaticBundle::layout.html.twig' %}
 
-{% block title %}Naročilo{% endblock %}
+{% block title %}{% trans %}Naročilo{% endtrans %}{% endblock %}
 
 {% block content %}
-<h1 class="title">Naročilo transporta</h1>
+<h1 class="title">{% trans %}Naročilo transporta{% endtrans %}</h1>
 <form class="order_form" action="{{ order.id ? path('_edit_order', {'id': order.id}) : path('_add_order') }}" method="post" {{ form_enctype(form) }} novalidate>
     {{ form_widget(form) }}
     <!--div class="form-actions"-->
         <br />
-        <input type="submit" name="naroči" value="Naroči" class="btn btn-primary">
+        <input type="submit" name="naroči" value="{% trans %}Naroči{% endtrans %}" class="btn btn-primary">
     <!--/div-->
 </form>
 {% endblock %}
