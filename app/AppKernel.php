@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new royaltransfer\AdminBundle\AdminBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new royaltransfer\UserBundle\UserBundle(),
+            new JMS\TranslationBundle\JMSTranslationBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

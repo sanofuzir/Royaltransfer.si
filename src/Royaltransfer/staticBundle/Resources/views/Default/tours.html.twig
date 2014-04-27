@@ -5,38 +5,42 @@
 {% block content %}
     <h1 class="title title-color">{% trans %}Ponujamo izlet na naslednjo destinacijo{% endtrans %}:</h1>
     <div class="border"><img src="{{ asset('bundles/static/images/border-top.jpg') }}" alt="slika" width=300/></div>
-{% for item in tours %}
-    <table class="table">
-        <tr>
-            {% if item.video is not empty %}
-                <td style="width: 50%; padding-left: 45px;">
-            {% else %}
-                <td style="width: 80%; padding-left: 45px;">    
-            {% endif %}
-                <h2>{{ item.title}}</h2>
-                {{ item.description|length > 450 ? item.description|slice(0, 450) ~ '...' : item.description }}
-                <br />
-                <p class="link">
-                    <a href="{{ path('_single_tour', ({'id': item.id}) ) }}" >{% trans %}Več{% endtrans %}...&raquo;</a>
-                </p>
-            </td>
-            {% set counter = 0 %}
-            {% if item.path is not empty %}
-            {% set counter = counter + 1 %}
-            <td>
-                <a class="table-image" href="{{ asset('tour/')}}{{item.path }}"  data-lightbox="izleti-{{ counter}}">
-                    <img src="{{ asset('tour/')}}{{item.path }}" alt="slika" width=150/>
-                </a>
-            </td>
-            {% endif %}
-            {% if item.video is not empty %}
-            <td style="padding-top: 60px;">
-                <iframe src="{{ item.video }}" style="height: 220px; width: 250px;"></iframe>
-            </td>
-            {% endif %}
-        </tr>
-    </table>
-{% endfor %} 
+{% if tours is not empty %}
+    {% for item in tours %}
+        <table class="table">
+            <tr>
+                {% if item.video is not empty %}
+                    <td style="width: 50%; padding-left: 45px;">
+                {% else %}
+                    <td style="width: 80%; padding-left: 45px;">    
+                {% endif %}
+                    <h2>{{ item.title}}</h2>
+                    {{ item.description|length > 450 ? item.description|slice(0, 450) ~ '...' : item.description }}
+                    <br />
+                    <p class="link">
+                        <a href="{{ path('_single_tour', ({'id': item.id}) ) }}" >{% trans %}Več{% endtrans %}...&raquo;</a>
+                    </p>
+                </td>
+                {% set counter = 0 %}
+                {% if item.path is not empty %}
+                {% set counter = counter + 1 %}
+                <td>
+                    <a class="table-image" href="{{ asset('tour/')}}{{item.path }}"  data-lightbox="izleti-{{ counter}}">
+                        <img src="{{ asset('tour/')}}{{item.path }}" alt="slika" width=150/>
+                    </a>
+                </td>
+                {% endif %}
+                {% if item.video is not empty %}
+                <td style="padding-top: 60px;">
+                    <iframe src="{{ item.video }}" style="height: 220px; width: 250px;"></iframe>
+                </td>
+                {% endif %}
+            </tr>
+        </table>
+    {% endfor %} 
+{% else %}
+    <p style="padding: 30px 0px 0px 100px; margin-bottom: 400px;">{% trans %}Izleti so v izdelavi{% endtrans %}</p>
+{% endif %}
     <div class="border"><img src="{{ asset('bundles/static/images/border-bottom.jpg') }}" alt="slika" width=300/></div>
     <div class="music-element" style="margin: 550px 0px 0px 500px; width: 50px; height: 30px; position: absolute;">
         <audio controls autoplay>

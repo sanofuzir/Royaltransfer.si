@@ -5,6 +5,7 @@
 {% block content %}
 <h1 class="title title-color">{% trans %}Novice{% endtrans %}</h1>
     <div class="border"><img src="{{ asset('bundles/static/images/border-top.jpg') }}" alt="slika" width=300/></div>
+{% if news is not empty %}    
     {% for item in news %}
         <table class="table">
             <tr>
@@ -38,6 +39,9 @@
             </tr>
         </table>
     {% endfor %}
+{% else %}
+    <p style="padding: 30px 0px 0px 100px; margin-bottom: 400px;">{% trans %}Novice so v izdelavi{% endtrans %}</p>
+{% endif %}
     <div class="border"><img src="{{ asset('bundles/static/images/border-bottom.jpg') }}" alt="slika" width=300/></div>
     <div class="music-element" style="margin: 550px 0px 0px 500px; width: 50px; height: 30px; position: absolute;">
         <audio controls autoplay>

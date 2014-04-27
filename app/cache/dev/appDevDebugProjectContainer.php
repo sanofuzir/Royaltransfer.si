@@ -129,6 +129,10 @@ class appDevDebugProjectContainer extends Container
             'fragment.renderer.hinclude' => 'getFragment_Renderer_HincludeService',
             'fragment.renderer.inline' => 'getFragment_Renderer_InlineService',
             'http_kernel' => 'getHttpKernelService',
+            'jms_translation.config_factory' => 'getJmsTranslation_ConfigFactoryService',
+            'jms_translation.loader_manager' => 'getJmsTranslation_LoaderManagerService',
+            'jms_translation.twig_extension' => 'getJmsTranslation_TwigExtensionService',
+            'jms_translation.updater' => 'getJmsTranslation_UpdaterService',
             'kernel' => 'getKernelService',
             'locale_listener' => 'getLocaleListenerService',
             'logger' => 'getLoggerService',
@@ -159,7 +163,6 @@ class appDevDebugProjectContainer extends Container
             'royaltransfer.news_manager' => 'getRoyaltransfer_NewsManagerService',
             'royaltransfer.tour_manager' => 'getRoyaltransfer_TourManagerService',
             'royaltransfer.video_manager' => 'getRoyaltransfer_VideoManagerService',
-            'royaltransfer_locale.locale_listener' => 'getRoyaltransferLocale_LocaleListenerService',
             'security.access.decision_manager' => 'getSecurity_Access_DecisionManagerService',
             'security.authentication.manager' => 'getSecurity_Authentication_ManagerService',
             'security.authentication.session_strategy' => 'getSecurity_Authentication_SessionStrategyService',
@@ -493,7 +496,6 @@ class appDevDebugProjectContainer extends Container
         $instance->addSubscriberService('sensio_framework_extra.view.listener', 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\TemplateListener');
         $instance->addSubscriberService('sensio_framework_extra.cache.listener', 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\HttpCacheListener');
         $instance->addSubscriberService('sensio_framework_extra.security.listener', 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\SecurityListener');
-        $instance->addSubscriberService('royaltransfer_locale.locale_listener', 'royaltransfer\\staticBundle\\EventListener\\LocaleListener');
         $instance->addSubscriberService('fos_user.security.interactive_login_listener', 'FOS\\UserBundle\\EventListener\\LastLoginListener');
         $instance->addSubscriberService('fos_user.listener.authentication', 'FOS\\UserBundle\\EventListener\\AuthenticationListener');
         $instance->addSubscriberService('fos_user.listener.flash', 'FOS\\UserBundle\\EventListener\\FlashListener');
@@ -1599,6 +1601,71 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'jms_translation.config_factory' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return JMS\TranslationBundle\Translation\ConfigFactory A JMS\TranslationBundle\Translation\ConfigFactory instance.
+     */
+    protected function getJmsTranslation_ConfigFactoryService()
+    {
+        return $this->services['jms_translation.config_factory'] = new \JMS\TranslationBundle\Translation\ConfigFactory(array());
+    }
+
+    /**
+     * Gets the 'jms_translation.loader_manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return JMS\TranslationBundle\Translation\LoaderManager A JMS\TranslationBundle\Translation\LoaderManager instance.
+     */
+    protected function getJmsTranslation_LoaderManagerService()
+    {
+        return $this->services['jms_translation.loader_manager'] = new \JMS\TranslationBundle\Translation\LoaderManager(array('php' => new \JMS\TranslationBundle\Translation\Loader\SymfonyLoaderAdapter($this->get('translation.loader.php')), 'yml' => new \JMS\TranslationBundle\Translation\Loader\SymfonyLoaderAdapter($this->get('translation.loader.yml')), 'xlf' => new \JMS\TranslationBundle\Translation\Loader\SymfonyLoaderAdapter($this->get('translation.loader.xliff')), 'po' => new \JMS\TranslationBundle\Translation\Loader\SymfonyLoaderAdapter($this->get('translation.loader.po')), 'mo' => new \JMS\TranslationBundle\Translation\Loader\SymfonyLoaderAdapter($this->get('translation.loader.mo')), 'ts' => new \JMS\TranslationBundle\Translation\Loader\SymfonyLoaderAdapter($this->get('translation.loader.qt')), 'csv' => new \JMS\TranslationBundle\Translation\Loader\SymfonyLoaderAdapter($this->get('translation.loader.csv')), 'res' => new \JMS\TranslationBundle\Translation\Loader\SymfonyLoaderAdapter($this->get('translation.loader.res')), 'dat' => new \JMS\TranslationBundle\Translation\Loader\SymfonyLoaderAdapter($this->get('translation.loader.dat')), 'ini' => new \JMS\TranslationBundle\Translation\Loader\SymfonyLoaderAdapter($this->get('translation.loader.ini')), 'json' => new \JMS\TranslationBundle\Translation\Loader\SymfonyLoaderAdapter($this->get('translation.loader.json')), 'xliff' => new \JMS\TranslationBundle\Translation\Loader\XliffLoader()));
+    }
+
+    /**
+     * Gets the 'jms_translation.twig_extension' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return JMS\TranslationBundle\Twig\TranslationExtension A JMS\TranslationBundle\Twig\TranslationExtension instance.
+     */
+    protected function getJmsTranslation_TwigExtensionService()
+    {
+        return $this->services['jms_translation.twig_extension'] = new \JMS\TranslationBundle\Twig\TranslationExtension($this->get('translator.default'), true);
+    }
+
+    /**
+     * Gets the 'jms_translation.updater' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return JMS\TranslationBundle\Translation\Updater A JMS\TranslationBundle\Translation\Updater instance.
+     */
+    protected function getJmsTranslation_UpdaterService()
+    {
+        $a = $this->get('logger');
+        $b = $this->get('twig');
+
+        $c = new \Doctrine\Common\Annotations\DocParser();
+        $c->setImports(array('desc' => 'JMS\\TranslationBundle\\Annotation\\Desc', 'meaning' => 'JMS\\TranslationBundle\\Annotation\\Meaning', 'ignore' => 'JMS\\TranslationBundle\\Annotation\\Ignore'));
+        $c->setIgnoreNotImportedAnnotations(true);
+
+        $d = new \JMS\TranslationBundle\Translation\Dumper\XliffDumper();
+        $d->setSourceLanguage('en');
+
+        $e = new \JMS\TranslationBundle\Translation\Dumper\XliffDumper();
+        $e->setSourceLanguage('en');
+
+        return $this->services['jms_translation.updater'] = new \JMS\TranslationBundle\Translation\Updater($this->get('jms_translation.loader_manager'), new \JMS\TranslationBundle\Translation\ExtractorManager(new \JMS\TranslationBundle\Translation\Extractor\FileExtractor($b, $a, array(0 => new \JMS\TranslationBundle\Translation\Extractor\File\DefaultPhpFileExtractor($c), 1 => new \JMS\TranslationBundle\Translation\Extractor\File\FormExtractor($c), 2 => new \JMS\TranslationBundle\Translation\Extractor\File\TranslationContainerExtractor(), 3 => new \JMS\TranslationBundle\Translation\Extractor\File\TwigFileExtractor($b), 4 => new \JMS\TranslationBundle\Translation\Extractor\File\ValidationExtractor($this->get('validator.mapping.class_metadata_factory')), 5 => new \JMS\TranslationBundle\Translation\Extractor\File\AuthenticationMessagesExtractor($c))), $a, array()), $a, new \JMS\TranslationBundle\Translation\FileWriter(array('php' => new \JMS\TranslationBundle\Translation\Dumper\PhpDumper(), 'xlf' => $d, 'po' => new \JMS\TranslationBundle\Translation\Dumper\SymfonyDumperAdapter($this->get('translation.dumper.po'), 'po'), 'mo' => new \JMS\TranslationBundle\Translation\Dumper\SymfonyDumperAdapter($this->get('translation.dumper.mo'), 'mo'), 'yml' => new \JMS\TranslationBundle\Translation\Dumper\YamlDumper(), 'ts' => new \JMS\TranslationBundle\Translation\Dumper\SymfonyDumperAdapter($this->get('translation.dumper.qt'), 'ts'), 'csv' => new \JMS\TranslationBundle\Translation\Dumper\SymfonyDumperAdapter($this->get('translation.dumper.csv'), 'csv'), 'ini' => new \JMS\TranslationBundle\Translation\Dumper\SymfonyDumperAdapter($this->get('translation.dumper.ini'), 'ini'), 'json' => new \JMS\TranslationBundle\Translation\Dumper\SymfonyDumperAdapter($this->get('translation.dumper.json'), 'json'), 'res' => new \JMS\TranslationBundle\Translation\Dumper\SymfonyDumperAdapter($this->get('translation.dumper.res'), 'res'), 'xliff' => $e)));
+    }
+
+    /**
      * Gets the 'kernel' service.
      *
      * This service is shared.
@@ -2080,19 +2147,6 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'royaltransfer_locale.locale_listener' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return royaltransfer\staticBundle\EventListener\LocaleListener A royaltransfer\staticBundle\EventListener\LocaleListener instance.
-     */
-    protected function getRoyaltransferLocale_LocaleListenerService()
-    {
-        return $this->services['royaltransfer_locale.locale_listener'] = new \royaltransfer\staticBundle\EventListener\LocaleListener('sl-SI');
-    }
-
-    /**
      * Gets the 'security.context' service.
      *
      * This service is shared.
@@ -2183,7 +2237,7 @@ class appDevDebugProjectContainer extends Container
         $n = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($l, array('always_use_default_target_path' => false, 'default_target_path' => '/', 'login_path' => '/login', 'target_path_parameter' => '_target_path', 'use_referer' => false));
         $n->setProviderKey('main');
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($k, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username')), 'main', $a, $c), 2 => $m, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, $this->get('security.authentication.session_strategy'), $l, 'main', $n, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $l, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, $this->get('form.csrf_provider')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '5359f4812a9da', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $k, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $l, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $l, '/login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($k, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('fos_user.user_provider.username')), 'main', $a, $c), 2 => $m, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, $this->get('security.authentication.session_strategy'), $l, 'main', $n, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $l, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, $this->get('form.csrf_provider')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '535cb961142ee', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $k, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $l, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $l, '/login', false), NULL, NULL, $a));
     }
 
     /**
@@ -2530,14 +2584,16 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSwiftmailer_Mailer_Default_Transport_RealService()
     {
-        $this->services['swiftmailer.mailer.default.transport.real'] = $instance = new \Swift_Transport_EsmtpTransport(new \Swift_Transport_StreamBuffer(new \Swift_StreamFilters_StringReplacementFilterFactory()), array(0 => new \Swift_Transport_Esmtp_AuthHandler(array(0 => new \Swift_Transport_Esmtp_Auth_CramMd5Authenticator(), 1 => new \Swift_Transport_Esmtp_Auth_LoginAuthenticator(), 2 => new \Swift_Transport_Esmtp_Auth_PlainAuthenticator()))), $this->get('swiftmailer.mailer.default.transport.eventdispatcher'));
+        $a = new \Swift_Transport_Esmtp_AuthHandler(array(0 => new \Swift_Transport_Esmtp_Auth_CramMd5Authenticator(), 1 => new \Swift_Transport_Esmtp_Auth_LoginAuthenticator(), 2 => new \Swift_Transport_Esmtp_Auth_PlainAuthenticator()));
+        $a->setUsername('sano.fuzir');
+        $a->setPassword('$Master1');
+        $a->setAuthMode('login');
+
+        $this->services['swiftmailer.mailer.default.transport.real'] = $instance = new \Swift_Transport_EsmtpTransport(new \Swift_Transport_StreamBuffer(new \Swift_StreamFilters_StringReplacementFilterFactory()), array(0 => $a), $this->get('swiftmailer.mailer.default.transport.eventdispatcher'));
 
         $instance->setHost('smtp.gmail.com');
         $instance->setPort(465);
         $instance->setEncryption('ssl');
-        $instance->setUsername('sano.fuzir');
-        $instance->setPassword('$Master1');
-        $instance->setAuthMode('login');
         $instance->setTimeout(30);
         $instance->setSourceIp(NULL);
 
@@ -3106,11 +3162,11 @@ class appDevDebugProjectContainer extends Container
      * This service is shared.
      * This method always returns the same instance of the service.
      *
-     * @return Symfony\Component\Translation\Loader\XliffFileLoader A Symfony\Component\Translation\Loader\XliffFileLoader instance.
+     * @return JMS\TranslationBundle\Translation\Loader\Symfony\XliffLoader A JMS\TranslationBundle\Translation\Loader\Symfony\XliffLoader instance.
      */
     protected function getTranslation_Loader_XliffService()
     {
-        return $this->services['translation.loader.xliff'] = new \Symfony\Component\Translation\Loader\XliffFileLoader();
+        return $this->services['translation.loader.xliff'] = new \JMS\TranslationBundle\Translation\Loader\Symfony\XliffLoader();
     }
 
     /**
@@ -3314,6 +3370,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.sl.yml', 'sl', 'FOSUserBundle');
         $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.sr_Latn.yml', 'sr_Latn', 'FOSUserBundle');
         $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.sv.yml', 'sv', 'FOSUserBundle');
+        $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.th.yml', 'th', 'FOSUserBundle');
         $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.tr.yml', 'tr', 'FOSUserBundle');
         $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.uk.yml', 'uk', 'FOSUserBundle');
         $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/FOSUserBundle.vi.yml', 'vi', 'FOSUserBundle');
@@ -3348,6 +3405,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.sl.yml', 'sl', 'validators');
         $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.sr_Latn.yml', 'sr_Latn', 'validators');
         $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.sv.yml', 'sv', 'validators');
+        $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.th.yml', 'th', 'validators');
         $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.tr.yml', 'tr', 'validators');
         $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.uk.yml', 'uk', 'validators');
         $instance->addResource('yml', '/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/translations/validators.vi.yml', 'vi', 'validators');
@@ -3390,6 +3448,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Twig_Extension_Debug());
         $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), false, array(), array(0 => 'CoreBundle', 1 => 'StaticBundle', 2 => 'AdminBundle', 3 => 'UserBundle'), new \Symfony\Bundle\AsseticBundle\DefaultValueSupplier($this)));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
+        $instance->addExtension($this->get('jms_translation.twig_extension'));
         $instance->addGlobal('app', $this->get('templating.globals'));
 
         return $instance;
@@ -3442,6 +3501,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/AdminBundle/Resources/views', 'Admin');
         $instance->addPath('/Users/sanofuzir/Sites/royaltransfer/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Resources/views', 'FOSUser');
         $instance->addPath('/Users/sanofuzir/Sites/royaltransfer/src/royaltransfer/UserBundle/Resources/views', 'User');
+        $instance->addPath('/Users/sanofuzir/Sites/royaltransfer/vendor/jms/translation-bundle/JMS/TranslationBundle/Resources/views', 'JMSTranslation');
         $instance->addPath('/Users/sanofuzir/Sites/royaltransfer/vendor/symfony/symfony/src/Symfony/Bundle/WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('/Users/sanofuzir/Sites/royaltransfer/vendor/sensio/distribution-bundle/Sensio/Bundle/DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('/Users/sanofuzir/Sites/royaltransfer/app/Resources/views');
@@ -3673,7 +3733,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $this->get('security.user_checker'), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5359f4812a9da')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $this->get('security.user_checker'), 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('535cb961142ee')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
@@ -3887,6 +3947,7 @@ class appDevDebugProjectContainer extends Container
                 'AdminBundle' => 'royaltransfer\\AdminBundle\\AdminBundle',
                 'FOSUserBundle' => 'FOS\\UserBundle\\FOSUserBundle',
                 'UserBundle' => 'royaltransfer\\UserBundle\\UserBundle',
+                'JMSTranslationBundle' => 'JMS\\TranslationBundle\\JMSTranslationBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
@@ -4449,6 +4510,30 @@ class appDevDebugProjectContainer extends Container
             'fos_user.resetting.form.validation_groups' => array(
                 0 => 'ResetPassword',
                 1 => 'Default',
+            ),
+            'jms_translation.twig_extension.class' => 'JMS\\TranslationBundle\\Twig\\TranslationExtension',
+            'jms_translation.extractor_manager.class' => 'JMS\\TranslationBundle\\Translation\\ExtractorManager',
+            'jms_translation.extractor.file_extractor.class' => 'JMS\\TranslationBundle\\Translation\\Extractor\\FileExtractor',
+            'jms_translation.extractor.file.default_php_extractor' => 'JMS\\TranslationBundle\\Translation\\Extractor\\File\\DefaultPhpFileExtractor',
+            'jms_translation.extractor.file.translation_container_extractor' => 'JMS\\TranslationBundle\\Translation\\Extractor\\File\\TranslationContainerExtractor',
+            'jms_translation.extractor.file.twig_extractor' => 'JMS\\TranslationBundle\\Translation\\Extractor\\File\\TwigFileExtractor',
+            'jms_translation.extractor.file.form_extractor.class' => 'JMS\\TranslationBundle\\Translation\\Extractor\\File\\FormExtractor',
+            'jms_translation.extractor.file.validation_extractor.class' => 'JMS\\TranslationBundle\\Translation\\Extractor\\File\\ValidationExtractor',
+            'jms_translation.extractor.file.authentication_message_extractor.class' => 'JMS\\TranslationBundle\\Translation\\Extractor\\File\\AuthenticationMessagesExtractor',
+            'jms_translation.loader.symfony.xliff_loader.class' => 'JMS\\TranslationBundle\\Translation\\Loader\\Symfony\\XliffLoader',
+            'jms_translation.loader.xliff_loader.class' => 'JMS\\TranslationBundle\\Translation\\Loader\\XliffLoader',
+            'jms_translation.loader.symfony_adapter.class' => 'JMS\\TranslationBundle\\Translation\\Loader\\SymfonyLoaderAdapter',
+            'jms_translation.loader_manager.class' => 'JMS\\TranslationBundle\\Translation\\LoaderManager',
+            'jms_translation.dumper.php_dumper.class' => 'JMS\\TranslationBundle\\Translation\\Dumper\\PhpDumper',
+            'jms_translation.dumper.xliff_dumper.class' => 'JMS\\TranslationBundle\\Translation\\Dumper\\XliffDumper',
+            'jms_translation.dumper.yaml_dumper.class' => 'JMS\\TranslationBundle\\Translation\\Dumper\\YamlDumper',
+            'jms_translation.dumper.symfony_adapter.class' => 'JMS\\TranslationBundle\\Translation\\Dumper\\SymfonyDumperAdapter',
+            'jms_translation.file_writer.class' => 'JMS\\TranslationBundle\\Translation\\FileWriter',
+            'jms_translation.updater.class' => 'JMS\\TranslationBundle\\Translation\\Updater',
+            'jms_translation.config_factory.class' => 'JMS\\TranslationBundle\\Translation\\ConfigFactory',
+            'jms_translation.source_language' => 'en',
+            'jms_translation.locales' => array(
+
             ),
             'web_profiler.controller.profiler.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController',
             'web_profiler.controller.router.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\RouterController',
