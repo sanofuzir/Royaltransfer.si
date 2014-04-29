@@ -53,43 +53,51 @@ class __TwigTemplate_5f6d4d0e5f484667ba1f2a9fbf78e9e5cf11f67eef07a1bfa399cb338fd
   <tbody>
     ";
         // line 19
+        $context["counter"] = 0;
+        // line 20
+        echo "    ";
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["images"]) ? $context["images"] : $this->getContext($context, "images")));
         foreach ($context['_seq'] as $context["_key"] => $context["image"]) {
-            // line 20
+            // line 21
+            echo "    ";
+            $context["counter"] = ((isset($context["counter"]) ? $context["counter"] : $this->getContext($context, "counter")) + 1);
+            // line 22
             echo "    <tr>
       <td>";
-            // line 21
+            // line 23
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["image"]) ? $context["image"] : $this->getContext($context, "image")), "id"), "html", null, true);
             echo "</td>
       <td>";
-            // line 22
+            // line 24
             echo twig_escape_filter($this->env, (((twig_length_filter($this->env, $this->getAttribute((isset($context["image"]) ? $context["image"] : $this->getContext($context, "image")), "description")) > 50)) ? ((twig_slice($this->env, $this->getAttribute((isset($context["image"]) ? $context["image"] : $this->getContext($context, "image")), "description"), 0, 50) . "...")) : ($this->getAttribute((isset($context["image"]) ? $context["image"] : $this->getContext($context, "image")), "description"))), "html", null, true);
             echo "</td>
       <td>";
-            // line 23
+            // line 25
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["image"]) ? $context["image"] : $this->getContext($context, "image")), "created"), "d.m.Y H:i:s"), "html", null, true);
             echo "</td>
       <td>
           <a href=\"";
-            // line 25
+            // line 27
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("galery/"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["image"]) ? $context["image"] : $this->getContext($context, "image")), "path"), "html", null, true);
-            echo "\" rel=\"lightbox\">
+            echo "\" data-lightbox=\"galery-";
+            echo twig_escape_filter($this->env, (isset($context["counter"]) ? $context["counter"] : $this->getContext($context, "counter")), "html", null, true);
+            echo "\">
             <img src=\"";
-            // line 26
+            // line 28
             echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("galery/"), "html", null, true);
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["image"]) ? $context["image"] : $this->getContext($context, "image")), "path"), "html", null, true);
             echo "\" alt=\"slika\" width=\"50\"/>
           </a>
       </td>
       <td><a href=\"";
-            // line 29
+            // line 31
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_admin_edit_image", array("id" => $this->getAttribute((isset($context["image"]) ? $context["image"] : $this->getContext($context, "image")), "id"))), "html", null, true);
             echo "\" title=\"Uredi sliko\">
               <i class=\"icon-edit\"></i>Uredi</a>&nbsp;
               <a href=\"";
-            // line 31
+            // line 33
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("_admin_delete_image", array("id" => $this->getAttribute((isset($context["image"]) ? $context["image"] : $this->getContext($context, "image")), "id"))), "html", null, true);
             echo "\" class=\"confirmation\" title=\"Odstrani sliko\" data-confirmation=\"Ali si prepričan?\">
                   <i class=\"icon-trash\">Izbriši</i></a></td>
@@ -99,7 +107,7 @@ class __TwigTemplate_5f6d4d0e5f484667ba1f2a9fbf78e9e5cf11f67eef07a1bfa399cb338fd
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['image'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 35
+        // line 37
         echo "  </tbody>
 </table>
 
@@ -118,6 +126,6 @@ class __TwigTemplate_5f6d4d0e5f484667ba1f2a9fbf78e9e5cf11f67eef07a1bfa399cb338fd
 
     public function getDebugInfo()
     {
-        return array (  103 => 35,  93 => 31,  88 => 29,  81 => 26,  76 => 25,  71 => 23,  67 => 22,  63 => 21,  60 => 20,  56 => 19,  41 => 7,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  77 => 25,  20 => 1,  349 => 154,  344 => 8,  301 => 161,  293 => 155,  290 => 154,  284 => 153,  257 => 145,  234 => 131,  228 => 128,  210 => 116,  206 => 115,  197 => 109,  184 => 102,  180 => 101,  167 => 94,  137 => 42,  113 => 33,  160 => 50,  152 => 48,  124 => 36,  118 => 34,  110 => 32,  97 => 28,  65 => 17,  90 => 27,  84 => 25,  81 => 20,  53 => 13,  472 => 199,  467 => 8,  429 => 211,  425 => 206,  417 => 200,  414 => 199,  408 => 198,  397 => 196,  392 => 195,  388 => 194,  382 => 191,  378 => 190,  351 => 174,  343 => 171,  335 => 168,  329 => 165,  317 => 156,  311 => 155,  300 => 147,  277 => 137,  266 => 129,  260 => 128,  249 => 120,  232 => 111,  226 => 108,  222 => 125,  213 => 104,  195 => 98,  190 => 96,  186 => 95,  181 => 93,  172 => 90,  150 => 47,  126 => 62,  104 => 41,  100 => 28,  76 => 24,  70 => 20,  58 => 20,  480 => 162,  474 => 161,  469 => 158,  461 => 213,  457 => 153,  453 => 151,  444 => 149,  440 => 148,  437 => 147,  435 => 146,  430 => 144,  427 => 143,  423 => 142,  413 => 134,  409 => 132,  407 => 131,  402 => 130,  398 => 129,  393 => 126,  387 => 122,  384 => 121,  381 => 120,  379 => 119,  374 => 116,  368 => 183,  365 => 111,  362 => 182,  360 => 109,  355 => 106,  341 => 105,  337 => 168,  322 => 101,  314 => 99,  312 => 98,  309 => 97,  305 => 166,  298 => 91,  294 => 146,  285 => 89,  283 => 138,  278 => 86,  268 => 150,  264 => 149,  258 => 81,  252 => 80,  247 => 138,  241 => 77,  229 => 73,  220 => 70,  214 => 69,  177 => 92,  169 => 60,  140 => 55,  132 => 51,  128 => 49,  107 => 49,  61 => 18,  273 => 151,  269 => 94,  254 => 92,  243 => 137,  240 => 86,  238 => 85,  235 => 74,  230 => 82,  227 => 81,  224 => 71,  221 => 77,  219 => 76,  217 => 105,  208 => 102,  204 => 101,  179 => 69,  159 => 86,  143 => 44,  135 => 53,  119 => 35,  102 => 32,  71 => 20,  67 => 21,  63 => 21,  59 => 12,  38 => 6,  94 => 26,  89 => 28,  85 => 21,  75 => 17,  68 => 17,  56 => 19,  87 => 24,  21 => 1,  26 => 2,  93 => 28,  88 => 6,  78 => 22,  46 => 7,  27 => 4,  44 => 10,  31 => 5,  28 => 3,  201 => 92,  196 => 90,  183 => 82,  171 => 95,  166 => 71,  163 => 87,  158 => 88,  156 => 49,  151 => 63,  142 => 59,  138 => 54,  136 => 56,  121 => 39,  117 => 37,  105 => 29,  91 => 27,  62 => 12,  49 => 9,  24 => 4,  25 => 3,  19 => 1,  79 => 21,  72 => 16,  69 => 23,  47 => 8,  40 => 8,  37 => 6,  22 => 2,  246 => 90,  157 => 56,  145 => 45,  139 => 43,  131 => 52,  123 => 38,  120 => 59,  115 => 46,  111 => 37,  108 => 33,  101 => 33,  98 => 28,  96 => 31,  83 => 23,  74 => 18,  66 => 22,  55 => 11,  52 => 10,  50 => 13,  43 => 7,  41 => 7,  35 => 5,  32 => 4,  29 => 3,  209 => 82,  203 => 78,  199 => 99,  193 => 108,  189 => 71,  187 => 84,  182 => 66,  176 => 64,  173 => 65,  168 => 89,  164 => 59,  162 => 57,  154 => 87,  149 => 51,  147 => 58,  144 => 49,  141 => 48,  133 => 40,  130 => 39,  125 => 38,  122 => 43,  116 => 34,  112 => 42,  109 => 34,  106 => 36,  103 => 29,  99 => 27,  95 => 27,  92 => 26,  86 => 24,  82 => 27,  80 => 25,  73 => 24,  64 => 15,  60 => 13,  57 => 11,  54 => 10,  51 => 11,  48 => 9,  45 => 8,  42 => 8,  39 => 9,  36 => 5,  33 => 5,  30 => 8,);
     }
 }

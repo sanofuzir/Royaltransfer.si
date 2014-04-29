@@ -49,7 +49,7 @@ $this->container = $container;
 protected function getSession()
 {
 if (!$this->container->has('session')) {
-return null;
+return;
 }
 return $this->container->get('session');
 }
@@ -415,17 +415,17 @@ public function close()
 $this->active = false;
 return (bool) $this->handler->close();
 }
-public function read($id)
+public function read($sessionId)
 {
-return (string) $this->handler->read($id);
+return (string) $this->handler->read($sessionId);
 }
-public function write($id, $data)
+public function write($sessionId, $data)
 {
-return (bool) $this->handler->write($id, $data);
+return (bool) $this->handler->write($sessionId, $data);
 }
-public function destroy($id)
+public function destroy($sessionId)
 {
-return (bool) $this->handler->destroy($id);
+return (bool) $this->handler->destroy($sessionId);
 }
 public function gc($maxlifetime)
 {
@@ -625,7 +625,7 @@ return $this->container->getParameter('kernel.environment');
 }
 public function getDebug()
 {
-return (Boolean) $this->container->getParameter('kernel.debug');
+return (bool) $this->container->getParameter('kernel.debug');
 }
 }
 }
@@ -859,7 +859,7 @@ return $this->context;
 }
 public function setStrictRequirements($enabled)
 {
-$this->strictRequirements = null === $enabled ? null : (Boolean) $enabled;
+$this->strictRequirements = null === $enabled ? null : (bool) $enabled;
 }
 public function isStrictRequirements()
 {
@@ -893,7 +893,7 @@ throw new InvalidParameterException($message);
 if ($this->logger) {
 $this->logger->error($message);
 }
-return null;
+return;
 }
 $url = $token[1].$mergedParams[$token[3]].$url;
 $optional = false;
@@ -932,7 +932,7 @@ throw new InvalidParameterException($message);
 if ($this->logger) {
 $this->logger->error($message);
 }
-return null;
+return;
 }
 $routeHost = $token[1].$mergedParams[$token[3]].$routeHost;
 } else {
@@ -1684,7 +1684,7 @@ return $this->sorted;
 }
 public function hasListeners($eventName = null)
 {
-return (Boolean) count($this->getListeners($eventName));
+return (bool) count($this->getListeners($eventName));
 }
 public function addListener($eventName, $listener, $priority = 0)
 {
@@ -1793,7 +1793,7 @@ parent::removeListener($eventName, $listener);
 public function hasListeners($eventName = null)
 {
 if (null === $eventName) {
-return (Boolean) count($this->listenerIds) || (Boolean) count($this->listeners);
+return (bool) count($this->listenerIds) || (bool) count($this->listeners);
 }
 if (isset($this->listenerIds[$eventName])) {
 return true;
@@ -2012,8 +2012,14 @@ $this->logger->warning('Unable to look for the controller as the "_controller" p
 }
 return false;
 }
-if (is_array($controller) || (is_object($controller) && method_exists($controller,'__invoke'))) {
+if (is_array($controller)) {
 return $controller;
+}
+if (is_object($controller)) {
+if (method_exists($controller,'__invoke')) {
+return $controller;
+}
+throw new \InvalidArgumentException(sprintf('Controller "%s" for URI "%s" is not callable.', get_class($controller), $request->getPathInfo()));
 }
 if (false === strpos($controller,':')) {
 if (method_exists($controller,'__invoke')) {
@@ -2024,7 +2030,7 @@ return $controller;
 }
 $callable = $this->createController($controller);
 if (!is_callable($callable)) {
-throw new \InvalidArgumentException(sprintf('The controller for URI "%s" is not callable.', $request->getPathInfo()));
+throw new \InvalidArgumentException(sprintf('Controller "%s" for URI "%s" is not callable.', $controller, $request->getPathInfo()));
 }
 return $callable;
 }
@@ -2432,10 +2438,10 @@ public function onKernelRequest(GetResponseEvent $event)
 if (!$event->isMasterRequest()) {
 return;
 }
-list($listeners, $exception) = $this->map->getListeners($event->getRequest());
-if (null !== $exception) {
-$this->exceptionListeners[$event->getRequest()] = $exception;
-$exception->register($this->dispatcher);
+list($listeners, $exceptionListener) = $this->map->getListeners($event->getRequest());
+if (null !== $exceptionListener) {
+$this->exceptionListeners[$event->getRequest()] = $exceptionListener;
+$exceptionListener->register($this->dispatcher);
 }
 foreach ($listeners as $listener) {
 $listener->handle($event);
@@ -2557,7 +2563,7 @@ if (!$providers) {
 throw new \InvalidArgumentException('You must at least add one authentication provider.');
 }
 $this->providers = $providers;
-$this->eraseCredentials = (Boolean) $eraseCredentials;
+$this->eraseCredentials = (bool) $eraseCredentials;
 }
 public function setEventDispatcher(EventDispatcherInterface $dispatcher)
 {
@@ -2634,8 +2640,8 @@ throw new \InvalidArgumentException(sprintf('The strategy "%s" is not supported.
 }
 $this->voters = $voters;
 $this->strategy = $strategyMethod;
-$this->allowIfAllAbstainDecisions = (Boolean) $allowIfAllAbstainDecisions;
-$this->allowIfEqualGrantedDeniedDecisions = (Boolean) $allowIfEqualGrantedDeniedDecisions;
+$this->allowIfAllAbstainDecisions = (bool) $allowIfAllAbstainDecisions;
+$this->allowIfEqualGrantedDeniedDecisions = (bool) $allowIfEqualGrantedDeniedDecisions;
 }
 public function decide(TokenInterface $token, array $attributes, $object = null)
 {
@@ -4724,7 +4730,6 @@ protected function normalizeException(Exception $e)
 $data = array('class'=> get_class($e),'message'=> $e->getMessage(),'file'=> $e->getFile().':'.$e->getLine(),
 );
 $trace = $e->getTrace();
-array_shift($trace);
 foreach ($trace as $frame) {
 if (isset($frame['file'])) {
 $data['trace'][] = $frame['file'].':'.$frame['line'];
@@ -4754,13 +4759,16 @@ return json_encode($data);
 }
 namespace Monolog\Formatter
 {
+use Exception;
 class LineFormatter extends NormalizerFormatter
 {
 const SIMPLE_FORMAT ="[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n";
 protected $format;
-public function __construct($format = null, $dateFormat = null)
+protected $allowInlineLineBreaks;
+public function __construct($format = null, $dateFormat = null, $allowInlineLineBreaks = false)
 {
 $this->format = $format ?: static::SIMPLE_FORMAT;
+$this->allowInlineLineBreaks = $allowInlineLineBreaks;
 parent::__construct($dateFormat);
 }
 public function format(array $record)
@@ -4769,13 +4777,13 @@ $vars = parent::format($record);
 $output = $this->format;
 foreach ($vars['extra'] as $var => $val) {
 if (false !== strpos($output,'%extra.'.$var.'%')) {
-$output = str_replace('%extra.'.$var.'%', $this->convertToString($val), $output);
+$output = str_replace('%extra.'.$var.'%', $this->replaceNewlines($this->convertToString($val)), $output);
 unset($vars['extra'][$var]);
 }
 }
 foreach ($vars as $var => $val) {
 if (false !== strpos($output,'%'.$var.'%')) {
-$output = str_replace('%'.$var.'%', $this->convertToString($val), $output);
+$output = str_replace('%'.$var.'%', $this->replaceNewlines($this->convertToString($val)), $output);
 }
 }
 return $output;
@@ -4788,32 +4796,35 @@ $message .= $this->format($record);
 }
 return $message;
 }
-protected function normalize($data)
+protected function normalizeException(Exception $e)
 {
-if (is_bool($data) || is_null($data)) {
-return var_export($data, true);
-}
-if ($data instanceof \Exception) {
 $previousText ='';
-if ($previous = $data->getPrevious()) {
+if ($previous = $e->getPrevious()) {
 do {
 $previousText .=', '.get_class($previous).': '.$previous->getMessage().' at '.$previous->getFile().':'.$previous->getLine();
 } while ($previous = $previous->getPrevious());
 }
-return'[object] ('.get_class($data).': '.$data->getMessage().' at '.$data->getFile().':'.$data->getLine().$previousText.')';
-}
-return parent::normalize($data);
+return'[object] ('.get_class($e).': '.$e->getMessage().' at '.$e->getFile().':'.$e->getLine().$previousText.')';
 }
 protected function convertToString($data)
 {
-if (null === $data || is_scalar($data)) {
+if (null === $data || is_bool($data)) {
+return var_export($data, true);
+}
+if (is_scalar($data)) {
 return (string) $data;
 }
-$data = $this->normalize($data);
 if (version_compare(PHP_VERSION,'5.4.0','>=')) {
 return $this->toJson($data, true);
 }
 return str_replace('\\/','/', @json_encode($data));
+}
+protected function replaceNewlines($str)
+{
+if ($this->allowInlineLineBreaks) {
+return $str;
+}
+return preg_replace('{[\r\n]+}',' ', $str);
 }
 }
 }
@@ -4952,7 +4963,8 @@ class StreamHandler extends AbstractProcessingHandler
 protected $stream;
 protected $url;
 private $errorMessage;
-public function __construct($stream, $level = Logger::DEBUG, $bubble = true)
+protected $filePermission;
+public function __construct($stream, $level = Logger::DEBUG, $bubble = true, $filePermission = null)
 {
 parent::__construct($level, $bubble);
 if (is_resource($stream)) {
@@ -4960,6 +4972,7 @@ $this->stream = $stream;
 } else {
 $this->url = $stream;
 }
+$this->filePermission = $filePermission;
 }
 public function close()
 {
@@ -4970,13 +4983,16 @@ $this->stream = null;
 }
 protected function write(array $record)
 {
-if (null === $this->stream) {
+if (!is_resource($this->stream)) {
 if (!$this->url) {
 throw new \LogicException('Missing stream url, the stream can not be opened. This may be caused by a premature call to close().');
 }
 $this->errorMessage = null;
 set_error_handler(array($this,'customErrorHandler'));
 $this->stream = fopen($this->url,'a');
+if ($this->filePermission !== null) {
+@chmod($this->url, $this->filePermission);
+}
 restore_error_handler();
 if (!is_resource($this->stream)) {
 $this->stream = null;
@@ -4985,7 +5001,8 @@ throw new \UnexpectedValueException(sprintf('The stream or file "%s" could not b
 }
 fwrite($this->stream, (string) $record['formatted']);
 }
-private function customErrorHandler($code, $msg) {
+private function customErrorHandler($code, $msg)
+{
 $this->errorMessage = preg_replace('{^fopen\(.*?\): }','', $msg);
 }
 }
@@ -6436,6 +6453,164 @@ throw new \RuntimeException(sprintf('Unknown key "%s" for annotation "@%s".', $k
 }
 $this->$name($v);
 }
+}
+}
+}
+namespace JMS\I18nRoutingBundle\Router
+{
+use JMS\I18nRoutingBundle\Exception\NotAcceptableLanguageException;
+use Symfony\Component\Routing\Matcher\RequestMatcherInterface;
+use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
+use Symfony\Component\Routing\Exception\ResourceNotFoundException;
+use Symfony\Component\HttpFoundation\Request;
+class I18nRouter extends Router
+{
+private $hostMap = array();
+private $i18nLoaderId;
+private $container;
+private $defaultLocale;
+private $redirectToHost = true;
+private $localeResolver;
+public function __construct()
+{
+call_user_func_array(array('Symfony\Bundle\FrameworkBundle\Routing\Router','__construct'), func_get_args());
+$this->container = func_get_arg(0);
+}
+public function setLocaleResolver(LocaleResolverInterface $resolver)
+{
+$this->localeResolver = $resolver;
+}
+public function setRedirectToHost($bool)
+{
+$this->redirectToHost = (Boolean) $bool;
+}
+public function setHostMap(array $hostMap)
+{
+$this->hostMap = $hostMap;
+}
+public function setI18nLoaderId($id)
+{
+$this->i18nLoaderId = $id;
+}
+public function setDefaultLocale($locale)
+{
+$this->defaultLocale = $locale;
+}
+public function generate($name, $parameters = array(), $absolute = false)
+{
+$currentLocale = $this->context->getParameter('_locale');
+if (isset($parameters['_locale'])) {
+$locale = $parameters['_locale'];
+} else if ($currentLocale) {
+$locale = $currentLocale;
+} else {
+$locale = $this->defaultLocale;
+}
+if ($currentLocale && $currentLocale !== $locale && $this->hostMap) {
+$absolute = true;
+}
+$generator = $this->getGenerator();
+if ($absolute && $this->hostMap) {
+$currentHost = $this->context->getHost();
+$this->context->setHost($this->hostMap[$locale]);
+}
+try {
+$url = $generator->generate($locale.I18nLoader::ROUTING_PREFIX.$name, $parameters, $absolute);
+if ($absolute && $this->hostMap) {
+$this->context->setHost($currentHost);
+}
+return $url;
+} catch (RouteNotFoundException $ex) {
+if ($absolute && $this->hostMap) {
+$this->context->setHost($currentHost);
+}
+}
+return $generator->generate($name, $parameters, $absolute);
+}
+public function match($url)
+{
+return $this->matchI18n(parent::match($url), $url);
+}
+public function getRouteCollection()
+{
+$collection = parent::getRouteCollection();
+return $this->container->get($this->i18nLoaderId)->load($collection);
+}
+public function getOriginalRouteCollection()
+{
+return parent::getRouteCollection();
+}
+public function matchRequest(Request $request)
+{
+$matcher = $this->getMatcher();
+$pathInfo = $request->getPathInfo();
+if (!$matcher instanceof RequestMatcherInterface) {
+return $this->matchI18n($matcher->match($pathInfo), $pathInfo);
+}
+return $this->matchI18n($matcher->matchRequest($request), $pathInfo);
+}
+private function matchI18n(array $params, $url)
+{
+if (false === $params) {
+return false;
+}
+if (isset($params['_locales'])) {
+if (false !== $pos = strpos($params['_route'], I18nLoader::ROUTING_PREFIX)) {
+$params['_route'] = substr($params['_route'], $pos + strlen(I18nLoader::ROUTING_PREFIX));
+}
+if (!($currentLocale = $this->context->getParameter('_locale'))
+&& $this->container->isScopeActive('request')) {
+$currentLocale = $this->localeResolver->resolveLocale(
+$this->container->get('request'), $params['_locales']);
+if (!$currentLocale) {
+$currentLocale = reset($params['_locales']);
+}
+}
+if (!in_array($currentLocale, $params['_locales'], true)) {
+if ($this->hostMap) {
+$hostMap = $this->hostMap;
+$availableHosts = array_map(function($locale) use ($hostMap) {
+return $hostMap[$locale];
+}, $params['_locales']);
+$differentHost = true;
+foreach ($availableHosts as $host) {
+if ($this->hostMap[$currentLocale] === $host) {
+$differentHost = false;
+break;
+}
+}
+if ($differentHost) {
+throw new ResourceNotFoundException(sprintf('The route "%s" is not available on the current host "%s", but only on these hosts "%s".',
+$params['_route'], $this->hostMap[$currentLocale], implode(', ', $availableHosts)));
+}
+}
+throw new NotAcceptableLanguageException($currentLocale, $params['_locales']);
+}
+unset($params['_locales']);
+$params['_locale'] = $currentLocale;
+} else if (isset($params['_locale']) && 0 < $pos = strpos($params['_route'], I18nLoader::ROUTING_PREFIX)) {
+$params['_route'] = substr($params['_route'], $pos + strlen(I18nLoader::ROUTING_PREFIX));
+}
+if (isset($params['_locale'])
+&& isset($this->hostMap[$params['_locale']])
+&& $this->context->getHost() !== $host = $this->hostMap[$params['_locale']]) {
+if (!$this->redirectToHost) {
+throw new ResourceNotFoundException(sprintf('Resource corresponding to pattern "%s" not found for locale "%s".', $url, $this->getContext()->getParameter('_locale')));
+}
+return array('_controller'=>'JMS\I18nRoutingBundle\Controller\RedirectController::redirectAction','path'=> $url,'host'=> $host,'permanent'=> true,'scheme'=> $this->context->getScheme(),'httpPort'=> $this->context->getHttpPort(),'httpsPort'=> $this->context->getHttpsPort(),'_route'=> $params['_route'],
+);
+}
+if (!isset($params['_locale'])
+&& $this->container->isScopeActive('request')
+&& $locale = $this->localeResolver->resolveLocale(
+$this->container->get('request'),
+$this->container->getParameter('jms_i18n_routing.locales'))) {
+$params['_locale'] = $locale;
+}
+return $params;
 }
 }
 }

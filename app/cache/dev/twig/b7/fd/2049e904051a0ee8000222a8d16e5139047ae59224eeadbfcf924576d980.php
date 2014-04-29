@@ -28,50 +28,90 @@ class __TwigTemplate_b7fd2049e904051a0ee8000222a8d16e5139047ae59224eeadbfcf92457
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        echo "About";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("O nas", array(), "messages");
     }
 
     // line 5
     public function block_content($context, array $blocks = array())
     {
         // line 6
-        echo "<h1 class=\"title\">O nas</h1>
+        echo "<h1 class=\"title title-color nov-class\">";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("O nas", array(), "messages");
+        echo "</h1>
 <div class=\"border\"><img src=\"";
         // line 7
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/border-top.jpg"), "html", null, true);
         echo "\" alt=\"slika\" width=300/></div>
 <div style=\"text-align: justify; padding: 10px 50px;\">
     <br />
-    <p style=\"font-size: 120%;\"><b>Dobrodošli na naši spletni strani</b></p>
+    <p style=\"font-size: 120%;\">
+        <b>";
+        // line 11
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Dobrodošli na naši spletni strani", array(), "messages");
+        echo "</b></p>
     
-    <p class=\"about\">Smo podjetje, ki je specializirano za opravljanje prevozov v Sloveniji in v tujini. 
-        Vedno urejeni vozniki z urejenimi vozili Vam nudijo kvaliteto storitev. 
-        Prevozi, ki jih opravljamo so lahko na določene destinacije ali kamorkoli na Vašo željo.</p>
+    <p class=\"about\">
+        ";
+        // line 14
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Smo podjetje, ki je specializirano za opravljanje prevozov v Sloveniji in v tujini. Vedno urejeni vozniki z urejenimi vozili Vam nudijo kvaliteto storitev. Prevozi, ki jih opravljamo so lahko na določene destinacije ali kamorkoli na Vašo željo.", array(), "messages");
+        // line 15
+        echo "    </p>
     
-    <p class=\"about\">Zagotavljamo hitro odzivnost glede na Vaše potrebe. 
-        Z našimi vozili bo vožnja vedno udobna in varna, saj vozila spadajo v višji cenovni razred, 
-        prav tako pa tudi v najvišji razred varnosti.
-    </p>
+    <p class=\"about\">";
+        // line 17
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Zagotavljamo hitro odzivnost glede na Vaše potrebe. Z našimi vozili bo vožnja vedno udobna in varna, saj vozila spadajo v višji cenovni razred, prav tako pa tudi v najvišji razred varnosti.", array(), "messages");
+        // line 18
+        echo "    </p>
     <p class=\"about\">
-        Galerijo vozil si lahko ogledate na naši spletni strani. 
-        Nudimo tudi enodnevne ali večdnevne najeme vozil z urejenimi vozniki, 
-        kateri Vas popeljejo po raznih opravkih ali  sestankih, Vas tam počakajo in na koncu dneva poskrbijo, 
-        da prispete varno domov ali v hotel.
-    </p>     
+        ";
+        // line 20
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Galerijo vozil si lahko ogledate na naši spletni strani. Nudimo tudi enodnevne ali večdnevne najeme vozil z urejenimi vozniki, kateri Vas popeljejo po raznih opravkih ali  sestankih, Vas tam počakajo in na koncu dneva poskrbijo, da prispete varno domov ali v hotel.", array(), "messages");
+        // line 21
+        echo "    </p>     
     <p class=\"about\">
-        Organiziramo tudi izlete po raznih krajih v Sloveniji. 
-        Naš voznik Vas na kraju počaka in Vas varno pripelje tudi nazaj. 
-        Kraje in zanimive destinacije si lahko ogledate na naši spletni strani.
-    </p>     
+        ";
+        // line 23
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Organiziramo tudi izlete po raznih krajih v Sloveniji. Naš voznik Vas na kraju počaka in Vas varno pripelje tudi nazaj. Kraje in zanimive destinacije si lahko ogledate na naši spletni strani.", array(), "messages");
+        // line 24
+        echo "    </p>     
     <p class=\"about\">
-        Za vse informacije nas lahko kontaktirate preko telefona ali elektronske pošte. 
-        V najkrajšem možnem času Vas bomo kontaktirali in Vam posredovali željene informacije.
-    </p>
+        ";
+        // line 26
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Za vse informacije nas lahko kontaktirate preko telefona ali elektronske pošte. V najkrajšem možnem času Vas bomo kontaktirali in Vam posredovali željene informacije.", array(), "messages");
+        // line 27
+        echo "    </p>
     <br />
-    <p><b>Zahvaljujemo se Vam za obisk naše spletne strani.</b></p>
+    <p><b>";
+        // line 29
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Zahvaljujemo se Vam za obisk naše spletne strani.", array(), "messages");
+        echo "</b></p>
 </div>
+<div class=\"music-element\" style=\"
+     width: 50px; 
+     height: 30px; 
+     position: absolute;
+     margin-left: 490px;
+     margin-right: auto;
+     width:70%;
+     \">
+    <audio controls autoplay>
+      <source src=\"";
+        // line 40
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/Music/music.mp3"), "html", null, true);
+        echo "\" type=\"audio/mpeg\">
+      <source src=\"";
+        // line 41
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/Music/music.mp3"), "html", null, true);
+        echo "\" type=\"audio/ogg\">
+      <embed height=\"50\" width=\"50\" src=\"";
+        // line 42
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/Music/music.mp3"), "html", null, true);
+        echo "\">
+    </audio>
+</div>
+    <p>&nbsp;</p>
 <div class=\"border\"><img src=\"";
-        // line 38
+        // line 46
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/border-bottom.jpg"), "html", null, true);
         echo "\" alt=\"slika\" width=300/></div>
 ";
@@ -89,6 +129,6 @@ class __TwigTemplate_b7fd2049e904051a0ee8000222a8d16e5139047ae59224eeadbfcf92457
 
     public function getDebugInfo()
     {
-        return array (  75 => 38,  41 => 7,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  115 => 46,  108 => 42,  104 => 41,  100 => 40,  86 => 29,  82 => 27,  80 => 26,  76 => 24,  74 => 23,  70 => 21,  68 => 20,  64 => 18,  62 => 17,  58 => 15,  56 => 14,  50 => 11,  43 => 7,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

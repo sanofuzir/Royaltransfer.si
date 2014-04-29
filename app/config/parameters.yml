@@ -10,5 +10,5 @@ parameters:
     mailer_host: null
     mailer_user: sano.fuzir
     mailer_password: $Master1
-    locale: sl-SI
+    locale: sl
     secret: ThisTokenIsNotSoSecretChangeIt

@@ -147,7 +147,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
             <div class=\"flags\" style=\"position: relative; margin: -10px auto 0 auto; width: 57%;\">
                 <a href=\"";
         // line 83
-        echo $this->env->getExtension('routing')->getPath("_home");
+        echo $this->env->getExtension('routing')->getPath("home", array("_locale" => "en"));
         echo "\" style=\"margin-left: -40px;\">
                     <img src=\"";
         // line 84
@@ -156,7 +156,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                 </a>
                 <a href=\"";
         // line 86
-        echo $this->env->getExtension('routing')->getPath("_home");
+        echo $this->env->getExtension('routing')->getPath("home", array("_locale" => "sl"));
         echo "\">
                     <img src=\"";
         // line 87
@@ -165,7 +165,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                 </a>
                 <a href=\"";
         // line 89
-        echo $this->env->getExtension('routing')->getPath("_home");
+        echo $this->env->getExtension('routing')->getPath("home", array("_locale" => "hr"));
         echo "\">
                     <img src=\"";
         // line 90
@@ -174,7 +174,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                 </a>
                 <a href=\"";
         // line 92
-        echo $this->env->getExtension('routing')->getPath("_home");
+        echo $this->env->getExtension('routing')->getPath("home", array("_locale" => "rs"));
         echo "\">
                     <img src=\"";
         // line 93
@@ -183,7 +183,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                 </a>
                 <a href=\"";
         // line 95
-        echo $this->env->getExtension('routing')->getPath("_home");
+        echo $this->env->getExtension('routing')->getPath("home", array("_locale" => "ba"));
         echo "\">
                     <img src=\"";
         // line 96
@@ -192,7 +192,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                 </a>
                 <a href=\"";
         // line 98
-        echo $this->env->getExtension('routing')->getPath("_home");
+        echo $this->env->getExtension('routing')->getPath("home", array("_locale" => "it"));
         echo "\">
                     <img src=\"";
         // line 99
@@ -201,7 +201,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                 </a>
                 <a href=\"";
         // line 101
-        echo $this->env->getExtension('routing')->getPath("_home");
+        echo $this->env->getExtension('routing')->getPath("home", array("_locale" => "de"));
         echo "\">
                     <img src=\"";
         // line 102
@@ -210,7 +210,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                 </a>
                 <a href=\"";
         // line 104
-        echo $this->env->getExtension('routing')->getPath("_home");
+        echo $this->env->getExtension('routing')->getPath("home", array("_locale" => "es"));
         echo "\">
                     <img src=\"";
         // line 105
@@ -219,7 +219,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                 </a>
                 <a href=\"";
         // line 107
-        echo $this->env->getExtension('routing')->getPath("_home");
+        echo $this->env->getExtension('routing')->getPath("home", array("_locale" => "fr"));
         echo "\">
                     <img src=\"";
         // line 108
@@ -240,7 +240,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                    var audio = document.getElementById('mySoundClip');audio.pause();\"
                href=\"";
         // line 119
-        echo $this->env->getExtension('routing')->getPath("_home");
+        echo $this->env->getExtension('routing')->getPath("home");
         echo "\"><span class=\"main-menu-title title-color\">";
         echo $this->env->getExtension('translator')->getTranslator()->trans("Domov", array(), "messages");
         echo "</span></a>
@@ -312,7 +312,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         echo "\"><span class=\"main-menu-title title-color\">";
         echo $this->env->getExtension('translator')->getTranslator()->trans("Povpraševanje", array(), "messages");
         echo "</span></a>
-                  <img id=\"div5\" style=\"margin-left: 15px;\" class=\"image image-meni\" src=\"";
+                  <img id=\"div5\" style=\"margin-left: -10px;\" class=\"image image-meni\" src=\"";
         // line 156
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
@@ -324,7 +324,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
                    onmouseout=\"document.getElementById('div6').style.visibility = 'hidden';
                    var audio = document.getElementById('mySoundClip');audio.pause();\">
                 <a style=\"color: #c6c8c9; background-color: none;\" class=\"dropdown-toggle\" id=\"dLabel\" role=\"button\" data-toggle=\"dropdown\" data-target=\"#\" href=\"#\">
-                    <span class=\"main-menu-title title-color\">";
+                    <span class=\"main-menu-title title-color\" style=\"margin-left: -25px;\">";
         // line 165
         echo $this->env->getExtension('translator')->getTranslator()->trans("Galerija", array(), "messages");
         echo "</span><b class=\"caret\"></b></a>
@@ -346,7 +346,7 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
         echo "</span></a>
                   </li>
                 </ul>
-                <img id=\"div6\" class=\"image image-meni\" src=\"";
+                <img id=\"div6\" class=\"image image-meni\" style=\"margin-left: -25px;\" src=\"";
         // line 174
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/static/images/krona.png"), "html", null, true);
         echo "\" alt=\"eng\">
@@ -485,6 +485,6 @@ class __TwigTemplate_558ced4ebd294139613c996dfd0b8d4349f84a86a0cf667305709a403ec
 
     public function getDebugInfo()
     {
-        return array (  472 => 199,  467 => 8,  461 => 213,  429 => 211,  425 => 206,  417 => 200,  414 => 199,  408 => 198,  397 => 196,  392 => 195,  388 => 194,  382 => 191,  378 => 190,  368 => 183,  362 => 182,  351 => 174,  343 => 171,  335 => 168,  329 => 165,  317 => 156,  311 => 155,  300 => 147,  294 => 146,  283 => 138,  277 => 137,  266 => 129,  260 => 128,  249 => 120,  243 => 119,  232 => 111,  226 => 108,  222 => 107,  217 => 105,  213 => 104,  208 => 102,  204 => 101,  199 => 99,  195 => 98,  190 => 96,  186 => 95,  181 => 93,  177 => 92,  172 => 90,  168 => 89,  163 => 87,  159 => 86,  154 => 84,  150 => 83,  107 => 49,  80 => 25,  73 => 20,  41 => 18,  37 => 12,  30 => 8,  21 => 1,  149 => 46,  145 => 45,  141 => 44,  134 => 41,  126 => 62,  120 => 59,  117 => 34,  114 => 33,  106 => 29,  99 => 28,  96 => 27,  93 => 26,  90 => 25,  88 => 24,  83 => 22,  76 => 20,  70 => 17,  65 => 16,  61 => 14,  57 => 12,  55 => 11,  51 => 9,  47 => 8,  43 => 7,  38 => 6,  35 => 5,  29 => 3,);
+        return array (  472 => 199,  467 => 8,  461 => 213,  429 => 211,  425 => 206,  417 => 200,  414 => 199,  408 => 198,  397 => 196,  392 => 195,  388 => 194,  382 => 191,  378 => 190,  368 => 183,  362 => 182,  351 => 174,  343 => 171,  335 => 168,  329 => 165,  317 => 156,  311 => 155,  300 => 147,  294 => 146,  283 => 138,  277 => 137,  266 => 129,  260 => 128,  249 => 120,  243 => 119,  232 => 111,  226 => 108,  222 => 107,  217 => 105,  213 => 104,  208 => 102,  204 => 101,  199 => 99,  195 => 98,  190 => 96,  186 => 95,  181 => 93,  177 => 92,  172 => 90,  168 => 89,  163 => 87,  159 => 86,  154 => 84,  150 => 83,  126 => 62,  120 => 59,  107 => 49,  80 => 25,  73 => 20,  41 => 18,  37 => 12,  30 => 8,  21 => 1,);
     }
 }

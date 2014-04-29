@@ -22,6 +22,7 @@
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="UserBundle">royaltransfer\UserBundle\UserBundle</parameter>
       <parameter key="JMSTranslationBundle">JMS\TranslationBundle\JMSTranslationBundle</parameter>
+      <parameter key="JMSI18nRoutingBundle">JMS\I18nRoutingBundle\JMSI18nRoutingBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -38,7 +39,7 @@
     <parameter key="mailer_host">null</parameter>
     <parameter key="mailer_user">sano.fuzir</parameter>
     <parameter key="mailer_password">$Master1</parameter>
-    <parameter key="locale">sl-SI</parameter>
+    <parameter key="locale">sl</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
@@ -97,7 +98,7 @@
     <parameter key="kernel.http_method_override">true</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
     <parameter key="kernel.trusted_proxies" type="collection"/>
-    <parameter key="kernel.default_locale">sl-SI</parameter>
+    <parameter key="kernel.default_locale">sl</parameter>
     <parameter key="session.class">Symfony\Component\HttpFoundation\Session\Session</parameter>
     <parameter key="session.flashbag.class">Symfony\Component\HttpFoundation\Session\Flash\FlashBag</parameter>
     <parameter key="session.attribute_bag.class">Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag</parameter>
@@ -587,6 +588,30 @@
     <parameter key="jms_translation.config_factory.class">JMS\TranslationBundle\Translation\ConfigFactory</parameter>
     <parameter key="jms_translation.source_language">en</parameter>
     <parameter key="jms_translation.locales" type="collection"/>
+    <parameter key="jms_i18n_routing.router.class">JMS\I18nRoutingBundle\Router\I18nRouter</parameter>
+    <parameter key="jms_i18n_routing.locale_resolver.class">JMS\I18nRoutingBundle\Router\DefaultLocaleResolver</parameter>
+    <parameter key="jms_i18n_routing.loader.class">JMS\I18nRoutingBundle\Router\I18nLoader</parameter>
+    <parameter key="jms_i18n_routing.route_exclusion_strategy.class">JMS\I18nRoutingBundle\Router\DefaultRouteExclusionStrategy</parameter>
+    <parameter key="jms_i18n_routing.pattern_generation_strategy.class">JMS\I18nRoutingBundle\Router\DefaultPatternGenerationStrategy</parameter>
+    <parameter key="jms_i18n_routing.locale_choosing_listener.class">JMS\I18nRoutingBundle\EventListener\LocaleChoosingListener</parameter>
+    <parameter key="jms_i18n_routing.cookie_setting_listener.class">JMS\I18nRoutingBundle\EventListener\CookieSettingListener</parameter>
+    <parameter key="jms_i18n_routing.route_translation_extractor.class">JMS\I18nRoutingBundle\Translation\RouteTranslationExtractor</parameter>
+    <parameter key="jms_i18n_routing.default_locale">sl</parameter>
+    <parameter key="jms_i18n_routing.locales" type="collection">
+      <parameter>sl</parameter>
+      <parameter>es</parameter>
+      <parameter>rs</parameter>
+      <parameter>hr</parameter>
+      <parameter>it</parameter>
+      <parameter>ba</parameter>
+      <parameter>fr</parameter>
+      <parameter>en</parameter>
+      <parameter>de</parameter>
+    </parameter>
+    <parameter key="jms_i18n_routing.catalogue">routes</parameter>
+    <parameter key="jms_i18n_routing.strategy">prefix</parameter>
+    <parameter key="jms_i18n_routing.redirect_to_host">true</parameter>
+    <parameter key="jms_i18n_routing.cookie.name">hl</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -661,7 +686,7 @@
     </service>
     <service id="locale_listener" class="Symfony\Component\HttpKernel\EventListener\LocaleListener">
       <tag name="kernel.event_subscriber"/>
-      <argument>sl-SI</argument>
+      <argument>sl</argument>
       <argument type="service" id="router" on-invalid="ignore"/>
       <argument type="service" id="request_stack"/>
     </service>
@@ -820,7 +845,7 @@
       </argument>
       <call method="setFallbackLocales">
         <argument type="collection">
-          <argument>sl-SI</argument>
+          <argument>sl</argument>
         </argument>
       </call>
       <call method="addResource">
@@ -1067,6 +1092,12 @@
         <argument>xlf</argument>
         <argument>/Users/sanofuzir/Sites/royaltransfer/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.sv.xlf</argument>
         <argument>sv</argument>
+        <argument>validators</argument>
+      </call>
+      <call method="addResource">
+        <argument>xlf</argument>
+        <argument>/Users/sanofuzir/Sites/royaltransfer/vendor/symfony/symfony/src/Symfony/Component/Validator/Resources/translations/validators.th.xlf</argument>
+        <argument>th</argument>
         <argument>validators</argument>
       </call>
       <call method="addResource">
@@ -1995,6 +2026,12 @@
       </call>
       <call method="addResource">
         <argument>yml</argument>
+        <argument>/Users/sanofuzir/Sites/royaltransfer/app/Resources/translations/messages.it.yml</argument>
+        <argument>it</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>yml</argument>
         <argument>/Users/sanofuzir/Sites/royaltransfer/app/Resources/translations/messages.rs.yml</argument>
         <argument>rs</argument>
         <argument>messages</argument>
@@ -2192,6 +2229,22 @@
           <argument>onKernelController</argument>
         </argument>
         <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument>jms_i18n_routing.locale_choosing_listener</argument>
+          <argument>onKernelException</argument>
+        </argument>
+        <argument>128</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>kernel.response</argument>
+        <argument type="collection">
+          <argument>jms_i18n_routing.cookie_setting_listener</argument>
+          <argument>onKernelResponse</argument>
+        </argument>
+        <argument>256</argument>
       </call>
       <call method="addSubscriberService">
         <argument>response_listener</argument>
@@ -2914,7 +2967,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>535cb961142ee</argument>
+            <argument>535fcefabcd55</argument>
           </service>
         </argument>
       </argument>
@@ -3184,7 +3237,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>535cb961142ee</argument>
+            <argument>535fcefabcd55</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -4070,7 +4123,15 @@
             </service>
           </argument>
           <argument type="service" id="logger"/>
-          <argument type="collection"/>
+          <argument type="collection">
+            <argument key="jms_i18n_routing" type="service">
+              <service class="JMS\I18nRoutingBundle\Translation\RouteTranslationExtractor" public="false">
+                <tag name="jms_translation.extractor" alias="jms_i18n_routing"/>
+                <argument type="service" id="router"/>
+                <argument type="service" id="jms_i18n_routing.route_exclusion_strategy"/>
+              </service>
+            </argument>
+          </argument>
         </service>
       </argument>
       <argument type="service" id="logger"/>
@@ -4220,6 +4281,58 @@
       <tag name="twig.extension"/>
       <argument type="service" id="translator.default"/>
       <argument>true</argument>
+    </service>
+    <service id="jms_i18n_routing.locale_resolver.default" class="JMS\I18nRoutingBundle\Router\DefaultLocaleResolver" public="false">
+      <argument>hl</argument>
+    </service>
+    <service id="jms_i18n_routing.locale_choosing_listener" class="JMS\I18nRoutingBundle\EventListener\LocaleChoosingListener">
+      <tag name="kernel.event_listener" event="kernel.exception" priority="128"/>
+      <argument>sl</argument>
+      <argument type="collection">
+        <argument>sl</argument>
+        <argument>es</argument>
+        <argument>rs</argument>
+        <argument>hr</argument>
+        <argument>it</argument>
+        <argument>ba</argument>
+        <argument>fr</argument>
+        <argument>en</argument>
+        <argument>de</argument>
+      </argument>
+      <argument type="service" id="jms_i18n_routing.locale_resolver.default"/>
+    </service>
+    <service id="jms_i18n_routing.cookie_setting_listener" class="JMS\I18nRoutingBundle\EventListener\CookieSettingListener">
+      <tag name="kernel.event_listener" event="kernel.response" priority="256"/>
+      <argument>hl</argument>
+      <argument>31536000</argument>
+      <argument>null</argument>
+      <argument>null</argument>
+      <argument>false</argument>
+      <argument>false</argument>
+    </service>
+    <service id="jms_i18n_routing.route_exclusion_strategy" class="JMS\I18nRoutingBundle\Router\DefaultRouteExclusionStrategy" public="false"/>
+    <service id="jms_i18n_routing.loader" class="JMS\I18nRoutingBundle\Router\I18nLoader">
+      <argument type="service" id="jms_i18n_routing.route_exclusion_strategy"/>
+      <argument type="service">
+        <service class="JMS\I18nRoutingBundle\Router\DefaultPatternGenerationStrategy" public="false">
+          <argument>prefix</argument>
+          <argument type="service" id="translator.default"/>
+          <argument type="collection">
+            <argument>sl</argument>
+            <argument>es</argument>
+            <argument>rs</argument>
+            <argument>hr</argument>
+            <argument>it</argument>
+            <argument>ba</argument>
+            <argument>fr</argument>
+            <argument>en</argument>
+            <argument>de</argument>
+          </argument>
+          <argument>/Users/sanofuzir/Sites/royaltransfer/app/cache/dev</argument>
+          <argument>routes</argument>
+          <argument>sl</argument>
+        </service>
+      </argument>
     </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>
@@ -4424,6 +4537,9 @@
       <argument type="service" id="templating.loader"/>
       <argument type="service" id="debug.stopwatch"/>
       <argument type="service" id="templating.globals"/>
+      <call method="setCharset">
+        <argument>UTF-8</argument>
+      </call>
       <call method="setHelpers">
         <argument type="collection">
           <argument key="slots">templating.helper.slots</argument>
@@ -4447,7 +4563,6 @@
       <argument type="service" id="templating.name_parser"/>
       <argument type="service" id="templating.locator"/>
       <argument type="service" id="debug.stopwatch"/>
-      <argument type="service" id="templating.globals"/>
       <call method="setDefaultEscapingStrategy">
         <argument type="collection">
           <argument type="service" id="templating"/>
@@ -4455,8 +4570,7 @@
         </argument>
       </call>
     </service>
-    <service id="router" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
-      <tag name="monolog.logger" channel="router"/>
+    <service id="router" class="JMS\I18nRoutingBundle\Router\I18nRouter">
       <argument type="service" id="service_container"/>
       <argument>/Users/sanofuzir/Sites/royaltransfer/app/config/routing_dev.yml</argument>
       <argument type="collection">
@@ -4474,6 +4588,18 @@
       </argument>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.router" on-invalid="ignore"/>
+      <call method="setLocaleResolver">
+        <argument type="service" id="jms_i18n_routing.locale_resolver.default"/>
+      </call>
+      <call method="setI18nLoaderId">
+        <argument>jms_i18n_routing.loader</argument>
+      </call>
+      <call method="setDefaultLocale">
+        <argument>sl</argument>
+      </call>
+      <call method="setRedirectToHost">
+        <argument>true</argument>
+      </call>
     </service>
     <service id="annotation_reader" class="Doctrine\Common\Annotations\FileCacheReader">
       <argument type="service">

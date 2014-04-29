@@ -2,23 +2,29 @@
 
 Domov: Dom
 O nas: O nama
-Novice: Vijesti
-Izleti: Ture
+Novice: Vesti
+Izleti: Izleti
 Povpraševanje: potražnja
 Galerija: Galerija
-Galerija slik: Galerija
+Galerija slik: Galerija slika
 Video Galerija: Video galerija
 Kontakt: Kontaktirajte nas
 Telefon: Telefon
 Elektronska pošta: E-mail
-Povpraševanja: Potražnja
-Shrani: Spasiti
-Naročilo: Ugovor
-Naročilo transporta: Prijevoz ugovor
-Naroči: Pretplatiti se
-Ponujamo izlet na naslednjo destinacijo: Nudimo putovanje na sljedeće odredište
+Shrani: Sačuvati
+Naročilo: Naruđba
+Naročilo transporta: Naruđba transporta
+Pošlji: Pošalji
+Naroči: Naručiti
 Nazaj: Nazad
-Več: Više
+Več: More
+Ponujamo izlet na naslednjo destinacijo: Nudimo izlet na sledeće destinaciju
+V izdelavi: U izgradnji
+Ime: Ime
+Podjetje: Kompanija
+Telefon: Telefon
+Email: E-mail
+Vnos besedila: Umetnite text
 
 ##Vsebina O nas:
 Dobrodošli na naši spletni strani: Dobro došli na našu web stranicu.
@@ -27,5 +33,3 @@ Galerijo vozil si lahko ogledate na naši spletni strani. Nudimo tudi enodnevne 
 Organiziramo tudi izlete po raznih krajih v Sloveniji. Naš voznik Vas na kraju počaka in Vas varno pripelje tudi nazaj. Kraje in zanimive destinacije si lahko ogledate na naši spletni strani.: Takođe organizujemo  izlete po različitim mestima u Sloveniji . Naš vozač će Vas sačekati i odvesti nazad. Sva mesta i zanimljive destinacije možete naći na našoj web stranici. 
 Za vse informacije nas lahko kontaktirate preko telefona ali elektronske pošte. V najkrajšem možnem času Vas bomo kontaktirali in Vam posredovali željene informacije.: Za sve informacije možete nas kontaktirati putem telefona ili e-pošte,  a mi ćemo Vas pokušati kontaktirati u najkraćem mogućem vremenu i pružiti Vam potrebne informacije.
 Zahvaljujemo se Vam za obisk naše spletne strani.: Hvala Vam na poseti naše stranice.
-## YAML Template.
----

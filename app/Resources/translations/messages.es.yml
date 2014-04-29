@@ -1,31 +1,35 @@
 ## YAML Translations.
 
-Domov: Dom
-O nas: O nama
-Novice: Vijesti
-Izleti: Ture
-Povpraševanje: potražnja
-Galerija: Galerija
-Galerija slik: Galerija
-Video Galerija: Video galerija
-Kontakt: Kontaktirajte nas
-Telefon: Telefon
+Domov: Casa
+O nas: ¿Quiénes somos?
+Novice: noticias
+Izleti: Excursiones
+Povpraševanje: Demand
+Galerija: Galería
+Galerija slik: Galería
+Video Galerija: Galería de Video
+Kontakt: Contáctenos
+Telefon: Teléfono
 Elektronska pošta: E-mail
-Povpraševanja: Potražnja
-Shrani: Spasiti
-Naročilo: Ugovor
-Naročilo transporta: Prijevoz ugovor
-Naroči: Pretplatiti se
-Ponujamo izlet na naslednjo destinacijo: Nudimo putovanje na sljedeće odredište
-Nazaj: Nazad
-Več: Više
+Shrani: Guardar
+Naročilo: Contratos
+Naročilo transporta: Contrato de transporte
+Pošlji: Enviar
+Naroči: Suscribir
+Nazaj: Espalda
+Več: Más
+Ponujamo izlet na naslednjo destinacijo: Ofrecemos un viaje al próximo destino
+V izdelavi: En Construcción
+Ime: Nombre
+Podjetje: Empresa
+Telefon: Teléfono
+Email: E-mail
+Vnos besedila: Insertar texto
 
 ##Vsebina O nas:
-Dobrodošli na naši spletni strani: Dobro došli na našu web stranicu.
-Smo podjetje, ki je specializirano za opravljanje prevozov v Sloveniji in v tujini. Vedno urejeni vozniki z urejenimi vozili Vam nudijo kvaliteto storitev. Prevozi, ki jih opravljamo so lahko na določene destinacije ali kamorkoli na Vašo željo.: Mi smo firma koja je specijalizovana za pružanje usluga u Sloveniji i inostranstvu . Naši pouzdani vozači nude Vam kvalitetne usluge u uređenim vozilima. Usluge koje pružamo mogu biti na određenom mestu ili bilo gde na Vaš zahtev. Garantujemo Vam brzo vreme odziva prema Vašim potrebama.
-Galerijo vozil si lahko ogledate na naši spletni strani. Nudimo tudi enodnevne ali večdnevne najeme vozil z urejenimi vozniki, kateri Vas popeljejo po raznih opravkih ali  sestankih, Vas tam počakajo in na koncu dneva poskrbijo, da prispete varno domov ali v hotel.: Vožnja našim vozilima će Vam biti udobna i sigurna,  jer vozila pripadaju višem cenovnom rangu, kao i najvišem razredu sigurnosti. Galeriju naših vozila možete pogledati na našoj web stranici. Takođe nudimo jednodnevni ili višednevni najam vozila sa uređenim vozačima, koji Vas mogu odvesti na različite krajeve ili sastanke. Vozači će Vas sačekati, da sredite sve što morate, te Vas nakon toga sigurno odvesti do boravka ili hotela.
-Organiziramo tudi izlete po raznih krajih v Sloveniji. Naš voznik Vas na kraju počaka in Vas varno pripelje tudi nazaj. Kraje in zanimive destinacije si lahko ogledate na naši spletni strani.: Takođe organizujemo  izlete po različitim mestima u Sloveniji . Naš vozač će Vas sačekati i odvesti nazad. Sva mesta i zanimljive destinacije možete naći na našoj web stranici. 
-Za vse informacije nas lahko kontaktirate preko telefona ali elektronske pošte. V najkrajšem možnem času Vas bomo kontaktirali in Vam posredovali željene informacije.: Za sve informacije možete nas kontaktirati putem telefona ili e-pošte,  a mi ćemo Vas pokušati kontaktirati u najkraćem mogućem vremenu i pružiti Vam potrebne informacije.
-Zahvaljujemo se Vam za obisk naše spletne strani.: Hvala Vam na poseti naše stranice.
-## YAML Template.
----
+Dobrodošli na naši spletni strani: Bienvenido a nuestra página web !
+Smo podjetje, ki je specializirano za opravljanje prevozov v Sloveniji in v tujini. Vedno urejeni vozniki z urejenimi vozili Vam nudijo kvaliteto storitev. Prevozi, ki jih opravljamo so lahko na določene destinacije ali kamorkoli na Vašo željo.: Nuestra empresa es una empresa especializada en realizar viajes por Eslovenia y en el extranjero. Los conductores, siempre bien vestidos y con sus vehículos siempre limpios, les ofrecerán un servicio de excelente calidad. El transporte puede ser a cualquier de los destinos que nosotros les ofrecemos, a o al destino deseado por usted.
+Galerijo vozil si lahko ogledate na naši spletni strani. Nudimo tudi enodnevne ali večdnevne najeme vozil z urejenimi vozniki, kateri Vas popeljejo po raznih opravkih ali  sestankih, Vas tam počakajo in na koncu dneva poskrbijo, da prispete varno domov ali v hotel.: Garantizamos una respuesta rápida y acorde a sus necesidades.Con nosotros viajará siempre tranquilo y cómodo, ya que disponemos de vehículos de alta gama, equipados con los mejores sistemas de seguridad, y conductores experimentados. En la sección de Galería, puede ver nuestros vehículos.
+Organiziramo tudi izlete po raznih krajih v Sloveniji. Naš voznik Vas na kraju počaka in Vas varno pripelje tudi nazaj. Kraje in zanimive destinacije si lahko ogledate na naši spletni strani.: También se oferta la opción de alquiler de vehículos con chofer, que lo llevarán a realizar sus diferentes tareas, esperando por usted, para al final de la jornada llevarlo de vuelta a su casa o a su hotel. 
+Za vse informacije nas lahko kontaktirate preko telefona ali elektronske pošte. V najkrajšem možnem času Vas bomo kontaktirali in Vam posredovali željene informacije.: Existe también la opción de realizar excursiones por diferentes lugares de Eslovenia. Nuestro conductor le esperará y lo llevará de vuelta.Todos estos lugares y destinos que ofrecemos se pueden encontrar en nuestra página web. Para cualquier información, o duda, puede ponerse en contacto con nosotros a través de teléfono, o por correo electrónico. Tan pronto como podamos responderemos su petición, o aclararemos su pregunta con la máxima precisión posible.
+Zahvaljujemo se Vam za obisk naše spletne strani.: Gracias por visitar nuestra página web.

@@ -19,6 +19,7 @@ return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'PHPParser' => array($vendorDir . '/nikic/php-parser/lib'),
     'JMS\\TranslationBundle' => array($vendorDir . '/jms/translation-bundle'),
+    'JMS\\I18nRoutingBundle' => array($vendorDir . '/jms/i18n-routing-bundle'),
     'Incenteev\\ParameterHandler' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'FOS\\UserBundle' => array($vendorDir . '/friendsofsymfony/user-bundle'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
