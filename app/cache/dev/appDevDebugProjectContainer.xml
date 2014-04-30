@@ -2967,7 +2967,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>535fcefabcd55</argument>
+            <argument>53602d6a333c4</argument>
           </service>
         </argument>
       </argument>
@@ -3053,7 +3053,7 @@
       <argument type="service" id="router"/>
       <call method="registerListener">
         <argument>main</argument>
-        <argument>/logout</argument>
+        <argument>fos_user_security_logout</argument>
         <argument>logout</argument>
         <argument>_csrf_token</argument>
         <argument>null</argument>
@@ -3159,7 +3159,7 @@
             <argument type="collection">
               <argument key="csrf_parameter">_csrf_token</argument>
               <argument key="intention">logout</argument>
-              <argument key="logout_path">/logout</argument>
+              <argument key="logout_path">fos_user_security_logout</argument>
             </argument>
             <call method="addHandler">
               <argument type="service">
@@ -3190,9 +3190,9 @@
                   </service>
                 </argument>
                 <argument type="collection">
+                  <argument key="login_path">fos_user_security_login</argument>
                   <argument key="always_use_default_target_path">false</argument>
                   <argument key="default_target_path">/</argument>
-                  <argument key="login_path">/login</argument>
                   <argument key="target_path_parameter">_target_path</argument>
                   <argument key="use_referer">false</argument>
                 </argument>
@@ -3211,7 +3211,7 @@
                   </service>
                 </argument>
                 <argument type="collection">
-                  <argument key="login_path">/login</argument>
+                  <argument key="login_path">fos_user_security_login</argument>
                   <argument key="failure_path">null</argument>
                   <argument key="failure_forward">false</argument>
                   <argument key="failure_path_parameter">_failure_path</argument>
@@ -3220,7 +3220,7 @@
               </service>
             </argument>
             <argument type="collection">
-              <argument key="check_path">/login_check</argument>
+              <argument key="check_path">fos_user_security_check</argument>
               <argument key="use_forward">false</argument>
               <argument key="require_previous_session">true</argument>
               <argument key="username_parameter">_username</argument>
@@ -3237,7 +3237,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>535fcefabcd55</argument>
+            <argument>53602d6a333c4</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3318,7 +3318,7 @@
                   <argument type="service" id="router" on-invalid="null"/>
                 </service>
               </argument>
-              <argument>/login</argument>
+              <argument>fos_user_security_login</argument>
               <argument>false</argument>
             </service>
           </argument>

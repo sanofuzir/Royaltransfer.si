@@ -25,7 +25,7 @@
       <td>{{ image.created|date('d.m.Y H:i:s')}}</td>
       <td>
           <a href="{{ asset('galery/')}}{{image.path }}" data-lightbox="galery-{{ counter}}">
-            <img src="{{ asset('galery/')}}{{image.path }}" alt="slika" width="50"/>
+            <img style="width: 50px;" src="{{ asset('galery/')}}{{image.path }}" alt="slika" width="50"/>
           </a>
       </td>
       <td><a href="{{ path('_admin_edit_image', {'id': image.id}) }}" title="Uredi sliko">
