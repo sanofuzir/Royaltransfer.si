@@ -214,3 +214,16 @@ body {
     color: linear-gradient(to bottom,  rgba(198,198,198,1) 0%,rgba(242,242,242,1) 40%,rgba(242,242,242,1) 60%,rgba(198,198,198,1) 100%,rgba(198,198,198,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c6c6c6', endColorstr='#c6c6c6',GradientType=0 ); /* IE6-9 */
 }
+
+.counter {
+    margin-left: 200px;
+    margin-top: -40px;
+    border: 10px ridge #221f1f; 
+    width: 120px; 
+    text-align: center; 
+    padding-bottom: 8px;
+}
+
+.counter a:link, .counter a:visited {
+    font-size: 1.5em;
+}

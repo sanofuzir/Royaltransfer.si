@@ -70,6 +70,19 @@ class __TwigTemplate_7bea14ca7fef0d828edb7d0fa00f3425b7652ac4ff80432a5877d033e0c
         </div>
     </div>
 </section>
+<br />
+<section>
+    <h3>
+        <span>Števec obiskov:</span>
+    </h3>
+    <!-- Start of SimpleHitCounter Code -->
+<div class=\"counter\">
+    <a href=\"http://www.simplehitcounter.com\" target=\"_blank\">
+        <img src=\"http://simplehitcounter.com/hit.php?uid=1720341&f=16777215&b=0\" border=\"0\" height=\"18\" width=\"83\" alt=\"hit counter website\">
+    </a>
+</div>
+<!-- End of SimpleHitCounter Code -->
+</section>
 ";
     }
 
