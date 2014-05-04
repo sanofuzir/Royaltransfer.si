@@ -156,7 +156,7 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return $this->redirect($pathinfo.'/', 'sl__RG__home');
             }
 
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'sl',  '_route' => 'sl__RG__home',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'sl',  '_route' => 'sl__RG__home',);
         }
 
         // es__RG__home
@@ -165,7 +165,7 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return $this->redirect($pathinfo.'/', 'es__RG__home');
             }
 
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'es',  '_route' => 'es__RG__home',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'es',  '_route' => 'es__RG__home',);
         }
 
         // rs__RG__home
@@ -174,7 +174,7 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return $this->redirect($pathinfo.'/', 'rs__RG__home');
             }
 
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'rs',  '_route' => 'rs__RG__home',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'rs',  '_route' => 'rs__RG__home',);
         }
 
         // hr__RG__home
@@ -183,7 +183,7 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return $this->redirect($pathinfo.'/', 'hr__RG__home');
             }
 
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'hr',  '_route' => 'hr__RG__home',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'hr',  '_route' => 'hr__RG__home',);
         }
 
         // it__RG__home
@@ -192,7 +192,7 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return $this->redirect($pathinfo.'/', 'it__RG__home');
             }
 
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'it',  '_route' => 'it__RG__home',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'it',  '_route' => 'it__RG__home',);
         }
 
         // ba__RG__home
@@ -201,7 +201,7 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return $this->redirect($pathinfo.'/', 'ba__RG__home');
             }
 
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'ba',  '_route' => 'ba__RG__home',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'ba',  '_route' => 'ba__RG__home',);
         }
 
         // fr__RG__home
@@ -210,7 +210,7 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return $this->redirect($pathinfo.'/', 'fr__RG__home');
             }
 
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'fr',  '_route' => 'fr__RG__home',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'fr',  '_route' => 'fr__RG__home',);
         }
 
         // en__RG__home
@@ -219,7 +219,7 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return $this->redirect($pathinfo.'/', 'en__RG__home');
             }
 
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'en',  '_route' => 'en__RG__home',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'en',  '_route' => 'en__RG__home',);
         }
 
         // de__RG__home
@@ -228,65 +228,65 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return $this->redirect($pathinfo.'/', 'de__RG__home');
             }
 
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'de',  '_route' => 'de__RG__home',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::indexAction',  '_locale' => 'de',  '_route' => 'de__RG__home',);
         }
 
         // _about
         if ($pathinfo === '/About') {
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::aboutAction',  '_route' => '_about',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::aboutAction',  '_route' => '_about',);
         }
 
         // _tours
         if ($pathinfo === '/Tours') {
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::toursAction',  '_route' => '_tours',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::toursAction',  '_route' => '_tours',);
         }
 
         // _news
         if ($pathinfo === '/News') {
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::newsAction',  '_route' => '_news',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::newsAction',  '_route' => '_news',);
         }
 
         // _single_news
         if (0 === strpos($pathinfo, '/news') && preg_match('#^/news/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => '_single_news')), array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::singleNewsAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => '_single_news')), array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::singleNewsAction',));
         }
 
         // _single_tour
         if (0 === strpos($pathinfo, '/tour') && preg_match('#^/tour/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => '_single_tour')), array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::singleTourAction',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => '_single_tour')), array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::singleTourAction',));
         }
 
         // _galery
         if ($pathinfo === '/Galery') {
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::galeryAction',  '_route' => '_galery',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::galeryAction',  '_route' => '_galery',);
         }
 
         // _video_galery
         if ($pathinfo === '/Videos') {
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::videosAction',  '_route' => '_video_galery',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::videosAction',  '_route' => '_video_galery',);
         }
 
         // _inquiry
         if ($pathinfo === '/Inquiry') {
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::inquiryAction',  '_route' => '_inquiry',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::inquiryAction',  '_route' => '_inquiry',);
         }
 
         if (0 === strpos($pathinfo, '/inquiry')) {
             // _add_inquiry
             if ($pathinfo === '/inquiry/add') {
-                return array (  'id' => NULL,  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::editInquiryAction',  '_route' => '_add_inquiry',);
+                return array (  'id' => NULL,  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::editInquiryAction',  '_route' => '_add_inquiry',);
             }
 
             // _edit_inquiry
             if (0 === strpos($pathinfo, '/inquiry/edit') && preg_match('#^/inquiry/edit(?:/(?P<id>\\d+))?$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => '_edit_inquiry')), array (  'id' => NULL,  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::editInquiryAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => '_edit_inquiry')), array (  'id' => NULL,  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::editInquiryAction',));
             }
 
         }
 
         // _contact
         if ($pathinfo === '/Contact') {
-            return array (  '_controller' => 'Royaltransfer\\staticBundle\\Controller\\DefaultController::contactAction',  '_route' => '_contact',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::contactAction',  '_route' => '_contact',);
         }
 
         // sl__RG__fos_user_security_login
@@ -1353,7 +1353,7 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
         // _video
         if ($pathinfo === '/video') {
-            return array (  '_controller' => 'royaltransfer\\staticBundle\\Controller\\DefaultController::videoAction',  '_route' => '_video',);
+            return array (  '_controller' => 'royaltransfer\\StaticBundle\\Controller\\DefaultController::videoAction',  '_route' => '_video',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
