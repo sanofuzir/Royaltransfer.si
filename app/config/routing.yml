@@ -4,9 +4,9 @@ admin:
     prefix:   /
 
 static:
-    resource: "@StaticBundle/Controller/"
-    type:     annotation
-    prefix:   /
+    path:      /
+    defaults:  { _controller: @StaticBundle:Blog:show }
+
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
